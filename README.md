@@ -14,7 +14,11 @@ Everything else is released under the **MIT** license granting you permission to
 
 ### Why LGPL?
 
-The reason for choosing this license is simple. I wrote this software intending that it should be **free of charge** and **available for everyone**. I did **not** write it so that the source code could be modified and used to create commercial proprietary products.
+The reason for choosing this license is simple. I wrote this software intending that it should be **free of charge** and **available for everyone**. I did **not** write it so that the source code could be **modified** and used to create commercial proprietary products.
+
+## Status
+
+This repository is under development and is **not** intended for production use.
 
 ## Features
 
