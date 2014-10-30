@@ -21,19 +21,15 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
-					<div class="input">
-						@Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Add name" })
-					</div>
+					@Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Add name" })
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-8">
 				<div class="form-group">
-					<div class="input">
-						@Html.TextAreaFor(m => m.Description, new { @class = "form-control count-me", @rows = 4, @placeholder = "Add optional description" })
-						<p><span>@(!String.IsNullOrEmpty(Model.Description) ? Model.Description.Length : 0)</span>/255 characters</p>
-					</div>
+					@Html.TextAreaFor(m => m.Description, new { @class = "form-control count-me", @rows = 4, @placeholder = "Add optional description" })
+					<p><span>@(!String.IsNullOrEmpty(Model.Description) ? Model.Description.Length : 0)</span>/255 characters</p>
 				</div>
 			</div>
 			<div class="col-sm-4">
@@ -43,7 +39,7 @@
 				<div class="form-group">
 					@Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" })
 				</div>
-				<div class="input">
+				<div class="form-group">
 					@Html.TextBoxFor(m => m.CommentRoute, new { @class = "form-control meta", @placeholder = "Add optional comment route" })
 				</div>
 			</div>
@@ -69,9 +65,7 @@
 				</div>
 				@Html.LabelFor(m => m.ArchiveRoute, Piranha.Manager.Resources.PostType.ArchiveRoute)
 				<div class="form-group">
-					<div class="input">
-						@Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" })
-					</div>
+					@Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" })
 				</div>
 			</div>
 
@@ -79,16 +73,12 @@
 			<div class="col-sm-6">
 				@Html.LabelFor(m => m.MetaKeywords, Piranha.Manager.Resources.Global.MetaKeywords)
 				<div class="form-group">
-					<div class="input">
-						@Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control meta", @placeholder = "Add archive meta keywords" })
-					</div>
+					@Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control meta", @placeholder = "Add archive meta keywords" })
 				</div>
 				@Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription)
 				<div class="form-group">
-					<div class="input">
-						@Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 4, @placeholder = "Add archive meta description" })
-						<p><span>@(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0)</span>/255 characters</p>
-					</div>
+					@Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 4, @placeholder = "Add archive meta description" })
+					<p><span>@(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0)</span>/255 characters</p>
 				</div>
 			</div>
 		</div>
