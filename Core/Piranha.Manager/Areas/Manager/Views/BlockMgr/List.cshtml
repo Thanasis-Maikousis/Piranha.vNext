@@ -1,0 +1,51 @@
+﻿@model IList<Piranha.Models.Block>
+@{
+	ViewBag.Title = @Piranha.Manager.Resources.Block.ListTitle;
+}
+@section script {
+	<script type="text/javascript">
+		var options = {
+			valueNames: ['block-name', 'block-desc', 'type-updated', 'type-created']
+		};
+		var blockList = new List('block-list', options);
+	</script>
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<!-- Actions -->
+		<div class="col-sm-12 buttons">
+			<div class="btn-group">
+				<a href="@Url.Action("Add")" class="btn btn-primary btn-labeled">
+					<span class="btn-label">
+						<i class="glyphicon glyphicon-plus"></i>
+					</span>@Piranha.Manager.Resources.Global.Add
+				</a>
+			</div>
+		</div>
+	</div>
+	<table id="block-list" class="table table-striped table-main">
+		<thead>
+			<tr>
+				<th><span class="sort desc" data-sort="block-name">@Piranha.Manager.Resources.Global.Name</span></th>
+				<th><span class="sort" data-sort="block-desc">@Piranha.Manager.Resources.Global.Description</span></th>
+				<th class="date"><span class="sort" data-sort="block-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
+				<th class="date"><span class="sort" data-sort="block-created">@Piranha.Manager.Resources.Global.Created</span></th>
+				<th class="actions one"></th>
+			</tr>
+		</thead>
+		<tbody class="list">
+			@foreach (var block in Model) {
+				<tr>
+					<td class="block-name"><a href="@Url.Action("Edit", new { id = block.Id })">@block.Name</a></td>
+					<td class="block-desc">@block.Description</td>
+					<td class="block-updated">@block.Updated.ToString("yyyy-MM-dd")</td>
+					<td class="block-created">@block.Created.ToString("yyyy-MM-dd")</td>
+					<td class="actions">
+						<a class="delete" href="@Url.Action("Delete", new { id = block.Id })"></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

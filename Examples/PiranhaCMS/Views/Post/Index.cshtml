@@ -1,0 +1,39 @@
+﻿@model Piranha.Web.Models.PostModel
+@{
+	ViewBag.Title = Model.Title;
+}
+<div id="main">
+	<article role="main">
+		<header>
+			<h1>@Model.Title</h1>
+			<p class="meta">
+				<span class="icon-clock"></span>@Model.Published.ToLongDateString() by @Model.Author.Name
+				@if (Model.CommentCount == 1) {
+					<span class="icon-comment"></span><text>1 comment</text>
+				} else if (Model.CommentCount > 1) {
+					<span class="icon-comment"></span><text>@Model.CommentCount comments</text>
+				}
+				@if (Model.Categories.Count > 0) {
+					<span class="icon-tag"></span>
+					for (var n = 0; n < Model.Categories.Count; n++) {
+						<text>@Model.Categories[n].Title@(n < (Model.Categories.Count - 1) ? "," : "")</text>
+					}
+				}
+			</p>
+		</header>
+		@if (!String.IsNullOrEmpty(Model.Excerpt)) {
+			<p class="excerpt">@Model.Excerpt</p>
+		}
+		@Html.Raw(Model.Body)
+
+		@if (Model.Comments.Count > 0) {
+			<section class="comments">
+				<header><h2>Comments</h2></header>
+				@Html.DisplayFor(m => m.Comments)
+			</section>
+		}
+		<section class="add-comment">
+			@Html.Partial("Partial/AddComment", Model)
+		</section>
+	</article>
+</div>

@@ -1,0 +1,18 @@
+﻿<script type="text/javascript" src="~/areas/manager/assets/vendor/tiny_mce/tinymce.min.js"></script>
+<script type="text/javascript">
+	tinymce.init({
+		mode: 'specific_textareas',
+		editor_selector: "editor",
+		convert_urls: false,
+		plugins: [
+		"autoresize autolink code hr paste link"
+		],
+		width: "100%",
+		height: "340",
+		autoresize_min_height: 340,
+		menubar: false,
+		statusbar: false,
+		content_css: "@Url.Content("~/areas/manager/assets/css/editor.min.css")",
+		toolbar: "bold italic underline | bullist numlist hr | formatselect removeformat | cut copy paste | link | code",
+	});
+</script>

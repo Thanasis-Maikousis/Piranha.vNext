@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6CDC5D7-FF0F-43D6-A461-EDE30975840F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Piranha</RootNamespace>
+    <AssemblyName>Piranha.Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.css.min.css" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.less" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Manager\Assets\css\colors.css">
+      <DependentUpon>colors.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\colors.min.css">
+      <DependentUpon>colors.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\editor.css">
+      <DependentUpon>editor.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\editor.min.css">
+      <DependentUpon>editor.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\fonts.css">
+      <DependentUpon>fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\fonts.min.css">
+      <DependentUpon>fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\forms.css">
+      <DependentUpon>forms.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\forms.min.css">
+      <DependentUpon>forms.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\general.css">
+      <DependentUpon>general.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\general.min.css">
+      <DependentUpon>general.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\mixins.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\mixins.min.css">
+      <DependentUpon>mixins.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\modals.css">
+      <DependentUpon>modals.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\modals.min.css">
+      <DependentUpon>modals.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\navigation.css">
+      <DependentUpon>navigation.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\navigation.min.css">
+      <DependentUpon>navigation.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\panels.css">
+      <DependentUpon>panels.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\panels.min.css">
+      <DependentUpon>panels.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\style.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\fonts.less" />
+    <Content Include="Areas\Manager\Assets\css\modals.less" />
+    <None Include="Areas\Manager\Assets\vendor\datepicker\css\datepicker.less" />
+    <Content Include="Areas\Manager\Assets\vendor\datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Areas\Manager\Assets\img\ico-add-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-add-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-add-after-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-add-below-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-add-folder-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-add-folder-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-arrow-down-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-arrow-up-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-back-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-comments-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-content-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-delete-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-delete-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-detach-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-doc-64.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-edit-16.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-edit-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-excel-64.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-folder-32.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-folder-96.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-folder-up-96.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-loader.gif" />
+    <Content Include="Areas\Manager\Assets\img\ico-locked-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-menu-content.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-menu-logout.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-menu-settings.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-menu-system.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-missing-ico.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-movie-64.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-pdf-64.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-ppt-64.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-preview-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-properties-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-publish-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-regions-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-reload-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-revert-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-save-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-search-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-seo-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-settings-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-sound-64.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-sync-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-unlocked-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-unpublish-24.png" />
+    <Content Include="Areas\Manager\Assets\img\ico-zip-64.png" />
+    <Content Include="Areas\Manager\Assets\img\icon.ico" />
+    <Content Include="Areas\Manager\Assets\img\icon.png" />
+    <Content Include="Areas\Manager\Assets\img\info-copy.png" />
+    <Content Include="Areas\Manager\Assets\img\info-draft.png" />
+    <Content Include="Areas\Manager\Assets\img\info-unpublished.png" />
+    <Content Include="Areas\Manager\Assets\img\logo.png" />
+    <Content Include="Areas\Manager\Assets\vendor\datepicker\less\datepicker.less" />
+    <None Include="Areas\Manager\Assets\vendor\jasny-bootstrap\css\jasny-bootstrap.less" />
+    <Content Include="Areas\Manager\Assets\vendor\jasny-bootstrap\js\jasny-bootstrap.js" />
+    <Content Include="Areas\Manager\Assets\vendor\jasny-bootstrap\js\jasny-bootstrap.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\jquery-1.11.0.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\jquery.equalheights.js" />
+    <Content Include="Areas\Manager\Assets\vendor\knockout-3.2.0.js" />
+    <Content Include="Areas\Manager\Assets\vendor\list.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\license.txt" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\autolink\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\code\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\hr\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\link\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\paste\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\piranhaimage\plugin.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\content.min.css" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.svg" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.dev.svg" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.dev.svg" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\loader.gif" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\object.gif" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\trans.gif" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\wline.gif" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.classic.min.css" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.min.css" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\themes\modern\theme.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\tinymce.min.js" />
+    <Content Include="Areas\Manager\Assets\js\manager.js" />
+    <Content Include="Areas\Manager\Assets\js\scripts.js">
+      <DependentUpon>scripts.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\js\scripts.min.js">
+      <DependentUpon>scripts.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\vendor\select2\.gitignore" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2-bootstrap.css" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2-spinner.gif" />
+    <Content Include="Areas\Manager\Assets\vendor\jasny-bootstrap\config.json" />
+    <Content Include="Areas\Manager\Assets\vendor\jasny-bootstrap\css\jasny-bootstrap.css.map" />
+    <None Include="Areas\Manager\Assets\vendor\select2\select2.less" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2.min.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2.png" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2x2.png" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ar.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_az.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_bg.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ca.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_cs.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_da.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_de.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_el.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_es.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_et.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_eu.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_fa.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_fi.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_fr.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_gl.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_he.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_hr.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_hu.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_id.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_is.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_it.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ja.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ka.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ko.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_lt.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_lv.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_mk.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ms.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_nl.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_no.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_pl.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_pt-BR.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_pt-PT.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ro.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_rs.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ru.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_sk.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_sv.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_th.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_tr.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ug-CN.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_uk.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_vi.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_zh-CN.js" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_zh-TW.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manager\Controllers\AccountMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\AuthorMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\BlockMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\ManagerController.cs" />
+    <Compile Include="Areas\Manager\Controllers\PostMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\PostTypeMgrController.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerModule.cs" />
+    <Compile Include="Manager\Models\Account\LoginModel.cs" />
+    <Compile Include="Manager\Models\Author\EditModel.cs" />
+    <Compile Include="Manager\Models\Block\EditModel.cs" />
+    <Compile Include="Manager\Models\Post\CommentState.cs" />
+    <Compile Include="Manager\Models\Post\EditModel.cs" />
+    <Compile Include="Manager\Models\Post\ListModel.cs" />
+    <Compile Include="Manager\Models\PostType\ListModel.cs" />
+    <Compile Include="Manager\Models\PostType\EditModel.cs" />
+    <Compile Include="Manager\Resources\Author.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Author.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Resources\Block.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Block.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Resources\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Resources\Post.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Post.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Resources\PostType.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostType.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Assets\css\colors.less" />
+    <Content Include="Areas\Manager\Assets\css\forms.less" />
+    <Content Include="Areas\Manager\Assets\css\general.less" />
+    <Content Include="Areas\Manager\Assets\css\mixins.less" />
+    <Content Include="Areas\Manager\Assets\css\navigation.less" />
+    <Content Include="Areas\Manager\Assets\css\style.less" />
+    <Content Include="Areas\Manager\Views\Shared\Partial\Menu.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\Partial\Tabs.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Manager\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Manager\Views\PostMgr\List.cshtml" />
+    <Content Include="Areas\Manager\Assets\css\panels.less" />
+    <Content Include="Areas\Manager\Views\PostTypeMgr\List.cshtml" />
+    <Content Include="Areas\Manager\Views\PostTypeMgr\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\PostMgr\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\Partial\Editor.cshtml" />
+    <Content Include="Areas\Manager\Assets\css\editor.less" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\bower.json" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\component.json" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\composer.json" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\LICENSE" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\package.json" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\README.md" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\release.sh" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2.jquery.json" />
+    <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_en.js.template" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\langs\readme.md" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.eot" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.ttf" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.woff" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Areas\Manager\Assets\js\scripts.js.bundle" />
+    <Content Include="Areas\Manager\Assets\js\scripts.min.js.map">
+      <DependentUpon>scripts.min.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Views\PostMgr\Partial\CommentList.cshtml" />
+    <Content Include="Areas\Manager\Views\PostMgr\EditorTemplates\CommentListItem.cshtml" />
+    <Content Include="Areas\Manager\Views\BlockMgr\List.cshtml" />
+    <Content Include="Areas\Manager\Views\BlockMgr\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml" />
+    <Content Include="Areas\Manager\Views\AuthorMgr\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Piranha.EntityFramework\Piranha.EntityFramework.csproj">
+      <Project>{1437778b-13f8-40c8-9ff6-1e511d93ebad}</Project>
+      <Name>Piranha.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Piranha\Piranha.csproj">
+      <Project>{c5e2b115-51a8-46a9-90f5-49248cd34128}</Project>
+      <Name>Piranha</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Manager\Resources\Author.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Author.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Resources\Block.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Block.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Resources\Global.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Resources\Post.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Post.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Resources\PostType.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PostType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51001</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51001/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

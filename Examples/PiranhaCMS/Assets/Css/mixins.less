@@ -1,0 +1,62 @@
+﻿//
+// Copyright (c) 2014 Håkan Edling
+//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
+
+.container() {
+	max-width: 720px;
+	min-width: 320px;
+	padding: 1em;
+	margin: 0 auto;
+}
+
+.border-radius(@radius) {
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+
+.transition(@elm, @time) {
+	transition: @elm ease-in-out @time;
+	-moz-transition: @elm ease-in-out @time;
+	-webkit-transition: @elm ease-in-out @time;
+}
+
+.black-gradient() {
+    background: #222;
+	border-bottom: solid 1px #111;
+    background-image: linear-gradient(bottom, rgb(19,19,19) 18%, rgb(58,58,58) 80%);
+    background-image: -o-linear-gradient(bottom, rgb(19,19,19) 18%, rgb(58,58,58) 80%);
+    background-image: -moz-linear-gradient(bottom, rgb(19,19,19) 18%, rgb(58,58,58) 80%);
+    background-image: -webkit-linear-gradient(bottom, rgb(19,19,19) 18%, rgb(58,58,58) 80%);
+    background-image: -ms-linear-gradient(bottom, rgb(19,19,19) 18%, rgb(58,58,58) 80%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.18, rgb(19,19,19)), color-stop(0.8, rgb(58,58,58)));
+}
+
+.blue-gradient() {
+	border-bottom: solid 1px #057;
+	background-image: linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -o-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -moz-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -webkit-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -ms-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.18, rgb(27,109,141)), color-stop(0.8, rgb(28,113,150)));
+	box-shadow: inset 0 -2px 20px rgba(0,0,0,0.3);
+}
+
+.arrow(@color, @size, @margin-top) {
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border: solid @size transparent;
+	border-top-color: @color;
+	position: absolute;
+	margin-top: @margin-top;
+	margin-left: -@size;
+	left: 50%;
+}

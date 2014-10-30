@@ -1,0 +1,46 @@
+﻿@model IList<Piranha.Models.Author>
+@{
+	ViewBag.Title = Piranha.Manager.Resources.Author.ListTitle;
+}
+@section script {
+	@Html.Partial("Partial/Editor")
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<!-- Actions -->
+		<div class="col-sm-12 buttons">
+			<div class="btn-group">
+				<a href="@Url.Action("Add")" class="btn btn-primary btn-labeled">
+					<span class="btn-label">
+						<i class="glyphicon glyphicon-plus"></i>
+					</span>@Piranha.Manager.Resources.Global.Add
+				</a>
+			</div>
+		</div>
+	</div>
+	<table id="author-list" class="table table-striped table-main">
+		<thead>
+			<tr>
+				<th><span class="sort desc" data-sort="author-name">@Piranha.Manager.Resources.Global.Name</span></th>
+				<th><span class="sort" data-sort="author-email">@Piranha.Manager.Resources.Global.Email</span></th>
+				<th class="date"><span class="sort" data-sort="author-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
+				<th class="date"><span class="sort" data-sort="author-created">@Piranha.Manager.Resources.Global.Created</span></th>
+				<th class="actions one"></th>
+			</tr>
+		</thead>
+		<tbody class="list">
+			@foreach (var author in Model) {
+				<tr>
+					<td class="author-name"><a href="@Url.Action("Edit", new { id = author.Id })">@author.Name</a></td>
+					<td class="author-email">@author.Email</td>
+					<td class="author-updated">@author.Updated.ToString("yyyy-MM-dd")</td>
+					<td class="author-created">@author.Created.ToString("yyyy-MM-dd")</td>
+					<td class="actions">
+						<a class="delete" href="@Url.Action("Delete", new { id = author.Id })"></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,41 @@
+﻿@model Piranha.Manager.Models.Block.EditModel
+
+@section script {
+	@Html.Partial("Partial/Editor")
+}
+
+@using (var form = Html.BeginForm("Save", "BlockMgr", FormMethod.Post, new { @class = "form", @role = "form" })) {
+	@Html.AntiForgeryToken()
+	@Html.HiddenFor(m => m.Id)
+	@Html.HiddenFor(m => m.Slug)
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 buttons">
+				<div class="btn-group">
+					<button type="submit" class="btn btn-labeled btn-success">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-ok"></i>
+						</span>@Piranha.Manager.Resources.Global.Save
+					</button>
+				</div>
+			</div>
+
+			<div class="col-sm-12">
+				<div class="form-group">
+					@Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Your block title" })
+				</div>
+
+				<div class="form-group">
+					@Html.TextAreaFor(m => m.Description, new { @class = "form-control count-me", @rows = 5, @placeholder = "Optional description" })
+					<p><span>@(Model.Description != null ? Model.Description.Length : 0)</span>/255 characters</p>
+				</div>
+
+				<div class="form-group">
+					@Html.TextAreaFor(m => m.Body, new { @rows = 14, @class = "form-control editor", @placeholder = "Add main content" })
+				</div>
+
+			</div>
+		</div>
+	</div>
+}

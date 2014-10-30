@@ -1,0 +1,42 @@
+﻿@model PiranhaCMS.Models.ArchiveModel
+@{
+	ViewBag.Title = Model.Title;
+}
+
+<div id="main">
+	<div id="main">
+		<article role="main">
+			<header>
+				<h1>Blog<small>@Model.FormatPeriod()</small></h1>
+			</header>
+
+			@foreach (var post in Model.Posts) {
+				<section class="post">
+					<h2><a href="@UI.Permalink(post)">@post.Title</a></h2>
+					<p class="meta">
+						<span class="icon-clock"></span>@post.Published.ToLongDateString() by @post.Author.Name
+						@if (post.CommentCount == 1) {
+							<span class="icon-comment"></span><text>1 comment</text>
+						} else if (post.CommentCount > 1) {
+							<span class="icon-comment"></span><text>@post.CommentCount comments</text>
+						}
+						@if (post.Categories.Count  > 0) {
+							<span class="icon-tag"></span>
+							for (var n = 0; n < post.Categories.Count; n++) {
+								<text>@post.Categories[n].Title@(n < (post.Categories.Count - 1) ? "," : "")</text>
+							}
+						}
+					</p>
+					<p>@post.Excerpt</p>
+				</section>
+			}
+
+			@if (Model.HasPrev) {
+				<a href="@Model.LinkPrev">Newer</a>
+			}
+			@if (Model.HasNext) {
+				<a href="@Model.LinkNext">Older</a>
+			}
+		</article>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+﻿@model Piranha.Manager.Models.Author.EditModel
+
+@section script {
+	@Html.Partial("Partial/Editor")
+}
+
+@using (var form = Html.BeginForm("Save", "AuthorMgr", FormMethod.Post, new { @class = "form", @role = "form" })) {
+	@Html.AntiForgeryToken()
+	@Html.HiddenFor(m => m.Id)
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 buttons">
+				<!-- Actions -->
+				<div class="btn-group">
+					<button type="submit" class="btn btn-labeled btn-success">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-ok"></i>
+						</span>@Piranha.Manager.Resources.Global.Save
+					</button>
+				</div>
+			</div>
+
+			<div class="col-sm-12">
+				<div class="form-group">
+					@Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Author display name" })
+				</div>
+				<div class="form-group">
+					@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Author email" })
+				</div>
+				<div class="form-group">
+					@Html.TextAreaFor(m => m.Description, new { @class = "form-control editor", @rows = 8, @placeholder = "Add description" })
+				</div>
+			</div>
+		</div>
+	</div>
+}

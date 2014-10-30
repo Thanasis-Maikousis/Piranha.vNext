@@ -1,0 +1,27 @@
+﻿@model Piranha.Manager.Models.Post.EditModel.CommentListItem
+
+<tr>
+	<td>
+		@Html.HiddenFor(m => m.Id, new { @class = "comment-id" })
+		@Model.Created.ToString("yyyy-MM-dd")
+	</td>
+	<td>
+		<a data-toggle="collapse" href="#@Model.Id">@Model.Author</a>
+		<div id="@Model.Id" class="collapse">
+			<p class="well well-sm comment-body">
+				@if (!String.IsNullOrWhiteSpace(Model.Email)) {
+					<strong>Author email: </strong><a href="mailto:@Model.Email">@Model.Email</a>
+				}
+				@if (!String.IsNullOrWhiteSpace(Model.WebSite)) {
+					<strong>Author website: </strong><a href="@Model.WebSite" target="_blank">@Model.WebSite</a>
+				}
+				@if (!String.IsNullOrWhiteSpace(Model.Email) || !String.IsNullOrWhiteSpace(Model.WebSite)) {
+					<br><br>
+				}
+				@Html.Raw(Model.Body.Replace("\n", "<br>"))
+			</p>
+		</div>
+	</td>
+	<td class="text-center">@Html.CheckBoxFor(m => m.IsApproved, new { @class = "comment-approved" })</td>
+	<td class="text-center">@Html.CheckBoxFor(m => m.IsSpam, new { @class = "comment-spam" })</td>
+</tr>

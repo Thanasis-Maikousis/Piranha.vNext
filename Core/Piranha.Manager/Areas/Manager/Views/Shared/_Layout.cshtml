@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	<title>@ViewBag.Title</title>
+
+	<link href="~/areas/manager/assets/img/icon.ico" rel="icon" type="image/x-icon">
+	<link href="~/areas/manager/assets/img/icon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="~/areas/manager/assets/css/ext/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
+	<link href="~/areas/manager/assets/css/style.min.css" rel="stylesheet" type="text/css" />
+
+	@if (!String.IsNullOrEmpty(ViewBag.Message)) {
+		<script type="text/javascript">
+			setTimeout(function () {
+				$(".sys-message").slideUp();
+			}, 2000);
+		</script>
+	}
+	@RenderSection("head", required: false)
+</head>
+<body>
+	<nav class="navmenu navmenu-inverse navmenu-fixed-left" role="navigation">
+		<a class="navmenu-brand" href="#">
+			<img src="@Url.Content("~/areas/manager/assets/img/logo.png")" />
+		</a>
+		<img class="avatar" src="http://1.gravatar.com/avatar/822bb9b48b7ecc98c5be44a74369a224" />
+
+		@Html.Partial("Partial/Menu")
+	</nav>
+
+	<div class="title">
+		<div class="container-fluid">
+			<h1>@ViewBag.Title</h1>
+		</div>
+	</div>
+	<div class="body">
+		@RenderBody()
+	</div>
+	<script type="text/javascript" src="~/areas/manager/assets/js/scripts.min.js"></script>
+
+	@RenderSection("script", required: false)
+</body>
+</html>

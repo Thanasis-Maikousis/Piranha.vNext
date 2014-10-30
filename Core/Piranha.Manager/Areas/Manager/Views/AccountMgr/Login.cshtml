@@ -1,0 +1,51 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	<title>Login</title>
+
+	<link href="~/areas/manager/assets/img/icon.ico" rel="icon" type="image/x-icon">
+	<link href="~/areas/manager/assets/img/icon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="~/areas/manager/assets/css/style.min.css" rel="stylesheet" type="text/css" />
+
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		form {
+			margin: 80px 0 0;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		@using (Html.BeginForm("LoginUser", "AccountMgr", FormMethod.Post, new { @role = "form", @class = "form-inline" })) {
+			@Html.AntiForgeryToken()
+			
+			<h2>Is Authenticated: @User.Identity.IsAuthenticated</h2>
+			<div style="display:inline-block">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+						@Html.TextBox("Username", "", new { @class = "form-control", @placeholder = "Username" })
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><span class="glyphicon glyphicon-certificate"></span></div>
+						@Html.Password("Password", "", new { @class = "form-control", @placeholder = "Password" })
+					</div>
+				</div>
+				<button class="btn btn-primary" type="submit">Login</button>
+			</div>
+		}
+	</div>
+</body>
+</html>

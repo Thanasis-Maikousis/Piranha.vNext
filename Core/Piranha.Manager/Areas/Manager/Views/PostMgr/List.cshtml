@@ -1,0 +1,97 @@
+﻿@model Piranha.Manager.Models.Post.ListModel
+@{
+	ViewBag.Title = Piranha.Manager.Resources.Post.ListTitle;
+}
+@section script {
+	<script type="text/javascript">
+		var options = {
+			valueNames: ['post-title', 'post-type', 'post-updated', 'post-created']
+		};
+		var postList = new List('post-list', options);
+	</script>
+}
+
+<div class="container-fluid">
+	<!-- Post type filter -->
+	@if (Model.PostTypes.Count > 1) {
+		<ul class="nav nav-pills">
+			<li @(Model.IsDefaultSelection ? "class=active" : "")>
+				<a href="@Url.Action("List", new { @slug = "" })">@Piranha.Manager.Resources.Global.All</a>
+			</li>
+			@foreach (var type in Model.PostTypes) {
+				<li @(type.IsActive ? "class=active" : "")><a href="@Url.Action("List", new { @slug = type.Slug })">@type.Name</a></li>
+			}
+		</ul>
+		<br />
+	}
+
+	<div class="row">
+		<!-- Actions -->
+		<div class="col-sm-12 buttons">
+			@if (Model.PostTypes.Count > 1 && Model.IsDefaultSelection) {
+				<div class="btn-group">
+					<button type="button" class="btn btn-labeled btn-primary" data-toggle="dropdown">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-plus"></i>
+						</span>@Piranha.Manager.Resources.Global.Add
+					</button>
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						@foreach (var type in Model.PostTypes) {
+							<li><a href="@Url.Action("Add", new { @type = type.Slug })">@type.Name</a></li>
+						}
+					</ul>
+				</div>
+			} else {
+				var type = Model.IsDefaultSelection ? Model.PostTypes.FirstOrDefault() : Model.PostTypes.Where(t => t.IsActive).Single();
+
+				<div class="btn-group submit">
+					<a href="@Url.Action("Add", new { @type = type.Slug })" class="btn btn-primary btn-labeled">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-plus"></i>
+						</span>@Piranha.Manager.Resources.Global.Add
+					</a>
+				</div>
+			}
+		</div>
+	</div>
+
+	<!-- Post table -->
+	<table id="post-list" class="table table-striped table-main">
+		<thead>
+			<tr>
+				<th><span class="sort" data-sort="post-title">@Piranha.Manager.Resources.Global.Title</span></th>
+				<th><span class="sort" data-sort="post-type">@Piranha.Manager.Resources.Global.Type</span></th>
+				<th class="date"><span class="sort" data-sort="post-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
+				<th class="date"><span class="sort" data-sort="post-created">@Piranha.Manager.Resources.Global.Created</span></th>
+				<th class="actions one"></th>
+			</tr>
+		</thead>
+		<tbody class="list">
+			@foreach (var post in Model.Items) {
+				<tr @(!post.Published.HasValue ? "class=unpublished" : "")>
+					<td>
+						<a class="post-title" href="@Url.Action("Edit", new { id = post.Id })">@post.Title</a>
+						<p class="meta">
+							@if (post.Published.HasValue) {
+								<text>Published: @post.Published.Value.ToString("yyyy-MM-dd")</text>
+							} else {
+								<text>Unpublished</text>
+							}
+						</p>
+					</td>
+					<td class="post-type">@post.Type</td>
+					<td class="post-updated">@post.Updated.ToString("yyyy-MM-dd")</td>
+					<td class="post-created">@post.Created.ToString("yyyy-MM-dd")</td>
+					<td class="actions"><a class="delete" href="@Url.Action("Delete", new { @id = post.Id })"></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+
+

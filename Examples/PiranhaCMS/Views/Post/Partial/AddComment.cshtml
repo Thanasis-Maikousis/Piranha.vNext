@@ -1,0 +1,20 @@
+﻿@model Piranha.Web.Models.PostModel
+
+<section id="comment" class="add-comment">
+	<header><h2>Add comment</h2></header>
+
+	<form method="post" action="@UI.Permalink(Model)/comment">
+		@Html.AntiForgeryToken()
+		@Html.Hidden("PostId", Model.Id)
+
+		<label for="Author">Name*</label>
+		<input id="Author" name="Author" type="text" />
+		<label for="Email">Email*</label>
+		<input id="Email" name="Email" type="text" />
+		<label for="WebSite">Website</label>
+		<input id="WebSite" name="WebSite" type="text" />
+		<label for="Body">Message*</label>
+		<textarea id="Body" name="Body" rows="10"></textarea>
+		<button type="submit">Submit comment</button>
+	</form>
+</section>

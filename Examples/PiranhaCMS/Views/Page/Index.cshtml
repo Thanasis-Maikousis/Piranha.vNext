@@ -1,0 +1,37 @@
+﻿@model Piranha.Web.Models.PageModel
+@{
+	ViewBag.Title = Model.Title;
+
+	Piranha.Models.Post latest = null;
+	
+	if (Model.IsStartPage) {
+		using (var api = new Piranha.Api()) {
+			var now = DateTime.Now.ToUniversalTime();
+			latest = api.Posts.Get(where: p => p.Published <= now, limit: 1).FirstOrDefault();
+		}
+	}	
+}
+@if (Model.IsStartPage) {
+	<header role="banner">
+		<div class="wrapper">
+			<img src="~/assets/img/start.png" alt="Piranha CMS" />
+		</div>
+	</header>
+	if (latest != null) {
+		<div id="latest">
+			<div class="wrapper">
+				<article role="complementary">
+					<header><strong>Latest:</strong> <a href="@UI.Permalink(latest)">@latest.Published.Value.ToLongDateString() <strong>@latest.Title</strong></a></header>
+				</article>
+			</div>
+		</div>
+	}
+}
+<div id="main">
+	<article role="main">
+		<header>
+			<h1>@Model.Title</h1>
+		</header>
+		@Html.Raw(Model.Body)
+	</article>
+</div>

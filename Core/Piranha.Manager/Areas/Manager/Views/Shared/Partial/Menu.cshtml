@@ -1,0 +1,23 @@
+﻿@using Piranha.Manager
+<ul class="nav navmenu-nav">
+	<li>
+		<a href="#" class="ico">Dashboard</a>
+	</li>
+	@foreach (var group in Menu.Items) {
+		if (group.Items.Count > 0) {
+			<li>
+				<a href="#" @(!String.IsNullOrWhiteSpace(group.Css) ? "class=" + group.Css : "")>@group.Name</a>
+				<ul>
+					@foreach (var item in group.Items) {
+						<li>
+							<a href="@Url.Action(item.Action, item.Controller)">@item.Name</a>
+						</li>
+					}
+				</ul>
+			</li>
+		}
+	}
+	<li>
+		<a href="@Url.Action("LogoutUser", "AccountMgr")" class="ico-logout">Logout</a>
+	</li>
+</ul>

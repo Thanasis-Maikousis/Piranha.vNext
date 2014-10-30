@@ -1,0 +1,10 @@
+﻿@model Piranha.Models.Comment
+@{
+	Layout = "";
+}
+@if (Model.IsApproved && !Model.IsSpam) {
+<div class="comment">
+	<h3><img class="gravatar" src="@UI.GravatarUrl(Model.Email, 40)" />@Model.Author <small>@Model.Created.ToLongDateString()</small></h3>
+	<p>@Model.Html()</p>
+</div>
+}

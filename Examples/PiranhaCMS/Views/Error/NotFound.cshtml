@@ -1,0 +1,31 @@
+﻿@{
+	ViewBag.Title = "Oooops";
+
+	var error = HttpContext.Current.Server.GetLastError();
+}
+
+<header role="banner">
+	<div class="wrapper">
+		<img class="shield" src="~/assets/img/logo-big.png" alt="Piranha CMS" />
+	</div>
+</header>
+
+<div id="main">
+	<article role="main" class="error">
+		<header>
+			<h1>Oooops<small>/ 404 Not Found</small></h1>
+			<p class="meta" style="display:none">
+				<span class="icon-clock"></span>This very second by Piranha CMS
+				<span class="icon-tag"></span>It's not your fault, We still love you
+			</p>
+		</header>
+		<p class="excerpt">
+			We're sad to inform you that the link you've entered doesn't seem to
+			exist on this website. However, we hope you consider browsing through
+			our endless archives for other useful stuff.
+		</p>
+		@if (error != null) {
+			<pre>@error.GetBaseException().ToString()</pre>
+		}
+	</article>
+</div>

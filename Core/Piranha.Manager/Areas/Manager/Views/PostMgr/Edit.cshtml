@@ -1,0 +1,187 @@
+﻿@model Piranha.Manager.Models.Post.EditModel
+
+@section head {
+	<style type="text/css">
+		#Excerpt {
+			height: 198px;
+		}
+	</style>
+}
+
+@section script {
+	@Html.Partial("Partial/Editor")
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			// Initialize select2
+			var categories = [
+				@foreach (var cat in Model.Categories) {
+						<text>"@cat.Text",</text>
+					}
+			];
+			$('#SelectedCategories').select2({ tags: categories, placeholder: "Add some categories to your post" });
+
+			// Initialize comments
+			var comments = new manager.commentDialog('#comments', '@Url.Content("~/manager/post/comment")', '@Model.Id');
+
+			// Focus the first input box
+			$('#Title').focus();
+		});
+
+		// Set submit action to publish
+		$(document).on('click', '#submit-publish', function () {
+			$('#Action').val('@((int)Piranha.Manager.Models.Post.EditModel.SubmitAction.Publish)');
+			$('form').submit();
+		});
+
+		// Set submit action to upublish
+		$(document).on('click', '#submit-unpublish', function () {
+			$('#Action').val('@((int)Piranha.Manager.Models.Post.EditModel.SubmitAction.Unpublish)');
+			$('form').submit();
+		});
+	</script>
+}
+
+@using (var form = Html.BeginForm("Save", "PostMgr", FormMethod.Post, new { @class = "form", @role = "form" })) {
+	@Html.AntiForgeryToken()
+	@Html.HiddenFor(m => m.Id)
+	@Html.HiddenFor(m => m.TypeId)
+	@Html.HiddenFor(m => m.Action)
+
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Actions -->
+			<div class="col-sm-12 buttons">
+				<!-- Settings -->
+				<div class="btn-group">
+					<button type="button" class="btn btn-labeled btn-primary" data-toggle="modal" data-target="#mdSettings">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-cog"></i>
+						</span>
+						@Piranha.Manager.Resources.Global.Settings
+					</button>
+				</div>
+
+				<!-- Comments -->
+				<div class="btn-group">
+					<button type="button" class="btn btn-labeled btn-info" data-toggle="modal" data-target="#mdComments">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-comment"></i>
+						</span>
+						@Piranha.Manager.Resources.Post.Comments
+					</button>
+				</div>
+
+				<!-- Actions -->
+				<div class="btn-group">
+					<button type="submit" class="btn btn-labeled btn-success">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-ok"></i>
+						</span>
+						@if (Model.Published.HasValue) {
+							@Piranha.Manager.Resources.Post.UpdatePost
+						} else {
+							@Piranha.Manager.Resources.Global.SaveDraft
+						}
+					</button>
+					<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						@if (Model.Published.HasValue) {
+							<li><a id="submit-unpublish" href="#">Unpublish</a></li>
+						} else {
+							<li><a id="submit-publish" href="#">Publish now</a></li>
+						}
+						<li class="divider"></li>
+						<li><a href="@Url.Action("Delete", new { @id = Model.Id })">Delete post</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-sm-12">
+				<div class="form-group">
+					@Html.TextBoxFor(m => m.Title, new { @class = "form-control title", @placeholder = "Your post title" })
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="form-group">
+					@Html.TextAreaFor(m => m.Excerpt, new { @rows = 7, @class = "form-control count-me", @placeholder = "Short excerpt" })
+					<p><span>@(Model.Excerpt != null ? Model.Excerpt.Length : 0)</span>/512 characters</p>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					@Html.DropDownListFor(m => m.AuthorId, Model.Authors, "", new { @class = "form-control meta", @placeholer = "Select author" })
+				</div>
+				<div class="form-group">
+					@Html.TextBoxFor(m => m.Keywords, new { @class = "form-control meta", @placeholder = "Meta keywords" })
+				</div>
+				<div class="form-group">
+					@Html.TextAreaFor(m => m.Description, new { @rows = 4, @class = "form-control meta count-me", @placeholder = "Meta description" })
+					<p class="charcount"><span>@(Model.Description != null ? Model.Description.Length : 0)</span>/255 characters</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					@Html.HiddenFor(m => m.SelectedCategories)
+				</div>
+				<div class="form-group">
+					@Html.TextAreaFor(m => m.Body, new { @rows = 14, @class = "form-control editor" })
+				</div>
+			</div>
+		</div>
+
+		<!-- Comments modal -->
+		<div class="modal fade" id="mdComments" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">@Piranha.Manager.Resources.Post.Comments</h4>
+					</div>
+					<div id="comments">
+						@Html.Partial("Partial/CommentList", Model.Comments)
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">@Piranha.Manager.Resources.Global.Ok</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Settings modal -->
+		<div class="modal fade" id="mdSettings" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">Post settings</h4>
+					</div>
+					<div class="modal-body">
+						@Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug)
+						<div class="form-group">
+							@Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" })
+						</div>
+						@Html.LabelFor(m => m.Route, Piranha.Manager.Resources.Global.Route)
+						<div class="form-group">
+							@Html.TextBoxFor(m => m.Route, new { @class = "form-control meta", @placeholder = "Add optional route" })
+						</div>
+						@Html.LabelFor(m => m.View, Piranha.Manager.Resources.Global.View)
+						<div class="form-group">
+							@Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" })
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">@Piranha.Manager.Resources.Global.Ok</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

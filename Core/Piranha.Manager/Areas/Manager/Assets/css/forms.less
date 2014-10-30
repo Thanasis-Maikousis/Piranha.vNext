@@ -1,0 +1,267 @@
+﻿//
+// Piranha CMS
+// Copyright (c) 2014, Håkan Edling, All rights reserved.
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 3.0 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library.
+//
+
+@import "colors.less";
+@import "mixins.less";
+
+.table {
+	thead {
+		tr {
+			th {
+				background: @list-color-head;
+				padding: 12px 20px;
+
+				&.actions {
+					&.one {
+						width: 16px;
+					}
+				}
+
+				.sort {
+					cursor: pointer;
+
+					&::after {
+						display: inline-block;
+						padding-left: 4px;
+						font-family: "Glyphicons Halflings";
+						font-style: normal;
+						font-weight: 400;
+						font-size: 12px;
+						line-height: 1;
+						position: relative;
+						top: 1px;
+						-moz-osx-font-smoothing: grayscale;
+					}
+
+					&.asc::after {
+						content: "";
+					}
+					&.desc::after {
+						content: "";
+					}
+				}
+			}
+		}
+	}
+	>tbody {
+		>tr {
+			>td {
+				padding: 10px 20px;
+				border-top: 4px solid @bg-color;
+
+				&.actions {
+					a {
+						display: inline-block;
+						width: 16px;
+						height: 16px;
+
+						&.delete {
+							background: url('../img/ico-delete-16.png') 0 0 no-repeat;
+						}
+					}
+				}
+
+				p.meta {
+					color: @text-color-light;
+					margin: 4px 0 0;
+				}
+			}
+
+			&.detail {
+				display: none;
+
+				>td {
+					border: 0;
+				}
+			}
+
+			&.unpublished {
+				.meta {
+					color: #f0ad4e;
+				}
+			}
+		}
+	}
+	.date {
+		width: 114px;
+	}
+	.well {
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+
+	&.table-main {
+		tr {
+			td {
+				vertical-align: middle;
+			} 
+
+			&:hover {
+				td {
+					background: @list-color-hover;
+				}
+			}
+		}
+
+		a {
+			font-size: 16px;
+		}
+	}
+}
+
+.panel {
+	.table {
+		margin-bottom: 0;
+
+		thead {
+			tr {
+				th {
+					background: transparent;
+					border-bottom: solid 4px @form-color;
+				}
+			}
+		}
+	}
+}
+
+.table-striped {
+	>tbody {
+		>tr:nth-child(2n+1) {
+			>td {
+				background-color: @list-color;
+			}
+		}
+		>tr:nth-child(2n) {
+			>td {
+				background-color: @list-color;
+			}
+		}
+	}
+}
+
+.form {
+	.form-group {
+		border: 1px solid @border-color;
+		margin-bottom: 20px;
+
+		// Form controls
+		.form-control {
+			height: auto;
+			border: 0 none;
+			font-size: 18px;
+			box-shadow: none;
+			.border-radius(0);
+
+			&.title {
+				font-size: 26px;
+				color: #222;
+			}
+
+			&.meta {
+				color: #666;
+				font-size: 14px;
+			}
+
+			&.count-me + p {
+				background: #e8e8e8;
+				color: #aaa;
+				font-size: 12px;
+				padding: 4px 12px;
+				margin: 0;
+				text-align: right;
+				text-transform: uppercase;
+			}
+		}
+
+		textarea {
+			resize: none;
+		}
+
+		// Select2 box
+		.select2-container {
+			width: 100%;
+
+			&.select2-container-multi {
+				.select2-choices {
+					background-image: none;
+					border: 0 none;
+					padding: 2px 5px 0;
+
+					.select2-search-choice {
+						color: #fff;
+						background: #444;
+						border-color: #444;
+						box-shadow: none;
+						margin: 4px 2px 0 12px;
+						font-size: 10px;
+						text-transform: uppercase;
+
+						.select2-search-choice-close {
+							top: 2px;
+						}
+
+						&:before {
+							content: "";
+							position: absolute;
+							top: 0;
+							left: -20px;
+							width: 0;
+							height: 0;
+							border: 10px solid transparent;
+							border-right-color: #444;
+						}
+					}
+				}
+			}
+		}
+
+		// TinyMCE editor
+		.mce-tinymce {
+			border: 0 none !important;
+
+			.mce-panel {
+				background: #fff;
+				background-image: none;
+
+				.mce-btn {
+					background: transparent;
+					background-image: none;
+					border: 0 none;
+					box-shadow: none;
+
+					.mce-ico {
+						font-size: 14px;
+					}
+				}
+			}
+
+			.mce-edit-area {
+				border-top: 0 none;
+			}
+		}
+	}
+}
+
+.col-sm-12.buttons {
+	text-align: right;
+	margin-top: -50px;
+
+	.dropdown-menu {
+		text-align: left;
+	}
+}

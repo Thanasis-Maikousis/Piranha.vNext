@@ -1,0 +1,17 @@
+﻿@{
+	//IList<Menu.MenuItem> items = null;
+
+	//foreach (var group in Menu.Groups) {
+	//	if (group.IsActive()) {
+	//		items = group.ItemsForUser();
+	//	}
+	//}
+}
+@if (items != null) {
+	<ul class="tabs">
+		@*@foreach (var item in items) {
+			<li><a @(item.IsActive() ? "class=selected" : "") href="@Url.Action(item.Action, item.Controller)">@item.Name</a></li>
+		}*@
+	</ul>
+	<div class="clear"></div>
+}

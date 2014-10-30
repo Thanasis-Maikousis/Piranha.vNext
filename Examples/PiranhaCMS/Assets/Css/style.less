@@ -1,0 +1,171 @@
+﻿//
+// Copyright (c) 2014 Håkan Edling
+//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
+
+@import "normalize.less";
+@import "icons.less";
+@import "typo.less";
+@import "navigation.less";
+@import "mixins.less";
+@import "colors.less";
+
+.wrapper {
+	.container();
+}
+
+// Site header
+header[role="banner"] {
+	color: #fff;
+	border-bottom: solid 1px #057;
+	text-align: center;
+	background-image: linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -o-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -moz-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -webkit-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -ms-linear-gradient(bottom, rgb(27,109,141) 18%, rgb(28,113,150) 80%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.18, rgb(27,109,141)), color-stop(0.8, rgb(28,113,150)));
+	box-shadow: inset 0 -2px 20px rgba(0,0,0,0.3);
+
+	img {
+		max-width: 80%;
+		margin: 1em 0 -2.5em;
+
+		&.shield {
+			margin-top: 0;
+		}
+	}
+}
+
+// Main container
+#main {
+	article {
+		.container();
+	}
+}
+
+// Latest news
+#latest {
+	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #FFC106), color-stop(1, #FDDD7F) );
+	background-image: -o-linear-gradient(bottom, #FFC106 0%, #FDDD7F 100%);
+	background-image: -moz-linear-gradient(bottom, #FFC106 0%, #FDDD7F 100%);
+	background-image: -webkit-linear-gradient(bottom, #FFC106 0%, #FDDD7F 100%);
+	background-image: -ms-linear-gradient(bottom, #FFC106 0%, #FDDD7F 100%);
+	background-image: linear-gradient(to bottom, #FFC106 0%, #FDDD7F 100%);
+	border-bottom: solid 1px #EDCD6F;
+	font-size: 0.9rem;
+	padding: 1.5em 0 1em;
+	text-align: center;
+
+	a {
+		color: @text-light-color;
+	}
+}
+
+// Post archive
+.post {
+	border-bottom: solid 1px @border-color;
+
+	h2 {
+		border: none;
+		margin: 0.2em 0;
+		padding: 0;
+
+		a {
+			color: @text-heavy-color;
+			.transition(color, 0.2s);
+
+			&:hover {
+				color: @link-color;
+				text-decoration: none;
+				.transition(color, 0.2s);
+			}
+		}
+	}
+}
+
+// Post meta
+.meta {
+	[class^="icon-"], [class*=" icon-"]	{
+		color: @link-color;
+		margin: 0 5px;
+		font-size: 0.8em;
+		opacity: 0.8;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}
+
+// Comments
+.comments {
+	h2 {
+		font-weight: 300;
+	}
+
+	h3 {
+		img {
+			float: left;
+			margin-right: 10px;
+			.border-radius(20px);
+		}
+			
+		small {
+			font-size: 0.7em;
+			font-weight: 300;
+			color: #666;
+		}
+	}
+
+	p {
+		border: solid 1px #ddd;
+		padding: 1em;
+		font-size: 0.9em;
+		.border-radius(4px);
+	}
+}
+
+.comment {
+	margin-bottom: 30px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// New comment
+.add-comment {
+	h2 {
+		font-weight: 300;
+	}
+
+	input, textarea {
+		display: block;
+		width: 100%;
+		padding: 0.5em 1em;
+		margin: 0.5em 0;
+		border: solid 1px #ddd;
+		box-sizing: border-box;
+		font-size: 0.8em;
+		.border-radius(4px);
+	}
+
+	button {
+		.black-gradient();
+		color: #fff;
+		border: 0;
+		padding: 0.5em 1em;
+		.border-radius(4px);
+	}
+}
+
+// Error pages
+article.error {
+	text-align: center;
+}
+

@@ -1,0 +1,49 @@
+﻿@model Piranha.Manager.Models.PostType.ListModel
+@{
+	ViewBag.Title = Piranha.Manager.Resources.PostType.ListTitle;
+}
+@section script {
+	<script type="text/javascript">
+		var options = {
+			valueNames: ['type-name', 'type-updated', 'type-created']
+		};
+		var typeList = new List('type-list', options);
+	</script>
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 buttons">
+			<div class="btn-group">
+				<a href="@Url.Action("Edit", new { @id = "" })" class="btn btn-primary btn-labeled">
+					<span class="btn-label">
+						<i class="glyphicon glyphicon-plus"></i>
+					</span>@Piranha.Manager.Resources.Global.Add
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<table id="type-list" class="table table-striped table-main">
+		<thead>
+			<tr>
+				<th><span class="sort desc" data-sort="type-name">@Piranha.Manager.Resources.Global.Name</span></th>
+				<th class="date"><span class="sort" data-sort="type-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
+				<th class="date"><span class="sort" data-sort="type-created">@Piranha.Manager.Resources.Global.Created</span></th>
+				<th class="actions one"></th>
+			</tr>
+		</thead>
+		<tbody class="list">
+			@foreach (var type in Model.Items) {
+				<tr>
+					<td class="type-name"><a href="@Url.Action("Edit", new { @id = type.Id })">@type.Name</a></td>
+					<td class="type-updated">@type.Updated.ToString("yyyy-MM-dd")</td>
+					<td class="type-created">@type.Created.ToString("yyyy-MM-dd")</td>
+					<td class="actions">
+						<a class="delete" href="@Url.Action("Delete", new { @id = type.Id })"></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

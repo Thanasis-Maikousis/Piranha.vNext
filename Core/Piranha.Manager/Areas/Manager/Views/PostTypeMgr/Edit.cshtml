@@ -1,0 +1,121 @@
+﻿@model Piranha.Manager.Models.PostType.EditModel
+
+@using (var form = Html.BeginForm("Save", "PostTypeMgr", FormMethod.Post, new { @class = "form", @role = "form" })) {
+	@Html.AntiForgeryToken()
+	@Html.HiddenFor(m => m.Id)
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 buttons">
+				<!-- Actions -->
+				<div class="btn-group">
+					<button type="submit" class="btn btn-labeled btn-success">
+						<span class="btn-label">
+							<i class="glyphicon glyphicon-ok"></i>
+						</span>@Piranha.Manager.Resources.Global.Save
+					</button>
+				</div>
+			</div>
+
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">@Piranha.Manager.Resources.Global.Information</h3>
+					</div>
+					<div class="panel-body">
+						<div class="form-group">
+							@Html.LabelFor(m => m.Name, Piranha.Manager.Resources.Global.Name)
+							<div class="input">
+								@Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Add name" })
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug)
+							<div class="input">
+								@Html.TextBoxFor(m => m.Slug, new { @class = "form-control", @placeholder = "Add slug" })
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.Description, Piranha.Manager.Resources.Global.Description)
+							<div class="input">
+								@Html.TextAreaFor(m => m.Description, new { @class = "form-control", @rows = 3, @placeholder = "Add description" })
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">@Piranha.Manager.Resources.PostType.Archive</h3>
+					</div>
+					<div class="panel-body">
+						<div class="form-group">
+							@Html.LabelFor(m => m.EnableArchive, Piranha.Manager.Resources.PostType.EnableArchive)
+							<div class="input checkbox">
+								<label>
+									@Html.CheckBoxFor(m => m.EnableArchive) If an archive page should be automatically generated.
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.ArchiveTitle, Piranha.Manager.Resources.PostType.ArchiveTitle)
+							<div class="input">
+								@Html.TextBoxFor(m => m.ArchiveTitle, new { @class = "form-control", @placeholder = "Add archive title" })
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.ArchiveRoute, Piranha.Manager.Resources.PostType.ArchiveRoute)
+							<div class="input">
+								@Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control", @placeholder = "Add optional archive route" })
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.MetaKeywords, Piranha.Manager.Resources.Global.MetaKeywords)
+							<div class="input">
+								@Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control", @placeholder = "Add archive meta keywords" })
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription)
+							<div class="input">
+								@Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control", @rows = 3, @placeholder = "Add archive meta description" })
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">@Piranha.Manager.Resources.Global.Settings</h3>
+					</div>
+					<div class="panel-body">
+						<div class="form-group">
+							@Html.LabelFor(m => m.Route, Piranha.Manager.Resources.Global.Route)
+							<div class="input">
+								@Html.TextBoxFor(m => m.Route, new { @class = "form-control", @placeholder = "Add optional route" })
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.View, Piranha.Manager.Resources.Global.View)
+							<div class="input">
+								@Html.TextBoxFor(m => m.View, new { @class = "form-control", @placeholder = "Add optional view" })
+							</div>
+						</div>
+						<div class="form-group">
+							@Html.LabelFor(m => m.CommentRoute, Piranha.Manager.Resources.PostType.CommentRoute)
+							<div class="input">
+								@Html.TextBoxFor(m => m.CommentRoute, new { @class = "form-control", @placeholder = "Add comment route" })
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

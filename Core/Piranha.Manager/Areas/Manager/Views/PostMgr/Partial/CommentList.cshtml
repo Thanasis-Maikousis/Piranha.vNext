@@ -1,0 +1,18 @@
+﻿@model IList<Piranha.Manager.Models.Post.EditModel.CommentListItem>
+@{
+	Layout = "";
+}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th class="date">@Piranha.Manager.Resources.Global.Created</th>
+			<th>Author</th>
+			<th class="date">Approved</th>
+			<th class="date">Spam</th>
+		</tr>
+	</thead>
+	<tbody>
+		@Html.EditorFor(m => m)
+	</tbody>
+</table>

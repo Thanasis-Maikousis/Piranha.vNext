@@ -1,0 +1,90 @@
+﻿html {
+  font: 1.1em/1.6 "Open Sans", sans-serif;
+  color: #343436;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizelegibility;
+  margin: 0.2em 0;
+  color: #000000;
+}
+h1 {
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+h1 small {
+  font-size: 1.8rem;
+  letter-spacing: 1;
+  color: #666666;
+  margin-left: 0.5em;
+}
+h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 0.8em;
+  padding: 0.1em 0 0.4em;
+}
+h3 {
+  font-size: 1.4em;
+}
+h4 {
+  background: #eeeeee;
+  font-size: 1.1em;
+  text-transform: uppercase;
+}
+p {
+  margin: 1em 0;
+}
+p.excerpt {
+  font-size: 1.2em;
+  font-weight: 300;
+}
+p.meta {
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #666666;
+}
+p.note {
+  color: #666666;
+  font-weight: 300;
+}
+pre,
+code {
+  background: #eeeeee;
+  padding: 0.2em;
+}
+pre {
+  font-size: 0.8em;
+  padding: 1em;
+  border-left: solid 0.5em #aacccc;
+}
+pre pre,
+pre code {
+  background: transparent;
+  font-size: inherit;
+  padding: 0;
+  border: 0 none;
+}
+a {
+  color: #1f7da4;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+strong {
+  color: #000000;
+}
+blockquote {
+  color: #666666;
+  border-left: solid 4px #eeeeee;
+  margin: 2em 0;
+  padding: 0 1.5em;
+  font-size: 0.9em;
+  font-weight: 300;
+}

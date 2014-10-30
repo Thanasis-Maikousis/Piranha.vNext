@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>@ViewBag.Title</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	<link rel="icon" href="~/assets/img/icon.ico" type="image/x-icon">
+	<link type="text/css" rel="stylesheet" media="all" href="~/assets/css/style.min.css">
+	<link type="text/css" rel="stylesheet" media="print" href="~/assets/css/print.min.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+
+	@UI.Head()
+
+	@RenderSection("head", required: false)
+</head>
+<body>
+	<nav role="navigation">
+		<div class="wrapper">
+			<a id="home" href="~/"><img src="~/assets/img/logo.png" alt="Piranha CMS" /></a>
+			<a id="code" href="https://github.com/piranhacms" alt="GitHub" target="_blank"><img src="~/assets/img/github.png" /></a>
+			@UI.Menu(stop: 1)
+			<ul class="menu">
+				<li><a href="~/blog">Blog</a></li>
+			</ul>
+		</div>
+	</nav>
+	@RenderBody()
+</body>
+@RenderSection("script", required: false)
+</html>
