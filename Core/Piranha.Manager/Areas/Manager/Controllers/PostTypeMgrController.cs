@@ -71,7 +71,7 @@ namespace Piranha.Areas.Manager.Controllers
 				ViewBag.Title = Piranha.Manager.Resources.PostType.EditTitle;
 			else ViewBag.Title = Piranha.Manager.Resources.PostType.AddTitle;
 
-			return View(model);
+			return View("Edit", model);
 		}
 
 		/// <summary>
