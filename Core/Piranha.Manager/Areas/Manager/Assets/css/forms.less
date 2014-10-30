@@ -162,6 +162,7 @@
 	.form-group {
 		border: 1px solid @border-color;
 		margin-bottom: 20px;
+		position: relative;
 
 		// Form controls
 		.form-control {
@@ -170,6 +171,11 @@
 			font-size: 18px;
 			box-shadow: none;
 			.border-radius(0);
+
+			&.input-validation-error {
+				border: 1px solid #e88;
+				padding: 5px 12px;
+			}
 
 			&.title {
 				font-size: 26px;
@@ -194,6 +200,20 @@
 
 		textarea {
 			resize: none;
+		}
+
+		// Validation messages
+		.field-validation-error {
+			display: block;
+			background: #333;
+			color: #fff;
+			padding: 4px 10px;
+			font-size: 13px;
+			position: absolute;
+			top: -12px;
+			right: -8px;
+			opacity: 0.9;
+			.border-radius(3px);
 		}
 
 		// Select2 box

@@ -24,9 +24,11 @@
 			<div class="col-sm-12">
 				<div class="form-group">
 					@Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Author display name" })
+					@Html.ValidationMessageFor(m => m.Name)
 				</div>
 				<div class="form-group">
 					@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Author email" })
+					@Html.ValidationMessageFor(m => m.Email)
 				</div>
 				<div class="form-group">
 					@Html.TextAreaFor(m => m.Description, new { @class = "form-control editor", @rows = 8, @placeholder = "Add description" })

@@ -7564,6 +7564,7 @@ a {
 .form .form-group {
   border: 1px solid #dddddd;
   margin-bottom: 20px;
+  position: relative;
 }
 .form .form-group .form-control {
   height: auto;
@@ -7574,6 +7575,10 @@ a {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
+}
+.form .form-group .form-control.input-validation-error {
+  border: 1px solid #e88;
+  padding: 5px 12px;
 }
 .form .form-group .form-control.title {
   font-size: 26px;
@@ -7594,6 +7599,21 @@ a {
 }
 .form .form-group textarea {
   resize: none;
+}
+.form .form-group .field-validation-error {
+  display: block;
+  background: #333;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 13px;
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  opacity: 0.9;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 .form .form-group .select2-container {
   width: 100%;
