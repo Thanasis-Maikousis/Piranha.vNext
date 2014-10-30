@@ -46,7 +46,7 @@ namespace PiranhaCMS
 					if (author == null) {
 						author = new Piranha.Models.Author() {
 							Name = "Håkan Edling",
-							Email = "hakan@tidyui.com"
+							Email = "info@piranhacms.org"
 						};
 						api.Authors.Add(author);
 						api.SaveChanges();
