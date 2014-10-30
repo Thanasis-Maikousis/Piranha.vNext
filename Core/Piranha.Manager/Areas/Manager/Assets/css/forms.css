@@ -80,6 +80,9 @@
 .table-striped > tbody > tr:nth-child(2n) > td {
   background-color: #f8f8f8;
 }
+.form label.label-small {
+  font-size: 12px;
+}
 .form .form-group {
   border: 1px solid #dddddd;
   margin-bottom: 20px;

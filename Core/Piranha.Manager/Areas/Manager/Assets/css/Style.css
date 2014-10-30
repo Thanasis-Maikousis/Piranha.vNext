@@ -7338,6 +7338,11 @@ a {
   max-width: 1270px;
   margin-left: 0;
 }
+.section-title {
+  text-transform: uppercase;
+  border-bottom: solid 1px #dddddd;
+  padding-bottom: 10px;
+}
 .navbar {
   background-image: -o-linear-gradient(bottom, #3a3a3a 20%, #191919 100%);
   background-image: -moz-linear-gradient(bottom, #3a3a3a 20%, #191919 100%);
@@ -7552,6 +7557,9 @@ a {
 }
 .table-striped > tbody > tr:nth-child(2n) > td {
   background-color: #f8f8f8;
+}
+.form label.label-small {
+  font-size: 12px;
 }
 .form .form-group {
   border: 1px solid #dddddd;
