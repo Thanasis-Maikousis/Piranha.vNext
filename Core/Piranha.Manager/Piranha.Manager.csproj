@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Manager\Assets\js\models\manager.author.js" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.css">
@@ -348,6 +349,7 @@
     <Compile Include="Manager\ManagerModule.cs" />
     <Compile Include="Manager\Models\Account\LoginModel.cs" />
     <Compile Include="Manager\Models\Author\EditModel.cs" />
+    <Compile Include="Manager\Models\Author\ListItem.cs" />
     <Compile Include="Manager\Models\Block\EditModel.cs" />
     <Compile Include="Manager\Models\Post\CommentState.cs" />
     <Compile Include="Manager\Models\Post\EditModel.cs" />
@@ -432,6 +434,7 @@
     <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml" />
     <Content Include="Areas\Manager\Views\AuthorMgr\Edit.cshtml" />
     <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
+    <Content Include="Areas\Manager\Views\AuthorMgr\Partial\AuthorList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

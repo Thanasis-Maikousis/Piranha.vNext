@@ -8,7 +8,6 @@
 
 	<link href="~/areas/manager/assets/img/icon.ico" rel="icon" type="image/x-icon">
 	<link href="~/areas/manager/assets/img/icon.ico" rel="shortcut icon" type="image/x-icon">
-	<link href="~/areas/manager/assets/css/ext/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
 	<link href="~/areas/manager/assets/css/style.min.css" rel="stylesheet" type="text/css" />
 
 	@if (!String.IsNullOrEmpty(ViewBag.Message)) {
@@ -38,8 +37,11 @@
 	<div class="body">
 		@RenderBody()
 	</div>
-	<script type="text/javascript" src="~/areas/manager/assets/js/scripts.min.js"></script>
 
+	<script type="text/javascript">
+		var baseUrl = '@Url.Content("~/")';
+	</script>
+	<script type="text/javascript" src="~/areas/manager/assets/js/scripts.min.js"></script>
 	@RenderSection("script", required: false)
 </body>
 </html>
