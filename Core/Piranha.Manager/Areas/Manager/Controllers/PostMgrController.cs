@@ -104,8 +104,6 @@ namespace Piranha.Areas.Manager.Controllers
 
 			if (comment != null) {
 				comment.IsApproved = state.Status;
-
-				api.Comments.Add(comment);
 				api.SaveChanges();
 			}
 			return View("Partial/CommentList", api.Comments.Get(where: c => c.PostId == state.PostId)
@@ -118,7 +116,7 @@ namespace Piranha.Areas.Manager.Controllers
 					IsApproved = c.IsApproved,
 					IsSpam = c.IsSpam,
 					WebSite = c.WebSite
-				}));
+				}).ToList());
 		}
 
 		/// <summary>
@@ -133,8 +131,6 @@ namespace Piranha.Areas.Manager.Controllers
 
 			if (comment != null) {
 				comment.IsSpam = state.Status;
-
-				api.Comments.Add(comment);
 				api.SaveChanges();
 			}
 			return View("Partial/CommentList", api.Comments.Get(where: c => c.PostId == state.PostId)
@@ -147,7 +143,7 @@ namespace Piranha.Areas.Manager.Controllers
 					IsApproved = c.IsApproved,
 					IsSpam = c.IsSpam,
 					WebSite = c.WebSite
-				}));
+				}).ToList());
 		}
 	}
 }
