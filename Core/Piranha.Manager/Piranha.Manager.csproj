@@ -432,9 +432,7 @@
     <Content Include="Areas\Manager\Views\BlockMgr\List.cshtml" />
     <Content Include="Areas\Manager\Views\BlockMgr\Edit.cshtml" />
     <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\AuthorMgr\Edit.cshtml" />
     <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
-    <Content Include="Areas\Manager\Views\AuthorMgr\Partial\AuthorList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
