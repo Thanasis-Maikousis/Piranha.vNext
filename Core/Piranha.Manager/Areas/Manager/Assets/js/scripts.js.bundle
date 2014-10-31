@@ -13,9 +13,11 @@
 		<file>/areas/manager/assets/vendor/jquery-1.11.0.min.js</file>
 		<file>/areas/manager/assets/vendor/bootstrap/js/bootstrap.min.js</file>
 		<file>/areas/manager/assets/vendor/jasny-bootstrap/js/jasny-bootstrap.js</file>
+		<file>/areas/manager/assets/vendor/knockout-3.2.0.js</file>
 		<file>/areas/manager/assets/vendor/list.js</file>
 		<file>/areas/manager/assets/vendor/datepicker/js/bootstrap-datepicker.js</file>
 		<file>/areas/manager/assets/vendor/select2/select2.js</file>
 		<file>/areas/manager/assets/js/manager.js</file>
+		<file>/areas/manager/assets/js/models/manager.author.js</file>
 	</files>
 </bundle>

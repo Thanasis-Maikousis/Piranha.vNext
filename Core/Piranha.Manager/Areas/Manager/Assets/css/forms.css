@@ -88,6 +88,9 @@
   margin-bottom: 20px;
   position: relative;
 }
+.form .form-group.has-error {
+  border-color: #e88;
+}
 .form .form-group .form-control {
   height: auto;
   border: 0 none;
@@ -136,6 +139,9 @@
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+}
+.form .form-group .form-control-feedback {
+  top: 0;
 }
 .form .form-group .select2-container {
   width: 100%;

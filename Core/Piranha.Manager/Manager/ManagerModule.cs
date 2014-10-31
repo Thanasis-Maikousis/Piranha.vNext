@@ -32,7 +32,12 @@ namespace Piranha.Manager
 		/// ensuring runtime resources and registering hooks.
 		/// </summary>
 		public void Init() {
-			// Blobk
+			// Author
+			Mapper.CreateMap<Piranha.Models.Author, Models.Author.ListItem>()
+				.ForMember(a => a.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
+				.ForMember(a => a.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
+
+			// Block
 			Mapper.CreateMap<Piranha.Models.Block, Models.Block.EditModel>();
 			Mapper.CreateMap<Models.Block.EditModel, Piranha.Models.Block>()
 				.ForMember(b => b.Id, o => o.Ignore())

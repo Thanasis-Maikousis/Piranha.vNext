@@ -16,7 +16,9 @@
  * License along with this library.
  */
 
+using AutoMapper;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Piranha.Manager.Models.Author;
 
@@ -35,28 +37,26 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The author list</returns>
 		[Route("authors")]
 		public ActionResult List() {
-			return View(api.Authors.Get());
+			return View();
 		}
 
 		/// <summary>
-		/// Gets the edit view for a new author.
+		/// Gets the authors.
 		/// </summary>
-		/// <returns>The view result</returns>
-		[Route("author/add")]
-		public ActionResult Add() {
-			ViewBag.Title = Piranha.Manager.Resources.Author.AddTitle;
-			return View("Edit", new EditModel());
+		/// <returns>The authors</returns>
+		[Route("authors/get")]
+		public ActionResult Get() {
+			return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Author>, IEnumerable<ListItem>>(api.Authors.Get()));
 		}
 
 		/// <summary>
-		/// Gets the edit view for an existing author.
+		/// Gets the author with the given id.
 		/// </summary>
 		/// <param name="id">The unique id</param>
-		/// <returns>The view result</returns>
-		[Route("author/edit/{id:Guid}")]
-		public ActionResult Edit(Guid id) {
-			ViewBag.Title = Piranha.Manager.Resources.Author.EditTitle;
-			return View(EditModel.GetById(api, id));
+		/// <returns>The author</returns>
+		[Route("author/get/{id:Guid}")]
+		public ActionResult GetSingle(Guid id) {
+			return JsonData(true, EditModel.GetById(api, id));
 		}
 
 		/// <summary>
@@ -67,17 +67,12 @@ namespace Piranha.Areas.Manager.Controllers
 		[HttpPost]
 		[Route("author/save")]
 		[ValidateInput(false)]
-		[ValidateAntiForgeryToken]
 		public ActionResult Save(EditModel model) {
 			if (ModelState.IsValid) {
 				model.Save(api);
-				return RedirectToAction("Edit", new { id = model.Id });
+				return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Author>, IEnumerable<ListItem>>(api.Authors.Get()));
 			}
-			if (model.Id.HasValue)
-				ViewBag.Title = Piranha.Manager.Resources.Author.EditTitle;
-			else ViewBag.Title = Piranha.Manager.Resources.Author.AddTitle;
-
-			return View("Edit", model);
+			return JsonData(false);
 		}
 
 		/// <summary>
@@ -91,8 +86,9 @@ namespace Piranha.Areas.Manager.Controllers
 			if (author != null) {
 				api.Authors.Remove(author);
 				api.SaveChanges();
+				return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Author>, IEnumerable<ListItem>>(api.Authors.Get()));
 			}
-			return RedirectToAction("List");
+			return JsonData(false);
 		}
 	}
 }
