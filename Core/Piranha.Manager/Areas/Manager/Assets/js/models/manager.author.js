@@ -68,7 +68,9 @@ manager.models.author = function () {
 					self.title(self.editTitle);
 					self.id(result.data.Id);
 					self.name(result.data.Name);
+					self.nameValid(true);
 					self.email(result.data.Email);
+					self.emailValid(true);
 					self.description(result.data.Description);
 					tinyMCE.activeEditor.setContent(result.data.Description != null ? result.data.Description : '');
 					$('.collapse').collapse('show');
