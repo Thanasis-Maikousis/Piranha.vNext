@@ -20,48 +20,38 @@
 @import "mixins.less";
 
 .panel {
-	&.panel-add {
-		margin-bottom: 4px;
-		border: 0;
+	.border-radius(0);
+
+	>.panel-heading {
 		.border-radius(0);
-
-		>.panel-heading {
-			background: @link-color;
-			color: #fff;
-			padding: 12px 20px;
-			.border-radius(0);
-		}
-
-		.panel-body {
-			background: @link-color-light;
-		}
 	}
 
-	&.panel-navpanel {
-		.panel-body {
-			background: @list-color;
+	&.panel-add {
+		>.panel-heading {
 			padding: 0;
 
-			.panel-nav {
-				width: 75px;
-				float:left;
-				text-align: center;
-
-				a {
-					background: pink;
+			.panel-title {
+				>a {
 					display: block;
-					margin: 6px;
-					width: 68px;
-					height: 68qpx;
+					padding: 10px 15px;
+
+					&:hover {
+						text-decoration: none;
+					}
+
+					&:focus {
+						outline: none;
+						text-decoration: none;
+					}
+				}
+
+				>.glyphicon {
+					padding: 10px 15px;
 				}
 			}
+		}
 
-			.panel-content {
-				background: #fff;
-				margin-left: 80px;
-				padding: 15px;
-				border-left: solid 1px @border-color;
-			}
+		.panel-body {
 		}
 	}
 }

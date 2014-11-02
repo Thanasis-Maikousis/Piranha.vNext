@@ -7680,47 +7680,34 @@ a {
 .col-sm-12.buttons .dropdown-menu {
   text-align: left;
 }
-.panel.panel-add {
-  margin-bottom: 4px;
-  border: 0;
+.panel {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.panel > .panel-heading {
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
 }
 .panel.panel-add > .panel-heading {
-  background: #2a8ac2;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  -o-border-radius: 0;
-}
-.panel.panel-add .panel-body {
-  background: #caeaff;
-}
-.panel.panel-navpanel .panel-body {
-  background: #f8f8f8;
   padding: 0;
 }
-.panel.panel-navpanel .panel-body .panel-nav {
-  width: 75px;
-  float: left;
-  text-align: center;
-}
-.panel.panel-navpanel .panel-body .panel-nav a {
-  background: pink;
+.panel.panel-add > .panel-heading .panel-title > a {
   display: block;
-  margin: 6px;
-  width: 68px;
-  height: 68qpx;
+  padding: 10px 15px;
 }
-.panel.panel-navpanel .panel-body .panel-content {
-  background: #fff;
-  margin-left: 80px;
-  padding: 15px;
-  border-left: solid 1px #dddddd;
+.panel.panel-add > .panel-heading .panel-title > a:hover {
+  text-decoration: none;
+}
+.panel.panel-add > .panel-heading .panel-title > a:focus {
+  outline: none;
+  text-decoration: none;
+}
+.panel.panel-add > .panel-heading .panel-title > .glyphicon {
+  padding: 10px 15px;
 }
 .modal-content {
   color: #fff;
