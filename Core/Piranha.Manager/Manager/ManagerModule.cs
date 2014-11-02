@@ -32,10 +32,25 @@ namespace Piranha.Manager
 		/// ensuring runtime resources and registering hooks.
 		/// </summary>
 		public void Init() {
+			// Alias
+			Mapper.CreateMap<Piranha.Models.Alias, Models.Alias.ListItem>()
+				.ForMember(a => a.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
+				.ForMember(a => a.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
+			Mapper.CreateMap<Piranha.Models.Alias, Models.Alias.EditModel>();
+			Mapper.CreateMap<Models.Alias.EditModel, Piranha.Models.Alias>()
+				.ForMember(a => a.Id, o => o.Ignore())
+				.ForMember(a => a.Created, o => o.Ignore())
+				.ForMember(a => a.Updated, o => o.Ignore());
+
 			// Author
 			Mapper.CreateMap<Piranha.Models.Author, Models.Author.ListItem>()
 				.ForMember(a => a.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
 				.ForMember(a => a.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
+			Mapper.CreateMap<Piranha.Models.Author, Models.Author.EditModel>();
+			Mapper.CreateMap<Models.Author.EditModel, Piranha.Models.Author>()
+				.ForMember(a => a.Id, o => o.Ignore())
+				.ForMember(a => a.Created, o => o.Ignore())
+				.ForMember(a => a.Updated, o => o.Ignore());
 
 			// Block
 			Mapper.CreateMap<Piranha.Models.Block, Models.Block.ListItem>()
@@ -73,13 +88,6 @@ namespace Piranha.Manager
 				.ForMember(t => t.IncludeInRss, o => o.Ignore())
 				.ForMember(t => t.Created, o => o.Ignore())
 				.ForMember(t => t.Updated, o => o.Ignore());
-
-			// User
-			Mapper.CreateMap<Piranha.Models.Author, Models.Author.EditModel>();
-			Mapper.CreateMap<Models.Author.EditModel, Piranha.Models.Author>()
-				.ForMember(a => a.Id, o => o.Ignore())
-				.ForMember(a => a.Created, o => o.Ignore())
-				.ForMember(a => a.Updated, o => o.Ignore());
 
 			Mapper.AssertConfigurationIsValid();
 		}
