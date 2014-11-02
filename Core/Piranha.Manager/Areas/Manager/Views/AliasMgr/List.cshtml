@@ -1,0 +1,87 @@
+﻿@{
+	ViewBag.Title = "Aliases";
+}
+@section script {
+	<script type="text/javascript">
+		ko.applyBindings(new manager.models.alias({
+			addTitle: 'Add new alias',
+			editTitle: 'Edit alias'
+		}));
+	</script>
+}
+
+<div class="container-fluid">
+	<!-- Form -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-primary" >
+				<div id="addAliasTitle" class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" href="#addAlias" aria-expanded="false" aria-controls="addAlias" data-bind="text: title">
+							Add new alias
+						</a>
+					</h3>
+				</div>
+			    <div id="addAlias" class="panel-collapse collapse" role="tabpanel" aria-labelledby="addAliasTitle">
+					<div class="panel-body">
+						<form role="form" class="form">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group" data-bind="css: { 'has-error has-feedback': oldUrlValid() != true }">
+										<input type="text" class="form-control" placeholder="Add old url" data-bind="value: oldUrl" />
+										<!-- ko if: !oldUrlValid() -->
+										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+										<!-- /ko -->
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group" data-bind="css: { 'has-error has-feedback': newUrlValid() != true }">
+										<input type="text" class="form-control" placeholder="Add new url" data-bind="value: newUrl" />
+										<!-- ko if: !newUrlValid() -->
+										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+										<!-- /ko -->
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<input type="checkbox" data-bind="checked: isPermanent" />
+									<label class="label-small label-up">This redirect should be permanent (HTTP 301)</label>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="panel-footer">
+						<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
+						<button class="btn btn-danger" data-bind="click: clear">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<table id="block-list" class="table table-striped table-main">
+		<thead>
+			<tr>
+				<th><span class="sort desc" data-sort="block-name">Old URL</span></th>
+				<th><span class="sort" data-sort="block-desc">New URL</span></th>
+				<th class="date"><span class="sort" data-sort="block-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
+				<th class="date"><span class="sort" data-sort="block-created">@Piranha.Manager.Resources.Global.Created</span></th>
+				<th class="actions one"></th>
+			</tr>
+		</thead>
+		<tbody class="list">
+			<!-- ko foreach: { data: items, as: 'item' } -->
+				<tr>
+					<td class="block-name"><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.OldUrl"></a></td>
+					<td class="block-desc" data-bind="text: item.NewUrl"></td>
+					<td class="block-updated" data-bind="text: item.Updated"></td>
+					<td class="block-created" data-bind="text: item.Created"></td>
+					<td class="actions">
+						<a class="delete" href="#" data-bind="click: function (item) { $root.delete(item.Id); }"></a>
+					</td>
+				</tr>
+			<!-- /ko -->
+		</tbody>
+	</table>
+</div>

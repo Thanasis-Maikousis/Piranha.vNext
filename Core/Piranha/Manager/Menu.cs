@@ -90,6 +90,9 @@ namespace Piranha.Manager
 			new MenuItem() {
 				InternalId = "Settings", Name = "Settings", Css = "ico-settings", Items = new List<MenuItem>() {
 					new MenuItem() {
+						InternalId = "Aliases", Name = "Aliases", Controller = "AliasMgr", Action = "List"
+					},
+					new MenuItem() {
 						InternalId = "Authors", Name = "Authors", Controller = "AuthorMgr", Action = "List"
 					},
 					new MenuItem() {

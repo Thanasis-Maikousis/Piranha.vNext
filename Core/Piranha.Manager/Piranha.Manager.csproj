@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Manager\Assets\js\models\manager.alias.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.block.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.author.js" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.css" />
@@ -338,6 +339,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Manager\Controllers\AccountMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\AliasMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\AuthorMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\BlockMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\ManagerController.cs" />
@@ -349,6 +351,8 @@
     </Compile>
     <Compile Include="Manager\ManagerModule.cs" />
     <Compile Include="Manager\Models\Account\LoginModel.cs" />
+    <Compile Include="Manager\Models\Alias\EditModel.cs" />
+    <Compile Include="Manager\Models\Alias\ListItem.cs" />
     <Compile Include="Manager\Models\Author\EditModel.cs" />
     <Compile Include="Manager\Models\Author\ListItem.cs" />
     <Compile Include="Manager\Models\Block\EditModel.cs" />
@@ -434,6 +438,7 @@
     <Content Include="Areas\Manager\Views\BlockMgr\List.cshtml" />
     <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml" />
     <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
+    <Content Include="Areas\Manager\Views\AliasMgr\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
