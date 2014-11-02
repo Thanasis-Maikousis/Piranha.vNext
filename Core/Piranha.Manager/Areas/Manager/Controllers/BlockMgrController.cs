@@ -16,8 +16,9 @@
  * License along with this library.
  */
 
+using AutoMapper;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Piranha.Manager.Models.Block;
 
@@ -40,24 +41,22 @@ namespace Piranha.Areas.Manager.Controllers
 		}
 
 		/// <summary>
-		/// Gets the edit view for a new block.
+		/// Gets the authors.
 		/// </summary>
-		/// <returns>The view result</returns>
-		[Route("block/add")]
-		public ActionResult Add() {
-			ViewBag.Title = Piranha.Manager.Resources.Block.AddTitle;
-			return View("Edit", new EditModel());
+		/// <returns>The authors</returns>
+		[Route("blocks/get")]
+		public ActionResult Get() {
+			return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Block>, IEnumerable<ListItem>>(api.Blocks.Get()));
 		}
 
 		/// <summary>
-		/// Gets the edit view for an existing block.
+		/// Gets the author with the given id.
 		/// </summary>
 		/// <param name="id">The unique id</param>
-		/// <returns>The view result</returns>
-		[Route("block/edit/{id:Guid}")]
-		public ActionResult Edit(Guid id) {
-			ViewBag.Title = Piranha.Manager.Resources.Block.EditTitle;
-			return View(EditModel.GetById(api, id));
+		/// <returns>The author</returns>
+		[Route("block/get/{id:Guid}")]
+		public ActionResult GetSingle(Guid id) {
+			return JsonData(true, EditModel.GetById(api, id));
 		}
 
 		/// <summary>
@@ -68,17 +67,12 @@ namespace Piranha.Areas.Manager.Controllers
 		[HttpPost]
 		[Route("block/save")]
 		[ValidateInput(false)]
-		[ValidateAntiForgeryToken]
 		public ActionResult Save(EditModel model) {
 			if (ModelState.IsValid) {
 				model.Save(api);
-				return RedirectToAction("Edit", new { id = model.Id });
+				return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Block>, IEnumerable<ListItem>>(api.Blocks.Get()));
 			}
-			if (model.Id.HasValue)
-				ViewBag.Title = Piranha.Manager.Resources.Block.EditTitle;
-			else ViewBag.Title = Piranha.Manager.Resources.Block.AddTitle;
-
-			return View("Edit", model);
+			return JsonData(false);
 		}
 
 		/// <summary>
@@ -88,12 +82,13 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The redirect result</returns>
 		[Route("block/delete/{id:Guid}")]
 		public ActionResult Delete(Guid id) {
-			var block = api.Blocks.GetSingle(where: t => t.Id == id);
-			if (block != null) {
-				api.Blocks.Remove(block);
+			var author = api.Authors.GetSingle(where: a => a.Id == id);
+			if (author != null) {
+				api.Authors.Remove(author);
 				api.SaveChanges();
+				return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Block>, IEnumerable<ListItem>>(api.Blocks.Get()));
 			}
-			return RedirectToAction("List");
+			return JsonData(false);
 		}
 	}
 }

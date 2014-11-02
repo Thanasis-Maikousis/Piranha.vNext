@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Manager\Assets\js\models\manager.block.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.author.js" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
@@ -351,6 +352,7 @@
     <Compile Include="Manager\Models\Author\EditModel.cs" />
     <Compile Include="Manager\Models\Author\ListItem.cs" />
     <Compile Include="Manager\Models\Block\EditModel.cs" />
+    <Compile Include="Manager\Models\Block\ListItem.cs" />
     <Compile Include="Manager\Models\Post\CommentState.cs" />
     <Compile Include="Manager\Models\Post\EditModel.cs" />
     <Compile Include="Manager\Models\Post\ListModel.cs" />
@@ -430,7 +432,6 @@
     <Content Include="Areas\Manager\Views\PostMgr\Partial\CommentList.cshtml" />
     <Content Include="Areas\Manager\Views\PostMgr\EditorTemplates\CommentListItem.cshtml" />
     <Content Include="Areas\Manager\Views\BlockMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\BlockMgr\Edit.cshtml" />
     <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml" />
     <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
     <None Include="Web.Debug.config">
