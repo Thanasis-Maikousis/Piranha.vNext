@@ -18,36 +18,36 @@
 
 using System;
 
-namespace Piranha.Manager.Models.Author
+namespace Piranha.Manager.Models.Block
 {
 	/// <summary>
-	/// View model for the author list.
+	/// View model for the block list.
 	/// </summary>
 	public class ListItem
 	{
 		#region Properties
 		/// <summary>
-		/// Gets/sets unique id.
+		/// Gets/sets the unique id.
 		/// </summary>
 		public Guid Id { get; set; }
 
 		/// <summary>
-		/// Get/sets the name.
+		/// Gets/sets the name.
 		/// </summary>
 		public string Name { get; set; }
 
 		/// <summary>
-		/// Gets/sets the email.
+		/// Gets/sets the optional description.
 		/// </summary>
-		public string Email { get; set; }
+		public string Description { get; set; }
 
 		/// <summary>
-		/// Gets/sets when the author was created.
+		/// Gets/sets when the block was created.
 		/// </summary>
 		public string Created { get; set; }
 
 		/// <summary>
-		/// Gets/sets when the author was last updated.
+		/// Gets/sets when the block was last updated.
 		/// </summary>
 		public string Updated { get; set; }
 		#endregion

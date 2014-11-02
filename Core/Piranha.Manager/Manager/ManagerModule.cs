@@ -38,6 +38,9 @@ namespace Piranha.Manager
 				.ForMember(a => a.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
 
 			// Block
+			Mapper.CreateMap<Piranha.Models.Block, Models.Block.ListItem>()
+				.ForMember(b => b.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
+				.ForMember(b => b.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
 			Mapper.CreateMap<Piranha.Models.Block, Models.Block.EditModel>();
 			Mapper.CreateMap<Models.Block.EditModel, Piranha.Models.Block>()
 				.ForMember(b => b.Id, o => o.Ignore())
