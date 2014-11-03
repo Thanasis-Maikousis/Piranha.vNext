@@ -72,7 +72,7 @@ namespace Piranha.Repositories
 		/// <param name="where">The optional where expression</param>
 		/// <returns>The matching models</returns>
 		public virtual IEnumerable<T> Get(Expression<Func<T, bool>> where = null, int? limit = null, Func<IQueryable<T>, IQueryable<T>> order = null) {
-			var models = session.Get<T>(where, limit, order);
+			var models = session.Get<T>(where, limit, order != null ? order : Order);
 
 			foreach (var model in models)
 				FromDb(model);
