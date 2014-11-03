@@ -77,7 +77,7 @@
 		</thead>
 		<tbody class="list">
 			<!-- ko foreach: { data: items, as: 'item' } -->
-				<tr>
+				<tr data-bind="attr: { 'data-id': item.Id }">
 					<td class="block-name"><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Name"></a></td>
 					<td class="block-desc" data-bind="text: item.Description"></td>
 					<td class="block-updated" data-bind="text: item.Updated"></td>
