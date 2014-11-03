@@ -75,6 +75,8 @@ manager.models.author = function () {
 					tinyMCE.activeEditor.setContent(result.data.Description != null ? result.data.Description : '');
 					$('.collapse').collapse('show');
 				}
+				$('.table tr').removeClass('active');
+				$('.table tr[data-id="' + id + '"]').addClass('active');
 			},
 			error: function (result) {
 				console.log('error');
@@ -153,6 +155,7 @@ manager.models.author = function () {
 		self.description('');
 		tinyMCE.activeEditor.setContent('');
 		$('.collapse').collapse('hide');
+		$('.table tr').removeClass('active');
 	}
 
 	// Initialze after everything is created.

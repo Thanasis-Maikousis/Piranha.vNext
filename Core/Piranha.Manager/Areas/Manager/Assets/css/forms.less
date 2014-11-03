@@ -145,10 +145,22 @@
 			>td {
 				background-color: @list-color;
 			}
+
+			&.active {
+				>td {
+					background-color: @list-color-active;
+				}
+			}
 		}
 		>tr:nth-child(2n) {
 			>td {
 				background-color: @list-color;
+			}
+
+			&.active {
+				>td {
+					background-color: @list-color-active;
+				}
 			}
 		}
 	}

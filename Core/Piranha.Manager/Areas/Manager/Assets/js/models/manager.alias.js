@@ -74,6 +74,8 @@ manager.models.alias = function (locale) {
 					self.isPermanent(result.data.IsPermanent);
 					$('.collapse').collapse('show');
 				}
+				$('.table tr').removeClass('active');
+				$('.table tr[data-id="' + id + '"]').addClass('active');
 			},
 			error: function (result) {
 				console.log('error');
@@ -149,6 +151,7 @@ manager.models.alias = function (locale) {
 		self.newUrlValid(true);
 		self.isPermanent(false);
 		$('.collapse').collapse('hide');
+		$('.table tr').removeClass('active');
 	}
 
 	// Initialze after everything is created.

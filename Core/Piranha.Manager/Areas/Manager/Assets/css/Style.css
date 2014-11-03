@@ -7555,8 +7555,14 @@ a {
 .table-striped > tbody > tr:nth-child(2n+1) > td {
   background-color: #f8f8f8;
 }
+.table-striped > tbody > tr:nth-child(2n+1).active > td {
+  background-color: #d9edf7;
+}
 .table-striped > tbody > tr:nth-child(2n) > td {
   background-color: #f8f8f8;
+}
+.table-striped > tbody > tr:nth-child(2n).active > td {
+  background-color: #d9edf7;
 }
 .form label.label-small {
   font-size: 12px;

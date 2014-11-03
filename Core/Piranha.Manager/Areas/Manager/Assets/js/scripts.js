@@ -6769,6 +6769,8 @@ manager.models.alias = function (locale) {
 					self.isPermanent(result.data.IsPermanent);
 					$('.collapse').collapse('show');
 				}
+				$('.table tr').removeClass('active');
+				$('.table tr[data-id="' + id + '"]').addClass('active');
 			},
 			error: function (result) {
 				console.log('error');
@@ -6844,6 +6846,7 @@ manager.models.alias = function (locale) {
 		self.newUrlValid(true);
 		self.isPermanent(false);
 		$('.collapse').collapse('hide');
+		$('.table tr').removeClass('active');
 	}
 
 	// Initialze after everything is created.
@@ -6927,6 +6930,8 @@ manager.models.author = function () {
 					tinyMCE.activeEditor.setContent(result.data.Description != null ? result.data.Description : '');
 					$('.collapse').collapse('show');
 				}
+				$('.table tr').removeClass('active');
+				$('.table tr[data-id="' + id + '"]').addClass('active');
 			},
 			error: function (result) {
 				console.log('error');
@@ -7005,6 +7010,7 @@ manager.models.author = function () {
 		self.description('');
 		tinyMCE.activeEditor.setContent('');
 		$('.collapse').collapse('hide');
+		$('.table tr').removeClass('active');
 	}
 
 	// Initialze after everything is created.
@@ -7090,6 +7096,8 @@ manager.models.block = function () {
 					tinyMCE.activeEditor.setContent(result.data.Body != null ? result.data.Body : '');
 					$('.collapse').collapse('show');
 				}
+				$('.table tr').removeClass('active');
+				$('.table tr[data-id="' + id + '"]').addClass('active');
 			},
 			error: function (result) {
 				console.log('error');
@@ -7170,6 +7178,7 @@ manager.models.block = function () {
 		self.body('');
 		tinyMCE.activeEditor.setContent('');
 		$('.collapse').collapse('hide');
+		$('.table tr').removeClass('active');
 	}
 
 	// Initialze after everything is created.
