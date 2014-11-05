@@ -119,11 +119,7 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Web\Extensions.cs" />
     <Compile Include="Web\HandlerCollection.cs" />
-    <Compile Include="Web\Handlers\AliasHandler.cs" />
     <Compile Include="Web\IHandler.cs" />
-    <Compile Include="Web\Handlers\MediaHandler.cs" />
-    <Compile Include="Web\Handlers\PageHandler.cs" />
-    <Compile Include="Web\Handlers\PostHandler.cs" />
     <Compile Include="Web\Helpers\UIHelper.cs" />
     <Compile Include="Web\Models\ArchiveModel.cs" />
     <Compile Include="Web\Models\ContentType.cs" />

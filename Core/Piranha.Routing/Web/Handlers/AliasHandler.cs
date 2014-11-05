@@ -20,6 +20,9 @@ using System;
 
 namespace Piranha.Web.Handlers
 {
+	/// <summary>
+	/// Handler for routing requests for aliases.
+	/// </summary>
 	public sealed class AliasHandler : IHandler
 	{
 		/// <summary>

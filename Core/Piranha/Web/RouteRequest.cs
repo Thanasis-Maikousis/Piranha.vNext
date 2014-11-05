@@ -48,7 +48,7 @@ namespace Piranha.Web
 		/// Default internal constructor.
 		/// </summary>
 		/// <param name="context">The current context</param>
-		internal RouteRequest(HttpContext context) {
+		public RouteRequest(HttpContext context) {
 			// Store the http request
 			HttpContext = context;
 

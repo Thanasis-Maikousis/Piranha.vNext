@@ -22,7 +22,7 @@ using System.Linq;
 namespace Piranha.Web.Handlers
 {
 	/// <summary>
-	/// The post handler tries to handle requests for posts and post archives.
+	/// Handler for routing requests for posts.
 	/// </summary>
 	public class PostHandler : IHandler
 	{

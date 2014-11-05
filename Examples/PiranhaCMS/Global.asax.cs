@@ -124,7 +124,7 @@ namespace PiranhaCMS
 					if (page == null) {
 						// Get startpage body from resource file
 						var body = "";
-						using (var reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + @"\App_Data\startcontent.html")) {
+						using (var reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + @"\App_Data\Import\startcontent.html")) {
 							body = reader.ReadToEnd();
 						}
 
