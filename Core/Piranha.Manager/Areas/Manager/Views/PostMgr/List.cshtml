@@ -12,24 +12,10 @@
 }
 
 <div class="container-fluid">
-	<!-- Post type filter -->
-	@if (Model.PostTypes.Count > 1) {
-		<ul class="nav nav-pills">
-			<li @(Model.IsDefaultSelection ? "class=active" : "")>
-				<a href="@Url.Action("List", new { @slug = "" })">@Piranha.Manager.Resources.Global.All</a>
-			</li>
-			@foreach (var type in Model.PostTypes) {
-				<li @(type.IsActive ? "class=active" : "")><a href="@Url.Action("List", new { @slug = type.Slug })">@type.Name</a></li>
-			}
-		</ul>
-		<br />
-	}
-
 	<div class="row">
-		<!-- Actions -->
-		<div class="col-sm-12 buttons">
+		<div class="col-sm-12">
 			@if (Model.PostTypes.Count > 1 && Model.IsDefaultSelection) {
-				<div class="btn-group">
+				<div class="btn-group pull-right">
 					<button type="button" class="btn btn-labeled btn-primary" data-toggle="dropdown">
 						<span class="btn-label">
 							<i class="glyphicon glyphicon-plus"></i>
@@ -48,7 +34,7 @@
 			} else {
 				var type = Model.IsDefaultSelection ? Model.PostTypes.FirstOrDefault() : Model.PostTypes.Where(t => t.IsActive).Single();
 
-				<div class="btn-group submit">
+				<div class="btn-group submit pull-right">
 					<a href="@Url.Action("Add", new { @type = type.Slug })" class="btn btn-primary btn-labeled">
 						<span class="btn-label">
 							<i class="glyphicon glyphicon-plus"></i>
@@ -56,6 +42,25 @@
 					</a>
 				</div>
 			}
+
+			<!-- Post type filter -->
+			@if (Model.PostTypes.Count > 1) {
+				<ul class="nav nav-pills">
+					<li @(Model.IsDefaultSelection ? "class=active" : "")>
+						<a href="@Url.Action("List", new { @slug = "" })">@Piranha.Manager.Resources.Global.All</a>
+					</li>
+					@foreach (var type in Model.PostTypes) {
+						<li @(type.IsActive ? "class=active" : "")><a href="@Url.Action("List", new { @slug = type.Slug })">@type.Name</a></li>
+					}
+				</ul>
+				<br />
+			}
+		</div>
+	</div>
+
+	<div class="row">
+		<!-- Actions -->
+		<div class="col-sm-12 buttons">
 		</div>
 	</div>
 
