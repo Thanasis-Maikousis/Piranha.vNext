@@ -25,6 +25,7 @@
 			th {
 				background: @list-color-head;
 				padding: 12px 20px;
+				font-family: "Open Sans", Arial;
 
 				&.actions {
 					&.one {
@@ -113,12 +114,13 @@
 
 			&:hover {
 				td {
-					background: @list-color-hover;
+					background: #fafafa;
 				}
 			}
 		}
 
 		a {
+			font-family: "Open Sans", Arial;
 			font-size: 16px;
 		}
 	}
@@ -143,7 +145,7 @@
 	>tbody {
 		>tr:nth-child(2n+1) {
 			>td {
-				background-color: @list-color;
+				background-color: #fff;
 			}
 
 			&.active {
@@ -154,7 +156,7 @@
 		}
 		>tr:nth-child(2n) {
 			>td {
-				background-color: @list-color;
+				background-color: #fff;
 			}
 
 			&.active {
@@ -302,6 +304,14 @@
 			}
 		}
 	}
+}
+
+.btn, .btn-label {
+	.border-radius(0);
+}
+
+.btn-primary {
+	background: @link-color;
 }
 
 .col-sm-12.buttons {

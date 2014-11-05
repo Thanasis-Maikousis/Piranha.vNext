@@ -7482,6 +7482,7 @@ a {
 .table thead tr th {
   background: #e2e2e2;
   padding: 12px 20px;
+  font-family: "Open Sans", Arial;
 }
 .table thead tr th.actions.one {
   width: 16px;
@@ -7543,9 +7544,10 @@ a {
   vertical-align: middle;
 }
 .table.table-main tr:hover td {
-  background: #f2f2f2;
+  background: #fafafa;
 }
 .table.table-main a {
+  font-family: "Open Sans", Arial;
   font-size: 16px;
 }
 .panel .table {
@@ -7556,13 +7558,13 @@ a {
   border-bottom: solid 4px #f5f5f5;
 }
 .table-striped > tbody > tr:nth-child(2n+1) > td {
-  background-color: #f8f8f8;
+  background-color: #fff;
 }
 .table-striped > tbody > tr:nth-child(2n+1).active > td {
   background-color: #d9edf7;
 }
 .table-striped > tbody > tr:nth-child(2n) > td {
-  background-color: #f8f8f8;
+  background-color: #fff;
 }
 .table-striped > tbody > tr:nth-child(2n).active > td {
   background-color: #d9edf7;
@@ -7682,6 +7684,16 @@ a {
 .form .form-group .mce-tinymce .mce-edit-area {
   border-top: 0 none;
 }
+.btn,
+.btn-label {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.btn-primary {
+  background: #2a8ac2;
+}
 .col-sm-12.buttons {
   text-align: right;
   margin-top: -50px;
@@ -7769,12 +7781,12 @@ a {
   border: none;
   padding: 20px;
 }
-#login .container .panel-default p {
+#login .container .panel-default p.banner {
   color: #999;
   margin-bottom: 20px;
   font: 300 32px "Open Sans", Arial;
 }
-#login .container .panel-default p small {
+#login .container .panel-default p.banner small {
   display: block;
   font-size: 12px;
   font-weight: normal;

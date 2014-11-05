@@ -12,12 +12,12 @@
   border: none;
   padding: 20px;
 }
-#login .container .panel-default p {
+#login .container .panel-default p.banner {
   color: #999;
   margin-bottom: 20px;
   font: 300 32px "Open Sans", Arial;
 }
-#login .container .panel-default p small {
+#login .container .panel-default p.banner small {
   display: block;
   font-size: 12px;
   font-weight: normal;
