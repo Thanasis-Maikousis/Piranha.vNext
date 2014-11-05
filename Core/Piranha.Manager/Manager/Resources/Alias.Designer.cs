@@ -22,14 +22,14 @@ namespace Piranha.Manager.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Block {
+    public class Alias {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Block() {
+        internal Alias() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Piranha.Manager.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Piranha.Manager.Resources.Block", typeof(Block).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Piranha.Manager.Resources.Alias", typeof(Alias).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new block.
+        ///   Looks up a localized string similar to Add new alias.
         /// </summary>
         public static string AddTitle {
             get {
@@ -70,16 +70,7 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional description.
-        /// </summary>
-        public static string DescriptionPlaceholder {
-            get {
-                return ResourceManager.GetString("DescriptionPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit block.
+        ///   Looks up a localized string similar to Edit alias.
         /// </summary>
         public static string EditTitle {
             get {
@@ -88,7 +79,16 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blocks.
+        ///   Looks up a localized string similar to This redirect should be permanent (HTTP 301).
+        /// </summary>
+        public static string IsPermanent {
+            get {
+                return ResourceManager.GetString("IsPermanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aliases.
         /// </summary>
         public static string ListTitle {
             get {
@@ -97,20 +97,38 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new name.
+        ///   Looks up a localized string similar to New URL.
         /// </summary>
-        public static string NamePlaceholder {
+        public static string NewUrl {
             get {
-                return ResourceManager.GetString("NamePlaceholder", resourceCulture);
+                return ResourceManager.GetString("NewUrl", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Slug is generated if you leave it blank.
+        ///   Looks up a localized string similar to Add new URL.
         /// </summary>
-        public static string SlugPlaceholder {
+        public static string NewUrlPlaceholder {
             get {
-                return ResourceManager.GetString("SlugPlaceholder", resourceCulture);
+                return ResourceManager.GetString("NewUrlPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old URL.
+        /// </summary>
+        public static string OldUrl {
+            get {
+                return ResourceManager.GetString("OldUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add old URL.
+        /// </summary>
+        public static string OldUrlPlaceholder {
+            get {
+                return ResourceManager.GetString("OldUrlPlaceholder", resourceCulture);
             }
         }
     }

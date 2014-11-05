@@ -123,13 +123,16 @@
   <data name="EditTitle" xml:space="preserve">
     <value>Edit author</value>
   </data>
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>Author email</value>
+  </data>
   <data name="ListTitle" xml:space="preserve">
     <value>Authors</value>
   </data>
+  <data name="NamePlaceholder" xml:space="preserve">
+    <value>Add author name</value>
+  </data>
   <data name="SelectUser" xml:space="preserve">
     <value>Select user</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>User</value>
   </data>
 </root>

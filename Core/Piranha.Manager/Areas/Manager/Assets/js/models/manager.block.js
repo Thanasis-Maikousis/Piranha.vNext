@@ -22,14 +22,14 @@ if (!manager.models)
 //
 // Block view model
 //
-manager.models.block = function () {
+manager.models.block = function (locale) {
 	'use strict';
 
 	var self = window.block = this;
 
 	// Labels & texts
-	self.addTitle = 'Add new block';
-	self.editTitle = 'Edit block';
+	self.addTitle = locale.addTitle;
+	self.editTitle = locale.editTitle;
 
 	// Members
 	self.title = ko.observable(self.addTitle);

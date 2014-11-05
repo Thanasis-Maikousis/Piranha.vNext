@@ -342,6 +342,7 @@
     <Compile Include="Areas\Manager\Controllers\AliasMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\AuthorMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\BlockMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\ConfigMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\ManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\PostMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\PostTypeMgrController.cs" />
@@ -357,11 +358,17 @@
     <Compile Include="Manager\Models\Author\ListItem.cs" />
     <Compile Include="Manager\Models\Block\EditModel.cs" />
     <Compile Include="Manager\Models\Block\ListItem.cs" />
+    <Compile Include="Manager\Models\Config\ListModel.cs" />
     <Compile Include="Manager\Models\Post\CommentState.cs" />
     <Compile Include="Manager\Models\Post\EditModel.cs" />
     <Compile Include="Manager\Models\Post\ListModel.cs" />
     <Compile Include="Manager\Models\PostType\ListModel.cs" />
     <Compile Include="Manager\Models\PostType\EditModel.cs" />
+    <Compile Include="Manager\Resources\Alias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Alias.resx</DependentUpon>
+    </Compile>
     <Compile Include="Manager\Resources\Author.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -439,6 +446,7 @@
     <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml" />
     <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
     <Content Include="Areas\Manager\Views\AliasMgr\List.cshtml" />
+    <Content Include="Areas\Manager\Views\ConfigMgr\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -457,6 +465,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Manager\Resources\Alias.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Alias.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\Resources\Author.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Author.Designer.cs</LastGenOutput>

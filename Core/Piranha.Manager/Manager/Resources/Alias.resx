@@ -117,76 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Add</value>
+  <data name="AddTitle" xml:space="preserve">
+    <value>Add new alias</value>
   </data>
-  <data name="All" xml:space="preserve">
-    <value>All</value>
+  <data name="EditTitle" xml:space="preserve">
+    <value>Edit alias</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="IsPermanent" xml:space="preserve">
+    <value>This redirect should be permanent (HTTP 301)</value>
   </data>
-  <data name="Content" xml:space="preserve">
-    <value>Content</value>
+  <data name="ListTitle" xml:space="preserve">
+    <value>Aliases</value>
   </data>
-  <data name="Created" xml:space="preserve">
-    <value>Created</value>
+  <data name="NewUrl" xml:space="preserve">
+    <value>New URL</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+  <data name="NewUrlPlaceholder" xml:space="preserve">
+    <value>Add new URL</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
+  <data name="OldUrl" xml:space="preserve">
+    <value>Old URL</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="MetaDescription" xml:space="preserve">
-    <value>Meta description</value>
-  </data>
-  <data name="MetaKeywords" xml:space="preserve">
-    <value>Meta keywords</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Ok" xml:space="preserve">
-    <value>Ok</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Preview</value>
-  </data>
-  <data name="Publish" xml:space="preserve">
-    <value>Publish</value>
-  </data>
-  <data name="Route" xml:space="preserve">
-    <value>Route</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="SaveDraft" xml:space="preserve">
-    <value>Save draft</value>
-  </data>
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="Slug" xml:space="preserve">
-    <value>Slug</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="Updated" xml:space="preserve">
-    <value>Updated</value>
-  </data>
-  <data name="View" xml:space="preserve">
-    <value>View</value>
+  <data name="OldUrlPlaceholder" xml:space="preserve">
+    <value>Add old URL</value>
   </data>
 </root>
