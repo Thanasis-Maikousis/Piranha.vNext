@@ -26,6 +26,63 @@
 		.border-radius(0);
 	}
 
+	&.panel-white {
+		border: none;
+		padding: 20px;
+
+		h3 {
+			color: #999;
+			font-family: "Open Sans";
+			font-weight: 300;
+			margin-top: 0;
+		}
+
+		.account-banner {
+			color: #999;
+			margin-bottom: 20px;
+			font: 300 32px "Open Sans", Arial;
+
+			small {
+				display: block;
+				font-size: 12px;
+				font-weight: normal;
+			}
+		}
+
+		.account-logo {
+			background: url('../img/logo-big.png') 50% 0 no-repeat;
+			height: 155px;
+			margin-bottom: 20px;
+		}
+
+		.row:last-child {
+			.form-group:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.form-group {
+			border: 0;
+
+			input {
+				background: #eee;
+				_padding: 10px 12px;
+				border-bottom: 1px solid @border-color;
+
+				&::-webkit-input-placeholder,
+				&:-moz-placeholder,
+				&::-moz-placeholder,
+				&:-ms-input-placeholder {  
+					color: #ccc;
+				}
+			}
+
+			textarea {
+				background: #eee;
+			}
+		}
+	}
+
 	&.panel-add {
 		>.panel-heading {
 			padding: 0;

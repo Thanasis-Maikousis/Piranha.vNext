@@ -204,13 +204,12 @@
 			}
 
 			&.meta {
-				color: #666;
 				font-size: 14px;
 			}
 
 			&.count-me + p {
-				background: #e8e8e8;
-				color: #aaa;
+				background: #ddd;
+				color: #999;
 				font-size: 12px;
 				padding: 4px 12px;
 				margin: 0;
@@ -303,6 +302,22 @@
 				border-top: 0 none;
 			}
 		}
+	}
+}
+
+.btn {
+	.border-radius(0);
+
+	&.btn-primary {
+		background: @link-color;
+		border-color: @link-color;
+		color: #fff;
+	}
+
+	&.btn-success {
+		background: @success-color;
+		border-color: @success-color;
+		color: #fff;
 	}
 }
 

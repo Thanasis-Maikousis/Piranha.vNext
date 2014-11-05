@@ -17,12 +17,12 @@
 </head>
 <body id="login">
 	<div class="container">
-		<div class="panel panel-default">
+		<div class="panel panel-white">
 			@using (Html.BeginForm("LoginUser", "AccountMgr", FormMethod.Post, new { @role = "form", @class = "form" })) {
 				@Html.AntiForgeryToken()
 				<div class="panel-body">
 					<div class="account-logo"></div>
-					<p class="banner">
+					<p class="account-banner">
 						Piranha CMS
 						<small>Version @Piranha.Utils.GetAssemblyVersion()</small>
 					</p>
@@ -32,7 +32,7 @@
 					<div class="form-group">
 						@Html.Password("Password", "", new { @class = "form-control", @placeholder = @Piranha.Manager.Resources.Account.PasswordPlaceholder })
 					</div>
-					<button type="submit" class="btn"><span class="glyphicon glyphicon-ok"></span></button>
+					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
 				</div>
 			}
 		</div>

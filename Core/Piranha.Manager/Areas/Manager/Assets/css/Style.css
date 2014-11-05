@@ -7342,7 +7342,6 @@ a {
   margin-left: 0;
 }
 .section-title {
-  text-transform: uppercase;
   border-bottom: solid 1px #dddddd;
   padding-bottom: 10px;
 }
@@ -7602,12 +7601,11 @@ a {
   color: #222;
 }
 .form .form-group .form-control.meta {
-  color: #666;
   font-size: 14px;
 }
 .form .form-group .form-control.count-me + p {
-  background: #e8e8e8;
-  color: #aaa;
+  background: #ddd;
+  color: #999;
   font-size: 12px;
   padding: 4px 12px;
   margin: 0;
@@ -7684,6 +7682,22 @@ a {
 .form .form-group .mce-tinymce .mce-edit-area {
   border-top: 0 none;
 }
+.btn {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.btn.btn-primary {
+  background: #2a8ac2;
+  border-color: #2a8ac2;
+  color: #fff;
+}
+.btn.btn-success {
+  background: #439700;
+  border-color: #439700;
+  color: #fff;
+}
 .btn,
 .btn-label {
   border-radius: 0;
@@ -7712,6 +7726,51 @@ a {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
+}
+.panel.panel-white {
+  border: none;
+  padding: 20px;
+}
+.panel.panel-white h3 {
+  color: #999;
+  font-family: "Open Sans";
+  font-weight: 300;
+  margin-top: 0;
+}
+.panel.panel-white .account-banner {
+  color: #999;
+  margin-bottom: 20px;
+  font: 300 32px "Open Sans", Arial;
+}
+.panel.panel-white .account-banner small {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+}
+.panel.panel-white .account-logo {
+  background: url('../img/logo-big.png') 50% 0 no-repeat;
+  height: 155px;
+  margin-bottom: 20px;
+}
+.panel.panel-white .row:last-child .form-group:last-child {
+  margin-bottom: 0;
+}
+.panel.panel-white .form-group {
+  border: 0;
+}
+.panel.panel-white .form-group input {
+  background: #eee;
+  _padding: 10px 12px;
+  border-bottom: 1px solid #dddddd;
+}
+.panel.panel-white .form-group input::-webkit-input-placeholder,
+.panel.panel-white .form-group input:-moz-placeholder,
+.panel.panel-white .form-group input::-moz-placeholder,
+.panel.panel-white .form-group input:-ms-input-placeholder {
+  color: #ccc;
+}
+.panel.panel-white .form-group textarea {
+  background: #eee;
 }
 .panel.panel-add > .panel-heading {
   padding: 0;
@@ -7777,45 +7836,10 @@ a {
   text-align: center;
   padding: 10px;
 }
-#login .container .panel-default {
-  border: none;
-  padding: 20px;
-}
-#login .container .panel-default p.banner {
-  color: #999;
-  margin-bottom: 20px;
-  font: 300 32px "Open Sans", Arial;
-}
-#login .container .panel-default p.banner small {
-  display: block;
-  font-size: 12px;
-  font-weight: normal;
-}
-#login .container .panel-default .account-logo {
-  background: url('../img/logo-big.png') 50% 0 no-repeat;
-  height: 155px;
-  margin-bottom: 20px;
-}
-#login .container .panel-default .form-group {
-  border: 0;
-}
-#login .container .panel-default .form-group input {
-  background: #eee;
+#login .container input {
   padding: 10px 12px;
 }
-#login .container .panel-default .form-group input::-webkit-input-placeholder,
-#login .container .panel-default .form-group input:-moz-placeholder,
-#login .container .panel-default .form-group input::-moz-placeholder,
-#login .container .panel-default .form-group input:-ms-input-placeholder {
-  color: #ccc;
-}
-#login .container .panel-default .btn {
-  background: #2a8ac2;
-  color: #fff;
+#login .container .btn {
   width: 100%;
   padding: 10px 20px;
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  -o-border-radius: 0;
 }

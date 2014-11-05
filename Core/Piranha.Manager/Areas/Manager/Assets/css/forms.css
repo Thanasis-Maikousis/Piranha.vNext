@@ -121,12 +121,11 @@
   color: #222;
 }
 .form .form-group .form-control.meta {
-  color: #666;
   font-size: 14px;
 }
 .form .form-group .form-control.count-me + p {
-  background: #e8e8e8;
-  color: #aaa;
+  background: #ddd;
+  color: #999;
   font-size: 12px;
   padding: 4px 12px;
   margin: 0;
@@ -202,6 +201,22 @@
 }
 .form .form-group .mce-tinymce .mce-edit-area {
   border-top: 0 none;
+}
+.btn {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.btn.btn-primary {
+  background: #2a8ac2;
+  border-color: #2a8ac2;
+  color: #fff;
+}
+.btn.btn-success {
+  background: #439700;
+  border-color: #439700;
+  color: #fff;
 }
 .btn,
 .btn-label {
