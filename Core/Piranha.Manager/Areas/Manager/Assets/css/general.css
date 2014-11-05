@@ -7,7 +7,10 @@
 h1 {
   color: #999;
   text-transform: uppercase;
+  font-family: "Open Sans", Arial;
+  font-weight: 300;
   font-size: 32px;
+  margin-bottom: 15px;
 }
 a {
   color: #2a8ac2;

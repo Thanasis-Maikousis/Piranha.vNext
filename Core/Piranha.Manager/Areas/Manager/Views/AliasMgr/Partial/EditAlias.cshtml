@@ -1,0 +1,52 @@
+﻿@{
+	Layout = "";
+}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-primary panel-add" >
+			<div id="addAliasTitle" class="panel-heading">
+				<h3 class="panel-title">
+					<span class="glyphicon glyphicon-plus pull-right"></span>
+					<a data-toggle="collapse" href="#addAlias" aria-expanded="false" aria-controls="addAlias" data-bind="text: title">
+						@Piranha.Manager.Resources.Alias.AddTitle
+					</a>
+				</h3>
+			</div>
+			<div id="addAlias" class="panel-collapse collapse" role="tabpanel" aria-labelledby="addAliasTitle">
+				<div class="panel-body">
+					<form role="form" class="form">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group" data-bind="css: { 'has-error has-feedback': oldUrlValid() != true }">
+									<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Alias.OldUrlPlaceholder" data-bind="value: oldUrl" />
+									<!-- ko if: !oldUrlValid() -->
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<!-- /ko -->
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" data-bind="css: { 'has-error has-feedback': newUrlValid() != true }">
+									<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Alias.NewUrlPlaceholder" data-bind="value: newUrl" />
+									<!-- ko if: !newUrlValid() -->
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<!-- /ko -->
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<input type="checkbox" data-bind="checked: isPermanent" />
+								<label class="label-small label-up">@Piranha.Manager.Resources.Alias.IsPermanent</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
+					<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -11,77 +11,29 @@
 }
 
 <div class="container-fluid">
-	<!-- Form -->
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="panel panel-primary panel-add" >
-				<div id="addAliasTitle" class="panel-heading">
-					<h3 class="panel-title">
-						<span class="glyphicon glyphicon-plus pull-right"></span>
-						<a data-toggle="collapse" href="#addAlias" aria-expanded="false" aria-controls="addAlias" data-bind="text: title">
-							@Piranha.Manager.Resources.Alias.AddTitle
-						</a>
-					</h3>
-				</div>
-			    <div id="addAlias" class="panel-collapse collapse" role="tabpanel" aria-labelledby="addAliasTitle">
-					<div class="panel-body">
-						<form role="form" class="form">
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group" data-bind="css: { 'has-error has-feedback': oldUrlValid() != true }">
-										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Alias.OldUrlPlaceholder" data-bind="value: oldUrl" />
-										<!-- ko if: !oldUrlValid() -->
-										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-										<!-- /ko -->
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group" data-bind="css: { 'has-error has-feedback': newUrlValid() != true }">
-										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Alias.NewUrlPlaceholder" data-bind="value: newUrl" />
-										<!-- ko if: !newUrlValid() -->
-										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-										<!-- /ko -->
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<input type="checkbox" data-bind="checked: isPermanent" />
-									<label class="label-small label-up">@Piranha.Manager.Resources.Alias.IsPermanent</label>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="panel-footer">
-						<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
-						<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	@Html.Partial("Partial/EditAlias")
 
 	<table id="block-list" class="table table-striped table-main">
 		<thead>
 			<tr>
-				<th><span class="sort desc" data-sort="block-name">@Piranha.Manager.Resources.Alias.OldUrl</span></th>
-				<th><span class="sort" data-sort="block-desc">@Piranha.Manager.Resources.Alias.NewUrl</span></th>
-				<th class="date"><span class="sort" data-sort="block-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
-				<th class="date"><span class="sort" data-sort="block-created">@Piranha.Manager.Resources.Global.Created</span></th>
+				<th>@Piranha.Manager.Resources.Alias.OldUrl</th>
+				<th>@Piranha.Manager.Resources.Alias.NewUrl</th>
+				<th class="date">@Piranha.Manager.Resources.Global.Updated</th>
+				<th class="date">@Piranha.Manager.Resources.Global.Created</th>
 				<th class="actions one"></th>
 			</tr>
 		</thead>
 		<tbody class="list">
 			<!-- ko foreach: { data: items, as: 'item' } -->
-				<tr data-bind="attr: { 'data-id': item.Id }">
-					<td class="block-name"><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.OldUrl"></a></td>
-					<td class="block-desc" data-bind="text: item.NewUrl"></td>
-					<td class="block-updated" data-bind="text: item.Updated"></td>
-					<td class="block-created" data-bind="text: item.Created"></td>
-					<td class="actions">
-						<a class="delete" href="#" data-bind="click: function (item) { $root.delete(item.Id); }"></a>
-					</td>
-				</tr>
+			<tr data-bind="attr: { 'data-id': item.Id }">
+				<td><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.OldUrl"></a></td>
+				<td data-bind="text: item.NewUrl"></td>
+				<td data-bind="text: item.Updated"></td>
+				<td data-bind="text: item.Created"></td>
+				<td class="actions">
+					<a class="delete" href="#" data-bind="click: function (item) { $root.delete(item.Id); }"></a>
+				</td>
+			</tr>
 			<!-- /ko -->
 		</tbody>
 	</table>

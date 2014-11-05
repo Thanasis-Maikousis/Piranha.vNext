@@ -18,9 +18,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -61,8 +59,7 @@ namespace Piranha.Web.Helpers
 
 			if (current != null) {
 				// Generator
-				sb.Append(String.Format(META_TAG, "generator", "Piranha CMS " +
-					FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion));
+				sb.Append(String.Format(META_TAG, "generator", "Piranha CMS " + Utils.GetFileVersion()));
 
 				// Meta tags
 				if (!String.IsNullOrWhiteSpace(current.Keywords))

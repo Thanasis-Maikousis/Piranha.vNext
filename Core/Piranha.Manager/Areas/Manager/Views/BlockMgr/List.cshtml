@@ -13,78 +13,25 @@
 }
 
 <div class="container-fluid">
-	<!-- Form -->
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="panel panel-primary panel-add" >
-				<div id="addBlockTitle" class="panel-heading">
-					<h3 class="panel-title">
-						<span class="glyphicon glyphicon-plus pull-right"></span>
-						<a data-toggle="collapse" href="#addBlock" aria-expanded="false" aria-controls="addBlock" data-bind="text: title">
-							@Piranha.Manager.Resources.Block.AddTitle
-						</a>
-					</h3>
-				</div>
-			    <div id="addBlock" class="panel-collapse collapse" role="tabpanel" aria-labelledby="addBlockTitle">
-					<div class="panel-body">
-						<form role="form" class="form">
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group" data-bind="css: { 'has-error has-feedback': nameValid() != true }">
-										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Block.NamePlaceholder" data-bind="value: name" />
-										<!-- ko if: !nameValid() -->
-										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-										<!-- /ko -->
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Block.SlugPlaceholder" data-bind="value: slug" />
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="form-group" data-bind="css: { 'has-error has-feedback': descriptionValid() != true }">
-										<textarea name="Email" class="form-control meta" placeholder="@Piranha.Manager.Resources.Block.DescriptionPlaceholder" data-bind="value: description"></textarea>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="form-group">
-										<textarea class="form-control editor" data-bind="text: body"></textarea>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="panel-footer">
-						<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
-						<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	@Html.Partial("Partial/EditBlock")
 
 	<table id="block-list" class="table table-striped table-main">
 		<thead>
 			<tr>
-				<th><span class="sort desc" data-sort="block-name">@Piranha.Manager.Resources.Global.Name</span></th>
-				<th><span class="sort" data-sort="block-desc">@Piranha.Manager.Resources.Global.Description</span></th>
-				<th class="date"><span class="sort" data-sort="block-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
-				<th class="date"><span class="sort" data-sort="block-created">@Piranha.Manager.Resources.Global.Created</span></th>
+				<th>@Piranha.Manager.Resources.Global.Name</th>
+				<th>@Piranha.Manager.Resources.Global.Description</th>
+				<th class="date">@Piranha.Manager.Resources.Global.Updated</th>
+				<th class="date">@Piranha.Manager.Resources.Global.Created</th>
 				<th class="actions one"></th>
 			</tr>
 		</thead>
 		<tbody class="list">
 			<!-- ko foreach: { data: items, as: 'item' } -->
 				<tr data-bind="attr: { 'data-id': item.Id }">
-					<td class="block-name"><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Name"></a></td>
-					<td class="block-desc" data-bind="text: item.Description"></td>
-					<td class="block-updated" data-bind="text: item.Updated"></td>
-					<td class="block-created" data-bind="text: item.Created"></td>
+					<td><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Name"></a></td>
+					<td data-bind="text: item.Description"></td>
+					<td data-bind="text: item.Updated"></td>
+					<td data-bind="text: item.Created"></td>
 					<td class="actions">
 						<a class="delete" href="#" data-bind="click: function (item) { $root.delete(item.Id); }"></a>
 					</td>

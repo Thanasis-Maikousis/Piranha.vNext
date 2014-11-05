@@ -1,0 +1,79 @@
+﻿//
+// Piranha CMS
+// Copyright (c) 2014, Håkan Edling, All rights reserved.
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 3.0 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library.
+//
+
+@import "colors.less";
+@import "mixins.less";
+
+#login {
+	margin: 0;
+
+	.container {
+		max-width: 360px;
+		min-width: 300px;
+		margin-top: 80px;
+		text-align: center;
+		padding: 10px;
+
+		.panel-default {
+			border: none;
+			padding: 20px;
+
+			p {
+				color: #999;
+				margin-bottom: 20px;
+				font: 300 32px "Open Sans", Arial;
+
+				small {
+					display: block;
+					font-size: 12px;
+					font-weight: normal;
+				}
+			}
+
+			.account-logo {
+				background: url('../img/logo-big.png') 50% 0 no-repeat;
+				height: 155px;
+				margin-bottom: 20px;
+			}
+
+			.form-group {
+				border: 0;
+
+				input {
+					background: #eee;
+					padding: 10px 12px;
+
+					&::-webkit-input-placeholder,
+					&:-moz-placeholder,
+					&::-moz-placeholder,
+					&:-ms-input-placeholder {  
+						color: #ccc;
+					}
+				}
+			}
+
+			.btn {
+				background: @link-color;
+				color: #fff;
+				width: 100%;
+				padding: 10px 20px;
+				.border-radius(0);
+			}
+		}
+	}
+}

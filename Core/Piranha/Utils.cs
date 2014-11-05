@@ -18,6 +18,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -200,6 +202,22 @@ namespace Piranha
 
 				api.SaveChanges();
 			}
+		}
+
+		/// <summary>
+		/// Gets the current file version.
+		/// </summary>
+		/// <returns>The file version</returns>
+		public static string GetFileVersion() {
+			return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+		}
+
+		/// <summary>
+		/// Gets the current assembly version.
+		/// </summary>
+		/// <returns>The assembly version</returns>
+		public static string GetAssemblyVersion() {
+			return Assembly.GetExecutingAssembly().GetName().Version.ToString();
 		}
 	}
 }

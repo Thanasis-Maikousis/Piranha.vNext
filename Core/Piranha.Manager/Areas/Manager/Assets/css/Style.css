@@ -7329,7 +7329,10 @@ body {
 h1 {
   color: #999;
   text-transform: uppercase;
+  font-family: "Open Sans", Arial;
+  font-weight: 300;
   font-size: 32px;
+  margin-bottom: 15px;
 }
 a {
   color: #2a8ac2;
@@ -7751,4 +7754,56 @@ a {
 .modal-content .modal-footer {
   margin-top: 0;
   border-top: 1px solid #444;
+}
+#login {
+  margin: 0;
+}
+#login .container {
+  max-width: 360px;
+  min-width: 300px;
+  margin-top: 80px;
+  text-align: center;
+  padding: 10px;
+}
+#login .container .panel-default {
+  border: none;
+  padding: 20px;
+}
+#login .container .panel-default p {
+  color: #999;
+  margin-bottom: 20px;
+  font: 300 32px "Open Sans", Arial;
+}
+#login .container .panel-default p small {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+}
+#login .container .panel-default .account-logo {
+  background: url('../img/logo-big.png') 50% 0 no-repeat;
+  height: 155px;
+  margin-bottom: 20px;
+}
+#login .container .panel-default .form-group {
+  border: 0;
+}
+#login .container .panel-default .form-group input {
+  background: #eee;
+  padding: 10px 12px;
+}
+#login .container .panel-default .form-group input::-webkit-input-placeholder,
+#login .container .panel-default .form-group input:-moz-placeholder,
+#login .container .panel-default .form-group input::-moz-placeholder,
+#login .container .panel-default .form-group input:-ms-input-placeholder {
+  color: #ccc;
+}
+#login .container .panel-default .btn {
+  background: #2a8ac2;
+  color: #fff;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
 }

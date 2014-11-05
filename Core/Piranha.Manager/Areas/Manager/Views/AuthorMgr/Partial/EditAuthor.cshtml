@@ -1,0 +1,53 @@
+﻿@{
+	Layout = "";
+}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-primary panel-add" >
+			<div id="addAuthorTitle" class="panel-heading">
+				<h3 class="panel-title">
+					<span class="glyphicon glyphicon-plus pull-right"></span>
+					<a data-toggle="collapse" href="#addAuthor" aria-expanded="false" aria-controls="addAuthor" data-bind="text: title">
+						@Piranha.Manager.Resources.Author.AddTitle
+					</a>
+				</h3>
+			</div>
+			<div id="addAuthor" class="panel-collapse collapse" role="tabpanel" aria-labelledby="addAuthorTitle">
+				<div class="panel-body">
+					<form role="form" class="form">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group" data-bind="css: { 'has-error has-feedback': nameValid() != true }">
+									<input id="authorName" type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Author.NamePlaceholder" data-bind="value: name" />
+									<!-- ko if: !nameValid() -->
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<!-- /ko -->
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" data-bind="css: { 'has-error has-feedback': emailValid() != true }">
+									<input id="authorEmail" name="Email" class="form-control" placeholder="@Piranha.Manager.Resources.Author.EmailPlaceholder" data-bind="value: email" />
+									<!-- ko if: !emailValid() -->
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<!-- /ko -->
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<textarea id="authorDescription" class="form-control editor" data-bind="text: description"></textarea>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
+					<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -99,6 +99,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Manager\Assets\css\login.css">
+      <DependentUpon>login.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\css\login.min.css">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\img\logo-big.png" />
     <Content Include="Areas\Manager\Assets\js\models\manager.alias.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.block.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.author.js" />
@@ -182,6 +189,7 @@
     </Content>
     <Content Include="Areas\Manager\Assets\css\fonts.less" />
     <Content Include="Areas\Manager\Assets\css\modals.less" />
+    <Content Include="Areas\Manager\Assets\css\login.less" />
     <None Include="Areas\Manager\Assets\vendor\datepicker\css\datepicker.less" />
     <Content Include="Areas\Manager\Assets\vendor\datepicker\js\bootstrap-datepicker.js" />
     <Content Include="Areas\Manager\Assets\img\ico-add-16.png" />
@@ -364,6 +372,11 @@
     <Compile Include="Manager\Models\Post\ListModel.cs" />
     <Compile Include="Manager\Models\PostType\ListModel.cs" />
     <Compile Include="Manager\Models\PostType\EditModel.cs" />
+    <Compile Include="Manager\Resources\Account.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Account.resx</DependentUpon>
+    </Compile>
     <Compile Include="Manager\Resources\Alias.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -447,6 +460,9 @@
     <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
     <Content Include="Areas\Manager\Views\AliasMgr\List.cshtml" />
     <Content Include="Areas\Manager\Views\ConfigMgr\List.cshtml" />
+    <Content Include="Areas\Manager\Views\AliasMgr\Partial\EditAlias.cshtml" />
+    <Content Include="Areas\Manager\Views\AuthorMgr\Partial\EditAuthor.cshtml" />
+    <Content Include="Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -465,6 +481,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Manager\Resources\Account.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Account.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\Resources\Alias.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Alias.Designer.cs</LastGenOutput>
