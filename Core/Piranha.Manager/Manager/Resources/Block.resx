@@ -120,10 +120,19 @@
   <data name="AddTitle" xml:space="preserve">
     <value>Add new block</value>
   </data>
+  <data name="DescriptionPlaceholder" xml:space="preserve">
+    <value>Optional description</value>
+  </data>
   <data name="EditTitle" xml:space="preserve">
     <value>Edit block</value>
   </data>
   <data name="ListTitle" xml:space="preserve">
     <value>Blocks</value>
+  </data>
+  <data name="NamePlaceholder" xml:space="preserve">
+    <value>Add new name</value>
+  </data>
+  <data name="SlugPlaceholder" xml:space="preserve">
+    <value>Slug is generated if you leave it blank</value>
   </data>
 </root>

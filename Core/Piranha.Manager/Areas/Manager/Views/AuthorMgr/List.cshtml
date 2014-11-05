@@ -5,7 +5,10 @@
 	@Html.Partial("Partial/Editor", new { height = 150, autoresize = false })
 
 	<script type="text/javascript">
-		ko.applyBindings(new manager.models.author());
+		ko.applyBindings(new manager.models.author({
+			addTitle: '@Piranha.Manager.Resources.Author.AddTitle',
+			editTitle: '@Piranha.Manager.Resources.Author.EditTitle'
+		}));
 	</script>
 }
 
@@ -18,7 +21,7 @@
 					<h3 class="panel-title">
 						<span class="glyphicon glyphicon-plus pull-right"></span>
 						<a data-toggle="collapse" href="#addAuthor" aria-expanded="false" aria-controls="addAuthor" data-bind="text: title">
-							Add new author
+							@Piranha.Manager.Resources.Author.AddTitle
 						</a>
 					</h3>
 				</div>
@@ -28,7 +31,7 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group" data-bind="css: { 'has-error has-feedback': nameValid() != true }">
-										<input id="authorName" type="text" class="form-control" placeholder="Add author name" data-bind="value: name" />
+										<input id="authorName" type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Author.NamePlaceholder" data-bind="value: name" />
 										<!-- ko if: !nameValid() -->
 										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 										<!-- /ko -->
@@ -36,7 +39,7 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group" data-bind="css: { 'has-error has-feedback': emailValid() != true }">
-										<input id="authorEmail" name="Email" class="form-control" placeholder="Author email" data-bind="value: email" />
+										<input id="authorEmail" name="Email" class="form-control" placeholder="@Piranha.Manager.Resources.Author.EmailPlaceholder" data-bind="value: email" />
 										<!-- ko if: !emailValid() -->
 										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 										<!-- /ko -->
@@ -46,7 +49,7 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-group">
-										<textarea id="authorDescription" class="form-control editor" placeholder="Optional description" data-bind="text: description"></textarea>
+										<textarea id="authorDescription" class="form-control editor" data-bind="text: description"></textarea>
 									</div>
 								</div>
 							</div>
@@ -54,7 +57,7 @@
 					</div>
 					<div class="panel-footer">
 						<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
-						<button class="btn btn-danger" data-bind="click: clear">Cancel</button>
+						<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
 					</div>
 				</div>
 			</div>

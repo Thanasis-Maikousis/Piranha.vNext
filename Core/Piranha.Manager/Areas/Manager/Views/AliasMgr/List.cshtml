@@ -1,11 +1,11 @@
 ﻿@{
-	ViewBag.Title = "Aliases";
+	ViewBag.Title = @Piranha.Manager.Resources.Alias.ListTitle;
 }
 @section script {
 	<script type="text/javascript">
 		ko.applyBindings(new manager.models.alias({
-			addTitle: 'Add new alias',
-			editTitle: 'Edit alias'
+			addTitle: '@Piranha.Manager.Resources.Alias.AddTitle',
+			editTitle: '@Piranha.Manager.Resources.Alias.EditTitle'
 		}));
 	</script>
 }
@@ -19,7 +19,7 @@
 					<h3 class="panel-title">
 						<span class="glyphicon glyphicon-plus pull-right"></span>
 						<a data-toggle="collapse" href="#addAlias" aria-expanded="false" aria-controls="addAlias" data-bind="text: title">
-							Add new alias
+							@Piranha.Manager.Resources.Alias.AddTitle
 						</a>
 					</h3>
 				</div>
@@ -29,7 +29,7 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group" data-bind="css: { 'has-error has-feedback': oldUrlValid() != true }">
-										<input type="text" class="form-control" placeholder="Add old url" data-bind="value: oldUrl" />
+										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Alias.OldUrlPlaceholder" data-bind="value: oldUrl" />
 										<!-- ko if: !oldUrlValid() -->
 										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 										<!-- /ko -->
@@ -37,7 +37,7 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group" data-bind="css: { 'has-error has-feedback': newUrlValid() != true }">
-										<input type="text" class="form-control" placeholder="Add new url" data-bind="value: newUrl" />
+										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Alias.NewUrlPlaceholder" data-bind="value: newUrl" />
 										<!-- ko if: !newUrlValid() -->
 										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 										<!-- /ko -->
@@ -47,14 +47,14 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<input type="checkbox" data-bind="checked: isPermanent" />
-									<label class="label-small label-up">This redirect should be permanent (HTTP 301)</label>
+									<label class="label-small label-up">@Piranha.Manager.Resources.Alias.IsPermanent</label>
 								</div>
 							</div>
 						</form>
 					</div>
 					<div class="panel-footer">
 						<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
-						<button class="btn btn-danger" data-bind="click: clear">Cancel</button>
+						<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -64,8 +64,8 @@
 	<table id="block-list" class="table table-striped table-main">
 		<thead>
 			<tr>
-				<th><span class="sort desc" data-sort="block-name">Old URL</span></th>
-				<th><span class="sort" data-sort="block-desc">New URL</span></th>
+				<th><span class="sort desc" data-sort="block-name">@Piranha.Manager.Resources.Alias.OldUrl</span></th>
+				<th><span class="sort" data-sort="block-desc">@Piranha.Manager.Resources.Alias.NewUrl</span></th>
 				<th class="date"><span class="sort" data-sort="block-updated">@Piranha.Manager.Resources.Global.Updated</span></th>
 				<th class="date"><span class="sort" data-sort="block-created">@Piranha.Manager.Resources.Global.Created</span></th>
 				<th class="actions one"></th>

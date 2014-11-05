@@ -22,14 +22,14 @@ if (!manager.models)
 //
 // Author view model
 //
-manager.models.author = function () {
+manager.models.author = function (locale) {
 	'use strict';
 
 	var self = window.author = this;
 
 	// Labels & texts
-	self.addTitle = 'Add new author';
-	self.editTitle = 'Edit author';
+	self.addTitle = locale.addTitle;
+	self.editTitle = locale.editTitle;
 
 	// Members
 	self.title = ko.observable(self.addTitle);

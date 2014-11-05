@@ -5,7 +5,10 @@
 	@Html.Partial("Partial/Editor", new { height = 150, autoresize = false })
 	
 	<script type="text/javascript">
-		ko.applyBindings(new manager.models.block());
+		ko.applyBindings(new manager.models.block({
+			addTitle: '@Piranha.Manager.Resources.Block.AddTitle',
+			editTitle: '@Piranha.Manager.Resources.Block.EditTitle'
+		}));
 	</script>
 }
 
@@ -18,7 +21,7 @@
 					<h3 class="panel-title">
 						<span class="glyphicon glyphicon-plus pull-right"></span>
 						<a data-toggle="collapse" href="#addBlock" aria-expanded="false" aria-controls="addBlock" data-bind="text: title">
-							Add new block
+							@Piranha.Manager.Resources.Block.AddTitle
 						</a>
 					</h3>
 				</div>
@@ -28,7 +31,7 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group" data-bind="css: { 'has-error has-feedback': nameValid() != true }">
-										<input type="text" class="form-control" placeholder="Add block name" data-bind="value: name" />
+										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Block.NamePlaceholder" data-bind="value: name" />
 										<!-- ko if: !nameValid() -->
 										<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 										<!-- /ko -->
@@ -36,21 +39,21 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Slug is generated if you leave it blank" data-bind="value: slug" />
+										<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Block.SlugPlaceholder" data-bind="value: slug" />
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-group" data-bind="css: { 'has-error has-feedback': descriptionValid() != true }">
-										<textarea name="Email" class="form-control meta" placeholder="Optional description" data-bind="value: description"></textarea>
+										<textarea name="Email" class="form-control meta" placeholder="@Piranha.Manager.Resources.Block.DescriptionPlaceholder" data-bind="value: description"></textarea>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-group">
-										<textarea class="form-control editor" placeholder="Main body" data-bind="text: body"></textarea>
+										<textarea class="form-control editor" data-bind="text: body"></textarea>
 									</div>
 								</div>
 							</div>
@@ -58,7 +61,7 @@
 					</div>
 					<div class="panel-footer">
 						<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
-						<button class="btn btn-danger" data-bind="click: clear">Cancel</button>
+						<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
 					</div>
 				</div>
 			</div>
