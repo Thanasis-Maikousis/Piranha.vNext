@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.EntityFramework", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.EntityFramework.Tests", "Data\Piranha.EntityFramework.Tests\Piranha.EntityFramework.Tests.csproj", "{D92595AE-7C9E-41E5-BB32-B68E5CB44CF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piranha.Routing", "Core\Piranha.Routing\Piranha.Routing.csproj", "{551009FB-1F65-48DE-95AC-B70EB0A5F269}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{D92595AE-7C9E-41E5-BB32-B68E5CB44CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D92595AE-7C9E-41E5-BB32-B68E5CB44CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D92595AE-7C9E-41E5-BB32-B68E5CB44CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551009FB-1F65-48DE-95AC-B70EB0A5F269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551009FB-1F65-48DE-95AC-B70EB0A5F269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551009FB-1F65-48DE-95AC-B70EB0A5F269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551009FB-1F65-48DE-95AC-B70EB0A5F269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +98,6 @@ Global
 		{DBCD4738-E675-41EE-ACFE-93407C185B0A} = {DAA6C4C6-9608-48B9-9FD6-F60865C469C0}
 		{1437778B-13F8-40C8-9FF6-1E511D93EBAD} = {845F328A-7064-4AD9-9951-DB085658493D}
 		{D92595AE-7C9E-41E5-BB32-B68E5CB44CF1} = {845F328A-7064-4AD9-9951-DB085658493D}
+		{551009FB-1F65-48DE-95AC-B70EB0A5F269} = {9B1329C8-BF43-4C2A-A92D-BB18BC6CD365}
 	EndGlobalSection
 EndGlobal

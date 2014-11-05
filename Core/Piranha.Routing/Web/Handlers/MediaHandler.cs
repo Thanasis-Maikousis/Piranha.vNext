@@ -24,6 +24,9 @@ using Kaliko.ImageLibrary.Scaling;
 
 namespace Piranha.Web.Handlers
 {
+	/// <summary>
+	/// Handler for media files.
+	/// </summary>
 	public class MediaHandler : IHandler
 	{
 		/// <summary>

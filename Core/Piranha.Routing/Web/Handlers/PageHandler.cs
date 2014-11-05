@@ -22,7 +22,7 @@ using System.Linq;
 namespace Piranha.Web.Handlers
 {
 	/// <summary>
-	/// The page handler tries to handle requests for pages.
+	/// Handler for routing requests for pages.
 	/// </summary>
 	public class PageHandler : IHandler
 	{

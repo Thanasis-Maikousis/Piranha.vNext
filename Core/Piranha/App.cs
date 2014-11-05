@@ -249,13 +249,8 @@ namespace Piranha
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Creating model cache");
 						modelCache = new Piranha.Cache.AppCache(config.Cache);
 
-						// Create the handlers
-						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering default handlers");
+						// Create the handler collection
 						handlers = new Web.HandlerCollection();
-						handlers.Aliases = new Web.Handlers.AliasHandler();
-						handlers.Pages = new Web.Handlers.PageHandler();
-						handlers.Posts = new Web.Handlers.PostHandler();
-						handlers.Add("media.ashx", new Web.Handlers.MediaHandler());
 
 						// Create the extension manager
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Creating extension manager");

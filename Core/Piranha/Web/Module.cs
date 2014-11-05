@@ -17,7 +17,6 @@
  */
 
 using System;
-using System.Linq;
 using System.Web;
 
 namespace Piranha.Web
@@ -48,9 +47,6 @@ namespace Piranha.Web
 			context.BeginRequest += (sender, e) => {
 				if (Hooks.App.Request.OnBeginRequest != null)
 					Hooks.App.Request.OnBeginRequest(((HttpApplication)sender).Context);
-
-				// Call the main entry point for Piranha
-				BeginRequest(((HttpApplication)sender).Context);
 			};
 
 			// Register end request
@@ -69,52 +65,5 @@ namespace Piranha.Web
 					Hooks.App.Request.OnError(((HttpApplication)sender).Context, exception);
 			};
 		}
-
-		#region Private methods
-		/// <summary>
-		/// Handles a request to Piranha.
-		/// </summary>
-		/// <param name="context">The current http context</param>
-		private void BeginRequest(HttpContext context) {
-			var result = new RouteResult(false);
-
-
-			if (!context.Request.RawUrl.StartsWith("/__browserLink/")) {
-				using (var api = new Api()) {
-					var request = new RouteRequest(context);
-
-					if (request.Segments.Length == 0) {
-						// Handle startpage
-						result = App.Handlers.Pages.Handle(api, request);
-					} else {
-						// Handle alias redirects
-						result = App.Handlers.Aliases.Handle(api, request);
-
-						// Handle request by keyword
-						if (!result.Handled) {
-							var handler = App.Handlers[request.Segments[0]];
-							if (handler != null)
-								result = handler.Handle(api, request);
-						}
-
-						// Handle posts
-						if (!result.Handled)
-							result = App.Handlers.Posts.Handle(api, request);
-
-						// Handle pages
-						if (!result.Handled)
-							result = App.Handlers.Pages.Handle(api, request);
-					}
-				}
-
-				// Check if we should rewrite the request
-				if (result.Handled) {
-					if (result.Rewrite)
-						context.RewritePath(result.ToString(), true);
-					else context.Response.End();
-				}
-			}
-		}
-		#endregion
 	}
 }

@@ -149,7 +149,7 @@
     <Content Include="Assets\Img\icon.ico" />
     <Content Include="Assets\Img\logo.png" />
     <Content Include="Global.asax" />
-    <Content Include="App_Data\startcontent.html" />
+    <Content Include="App_Data\Import\startcontent.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +199,10 @@
     <ProjectReference Include="..\..\Core\Piranha.Mvc\Piranha.Mvc.csproj">
       <Project>{e3d13740-01ae-438f-85a7-2c789a33eae3}</Project>
       <Name>Piranha.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Piranha.Routing\Piranha.Routing.csproj">
+      <Project>{551009fb-1f65-48de-95ac-b70eb0a5f269}</Project>
+      <Name>Piranha.Routing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Piranha\Piranha.csproj">
       <Project>{c5e2b115-51a8-46a9-90f5-49248cd34128}</Project>
