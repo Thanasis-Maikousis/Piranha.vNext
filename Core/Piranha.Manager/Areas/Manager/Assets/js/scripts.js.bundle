@@ -21,5 +21,6 @@
 		<file>/areas/manager/assets/js/models/manager.alias.js</file>
 		<file>/areas/manager/assets/js/models/manager.author.js</file>
 		<file>/areas/manager/assets/js/models/manager.block.js</file>
+		<file>/areas/manager/assets/js/models/manager.category.js</file>
 	</files>
 </bundle>

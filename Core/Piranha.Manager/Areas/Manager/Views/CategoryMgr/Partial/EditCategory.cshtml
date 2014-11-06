@@ -1,0 +1,43 @@
+﻿@{
+	Layout = "";
+}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-primary panel-add" >
+			<div id="addCategoryTitle" class="panel-heading">
+				<h3 class="panel-title">
+					<span class="glyphicon glyphicon-plus pull-right"></span>
+					<a data-toggle="collapse" href="#addCategory" aria-expanded="false" aria-controls="addCategory" data-bind="text: panelTitle">
+						@Piranha.Manager.Resources.Category.AddTitle
+					</a>
+				</h3>
+			</div>
+			<div id="addCategory" class="panel-collapse collapse" role="tabpanel" aria-labelledby="addCategoryTitle">
+				<div class="panel-body">
+					<form role="form" class="form">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group" data-bind="css: { 'has-error has-feedback': titleValid() != true }">
+									<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Category.TitlePlaceholder" data-bind="value: title" />
+									<!-- ko if: !titleValid() -->
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<!-- /ko -->
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="@Piranha.Manager.Resources.Category.SlugPlaceholder" data-bind="value: slug" />
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
+					<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

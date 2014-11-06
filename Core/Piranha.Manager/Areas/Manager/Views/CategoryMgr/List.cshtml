@@ -1,0 +1,40 @@
+﻿@{
+	ViewBag.Title = @Piranha.Manager.Resources.Category.ListTitle;
+}
+@section script {
+	<script type="text/javascript">
+		ko.applyBindings(new manager.models.category({
+			addTitle: '@Piranha.Manager.Resources.Category.AddTitle',
+			editTitle: '@Piranha.Manager.Resources.Category.EditTitle'
+		}));
+	</script>
+}
+
+<div class="container-fluid">
+	@Html.Partial("Partial/EditCategory")
+
+	<table id="block-list" class="table table-striped table-main">
+		<thead>
+			<tr>
+				<th>@Piranha.Manager.Resources.Global.Title</th>
+				<th>@Piranha.Manager.Resources.Global.Slug</th>
+				<th class="date">@Piranha.Manager.Resources.Global.Updated</th>
+				<th class="date">@Piranha.Manager.Resources.Global.Created</th>
+				<th class="actions one"></th>
+			</tr>
+		</thead>
+		<tbody class="list">
+			<!-- ko foreach: { data: items, as: 'item' } -->
+			<tr data-bind="attr: { 'data-id': item.Id }">
+				<td><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Title"></a></td>
+				<td data-bind="text: item.Slug"></td>
+				<td data-bind="text: item.Updated"></td>
+				<td data-bind="text: item.Created"></td>
+				<td class="actions">
+					<a class="delete" href="#" data-bind="click: function (item) { $root.delete(item.Id); }"></a>
+				</td>
+			</tr>
+			<!-- /ko -->
+		</tbody>
+	</table>
+</div>

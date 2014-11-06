@@ -20,10 +20,10 @@ using AutoMapper;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Piranha.Manager.Models.Author
+namespace Piranha.Manager.Models.Category
 {
 	/// <summary>
-	/// View model for the author edit view.
+	/// View model for the category edit view.
 	/// </summary>
 	public sealed class EditModel
 	{
@@ -34,35 +34,29 @@ namespace Piranha.Manager.Models.Author
 		public Guid? Id { get; set; }
 
 		/// <summary>
-		/// Gets/sets the display name.
+		/// Gets/sets the title.
 		/// </summary>
 		[Required, StringLength(128)]
-		public string Name { get; set; }
+		public string Title { get; set; }
 
 		/// <summary>
-		/// Gets/sets the email address.
+		/// Gets/sets the unique slug.
 		/// </summary>
 		[StringLength(128)]
-		public string Email { get; set; }
-
-		/// <summary>
-		/// Gets/sets the description.
-		/// </summary>
-		[StringLength(512)]
-		public string Description { get; set; }
+		public string Slug { get; set; }
 		#endregion
 
 		/// <summary>
-		/// Gets the edit model for the author with the given id.
+		/// Gets the edit model for the category with the given id.
 		/// </summary>
 		/// <param name="api">The current api</param>
 		/// <param name="id">The unique id</param>
 		/// <returns>The edit model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var author = api.Authors.GetSingle(where: a => a.Id == id);
+			var category = api.Categories.GetSingle(where: a => a.Id == id);
 
-			if (author != null)
-				return Mapper.Map<Piranha.Models.Author, EditModel>(author);
+			if (category != null)
+				return Mapper.Map<Piranha.Models.Category, EditModel>(category);
 			return null;
 		}
 
@@ -72,21 +66,21 @@ namespace Piranha.Manager.Models.Author
 		public void Save(Api api) {
 			var newModel = false;
 
-			// Get or create author
-			var author = api.Authors.GetSingle(where: a => a.Id == Id);
-			if (author == null) {
-				author = new Piranha.Models.Author();
+			// Get or create category
+			var category = Id.HasValue ? api.Categories.GetSingle(Id.Value) : null;
+			if (category == null) {
+				category = new Piranha.Models.Category();
 				newModel = true;
 			}
 
 			// Map values
-			Mapper.Map<EditModel, Piranha.Models.Author>(this, author);
+			Mapper.Map<EditModel, Piranha.Models.Category>(this, category);
 
 			if (newModel)
-				api.Authors.Add(author);
+				api.Categories.Add(category);
 			api.SaveChanges();
 
-			this.Id = author.Id;
+			this.Id = category.Id;
 		}
 	}
 }

@@ -19,7 +19,6 @@
 using AutoMapper;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace Piranha.Manager.Models.Alias
 {

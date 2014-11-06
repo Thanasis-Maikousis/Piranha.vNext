@@ -18,28 +18,28 @@
 
 using System;
 
-namespace Piranha.Manager.Models.Block
+namespace Piranha.Manager.Models.Category
 {
 	/// <summary>
-	/// View model for the block list.
+	/// View model for the category list.
 	/// </summary>
 	public class ListItem
 	{
 		#region Properties
 		/// <summary>
-		/// Gets/sets the unique id.
+		/// Gets/sets unique id.
 		/// </summary>
 		public Guid Id { get; set; }
 
 		/// <summary>
-		/// Gets/sets the name.
+		/// Get/sets the title.
 		/// </summary>
-		public string Name { get; set; }
+		public string Title { get; set; }
 
 		/// <summary>
-		/// Gets/sets the optional description.
+		/// Gets/sets the unique slug.
 		/// </summary>
-		public string Description { get; set; }
+		public string Slug { get; set; }
 
 		/// <summary>
 		/// Gets/sets when the model was created.
