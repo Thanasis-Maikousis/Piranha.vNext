@@ -106,6 +106,7 @@
       <DependentUpon>login.css</DependentUpon>
     </Content>
     <Content Include="Areas\Manager\Assets\img\logo-big.png" />
+    <Content Include="Areas\Manager\Assets\js\models\manager.category.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.alias.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.block.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.author.js" />
@@ -347,6 +348,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Manager\Controllers\AccountMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\CategoryMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\AliasMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\AuthorMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\BlockMgrController.cs" />
@@ -366,6 +368,8 @@
     <Compile Include="Manager\Models\Author\ListItem.cs" />
     <Compile Include="Manager\Models\Block\EditModel.cs" />
     <Compile Include="Manager\Models\Block\ListItem.cs" />
+    <Compile Include="Manager\Models\Category\EditModel.cs" />
+    <Compile Include="Manager\Models\Category\ListItem.cs" />
     <Compile Include="Manager\Models\Config\ListModel.cs" />
     <Compile Include="Manager\Models\Post\CommentState.cs" />
     <Compile Include="Manager\Models\Post\EditModel.cs" />
@@ -391,6 +395,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Block.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Resources\Category.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.resx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Resources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -463,6 +472,8 @@
     <Content Include="Areas\Manager\Views\AliasMgr\Partial\EditAlias.cshtml" />
     <Content Include="Areas\Manager\Views\AuthorMgr\Partial\EditAuthor.cshtml" />
     <Content Include="Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml" />
+    <Content Include="Areas\Manager\Views\CategoryMgr\Partial\EditCategory.cshtml" />
+    <Content Include="Areas\Manager\Views\CategoryMgr\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -496,6 +507,10 @@
     <EmbeddedResource Include="Manager\Resources\Block.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Block.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Resources\Category.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Category.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

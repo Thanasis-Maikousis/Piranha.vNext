@@ -96,6 +96,9 @@ namespace Piranha.Manager
 						InternalId = "Authors", Name = "Authors", Controller = "AuthorMgr", Action = "List"
 					},
 					new MenuItem() {
+						InternalId = "Categories", Name = "Categories", Controller = "CategoryMgr", Action = "List"
+					},
+					new MenuItem() {
 						InternalId = "PostTypes", Name = "Post types", Controller = "PostTypeMgr", Action = "List"
 					}
 				}

@@ -62,6 +62,16 @@ namespace Piranha.Manager
 				.ForMember(b => b.Created, o => o.Ignore())
 				.ForMember(b => b.Updated, o => o.Ignore());
 
+			// Category
+			Mapper.CreateMap<Piranha.Models.Category, Models.Category.ListItem>()
+				.ForMember(c => c.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
+				.ForMember(c => c.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
+			Mapper.CreateMap<Piranha.Models.Category, Models.Category.EditModel>();
+			Mapper.CreateMap<Models.Category.EditModel, Piranha.Models.Category>()
+				.ForMember(b => b.Id, o => o.Ignore())
+				.ForMember(b => b.Created, o => o.Ignore())
+				.ForMember(b => b.Updated, o => o.Ignore());
+
 			// Post
 			Mapper.CreateMap<Piranha.Models.Post, Models.Post.EditModel>()
 				.ForMember(p => p.Authors, o => o.Ignore())

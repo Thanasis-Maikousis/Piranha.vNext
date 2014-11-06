@@ -32,22 +32,22 @@ namespace Piranha.Manager.Models.Alias
 		public Guid Id { get; set; }
 
 		/// <summary>
-		/// Get/sets the name.
+		/// Get/sets the old url.
 		/// </summary>
 		public string OldUrl { get; set; }
 
 		/// <summary>
-		/// Gets/sets the email.
+		/// Gets/sets the new url.
 		/// </summary>
 		public string NewUrl { get; set; }
 
 		/// <summary>
-		/// Gets/sets when the author was created.
+		/// Gets/sets when the model was created.
 		/// </summary>
 		public string Created { get; set; }
 
 		/// <summary>
-		/// Gets/sets when the author was last updated.
+		/// Gets/sets when the model was last updated.
 		/// </summary>
 		public string Updated { get; set; }
 		#endregion
