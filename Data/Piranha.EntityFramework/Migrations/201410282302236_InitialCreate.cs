@@ -208,19 +208,6 @@ namespace Piranha.EntityFramework.Migrations
 				.Index(t => t.Name, unique: true);
 
 			CreateTable(
-				"dbo.PiranhaPermissions",
-				c => new {
-					Id = c.Guid(nullable: false),
-					Name = c.String(nullable: false, maxLength: 128),
-					Description = c.String(maxLength: 255),
-					Roles = c.String(maxLength: 128),
-					Created = c.DateTime(nullable: false),
-					Updated = c.DateTime(nullable: false),
-				})
-				.PrimaryKey(t => t.Id)
-				.Index(t => t.Name, unique: true);
-
-			CreateTable(
 				"dbo.PiranhaPostMedia",
 				c => new {
 					Post_Id = c.Guid(nullable: false),
@@ -260,7 +247,6 @@ namespace Piranha.EntityFramework.Migrations
 			DropIndex("dbo.PiranhaPostCategories", new[] { "Post_Id" });
 			DropIndex("dbo.PiranhaPostMedia", new[] { "Media_Id" });
 			DropIndex("dbo.PiranhaPostMedia", new[] { "Post_Id" });
-			DropIndex("dbo.PiranhaPermissions", new[] { "Name" });
 			DropIndex("dbo.PiranhaParams", new[] { "Name" });
 			DropIndex("dbo.PiranhaPageTypes", new[] { "Slug" });
 			DropIndex("dbo.PiranhaPages", new[] { "AuthorId" });
@@ -276,7 +262,6 @@ namespace Piranha.EntityFramework.Migrations
 			DropIndex("dbo.PiranhaAliases", new[] { "OldUrl" });
 			DropTable("dbo.PiranhaPostCategories");
 			DropTable("dbo.PiranhaPostMedia");
-			DropTable("dbo.PiranhaPermissions");
 			DropTable("dbo.PiranhaParams");
 			DropTable("dbo.PiranhaPageTypes");
 			DropTable("dbo.PiranhaPages");
