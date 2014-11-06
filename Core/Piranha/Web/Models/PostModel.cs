@@ -221,6 +221,11 @@ namespace Piranha.Web.Models
 
 				Mapper.Map<Post, PostModel>(post, model);
 
+				if (String.IsNullOrWhiteSpace(model.Route))
+					model.Route = post.Type.Route;
+				if (String.IsNullOrWhiteSpace(model.View))
+					model.View = post.Type.View;
+
 				return model;
 			}
 			return null;

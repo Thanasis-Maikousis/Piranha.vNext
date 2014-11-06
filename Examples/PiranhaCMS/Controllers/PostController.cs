@@ -27,7 +27,7 @@ namespace PiranhaCMS.Controllers
 			var model = GetModel().WithComments();
 
 			if (!HttpContext.IsCached(model.Id.ToString(), model.GetLastModified()))
-				return View(model);
+				return View(model.View, model);
 			return null;
 		}
 	}
