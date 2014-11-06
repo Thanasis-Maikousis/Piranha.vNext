@@ -7,7 +7,7 @@
 	<div id="main">
 		<article role="main">
 			<header>
-				<h1>Blog<small>@Model.FormatPeriod()</small></h1>
+				<h1>@Model.Title<small>@Model.FormatPeriod()</small></h1>
 			</header>
 
 			@foreach (var post in Model.Posts) {
