@@ -62,6 +62,12 @@ namespace Piranha.Models
 		public string ArchiveRoute { get; set; }
 
 		/// <summary>
+		/// Gets/sets the optional view for the archive page
+		/// for posts of this type.
+		/// </summary>
+		public string ArchiveView { get; set; }
+
+		/// <summary>
 		/// Gets/sets the optional route for commenting posts
 		/// of this type.
 		/// </summary>

@@ -56,6 +56,11 @@ namespace Piranha.Web.Models
 		public string Description { get; set; }
 
 		/// <summary>
+		/// Gets/sets the optional view.
+		/// </summary>
+		public string View { get; set; }
+
+		/// <summary>
 		/// Gets/sets the optionally requested year.
 		/// </summary>
 		public int? Year { get; set; }

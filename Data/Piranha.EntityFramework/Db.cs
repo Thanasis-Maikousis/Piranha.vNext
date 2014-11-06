@@ -204,6 +204,7 @@ namespace Piranha.EntityFramework
 			modelBuilder.Entity<Models.PostType>().Property(p => p.MetaKeywords).HasMaxLength(128);
 			modelBuilder.Entity<Models.PostType>().Property(p => p.MetaDescription).HasMaxLength(255);
 			modelBuilder.Entity<Models.PostType>().Property(p => p.ArchiveRoute).HasMaxLength(255);
+			modelBuilder.Entity<Models.PostType>().Property(p => p.ArchiveView).HasMaxLength(255);
 			modelBuilder.Entity<Models.PostType>().Property(p => p.CommentRoute).HasMaxLength(255);
 			modelBuilder.Entity<Models.PostType>().Property(t => t.Slug).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {

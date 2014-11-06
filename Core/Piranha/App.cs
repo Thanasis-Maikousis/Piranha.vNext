@@ -214,6 +214,7 @@ namespace Piranha
 						Mapper.CreateMap<Models.PostType, Web.Models.ArchiveModel>()
 							.ForMember(m => m.Keywords, o => o.MapFrom(t => t.MetaKeywords))
 							.ForMember(m => m.Description, o => o.MapFrom(t => t.MetaDescription))
+							.ForMember(m => m.View, o => o.MapFrom(t => t.ArchiveView))
 							.ForMember(m => m.Title, o => o.MapFrom(t => t.ArchiveTitle))
 							.ForMember(m => m.Year, o => o.Ignore())
 							.ForMember(m => m.Month, o => o.Ignore())
