@@ -60,6 +60,12 @@ namespace Piranha.Web
 
 			Segments = path.Split(new char[] { '/' }).Subset(1);
 
+			// Remove trailing slash segment if present.
+			if (Segments.Length > 0) {
+				if (String.IsNullOrWhiteSpace(Segments[Segments.Length - 1]))
+					Segments = Segments.Subset(0, Segments.Length - 1);
+			}
+
 			foreach (var key in context.Request.QueryString.AllKeys)
 				param.Add(new Tuple<string, string>(key, context.Request.Params[key]));
 			Params = param.ToArray();
