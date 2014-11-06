@@ -72,3 +72,6 @@
 .panel.panel-add > .panel-heading .panel-title > .glyphicon {
   padding: 10px 15px;
 }
+.panel.panel-primary .form .form-group {
+  border-width: 1px;
+}
