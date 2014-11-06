@@ -78,6 +78,11 @@
 							@Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" })
 							@Html.ValidationMessageFor(m => m.ArchiveRoute)
 						</div>
+						@Html.LabelFor(m => m.ArchiveView, Piranha.Manager.Resources.PostType.ArchiveView)
+						<div class="form-group">
+							@Html.TextBoxFor(m => m.ArchiveView, new { @class = "form-control meta", @placeholder = "Add optional archive view" })
+							@Html.ValidationMessageFor(m => m.ArchiveView)
+						</div>
 					</div>
 
 					<!-- Archive settings -->
@@ -89,7 +94,7 @@
 						</div>
 						@Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription)
 						<div class="form-group">
-							@Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 4, @style = "height:86px", @placeholder = "Add archive meta description" })
+							@Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 7, @style = "height:164px", @placeholder = "Add archive meta description" })
 							<p><span>@(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0)</span>/255 characters</p>
 							@Html.ValidationMessageFor(m => m.MetaDescription)
 						</div>

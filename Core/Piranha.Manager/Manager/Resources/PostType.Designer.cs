@@ -97,6 +97,15 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Archive view.
+        /// </summary>
+        public static string ArchiveView {
+            get {
+                return ResourceManager.GetString("ArchiveView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comment route.
         /// </summary>
         public static string CommentRoute {

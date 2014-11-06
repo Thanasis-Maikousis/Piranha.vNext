@@ -23,7 +23,9 @@ namespace PiranhaCMS.Controllers
 		/// </summary>
 		/// <returns>The view result</returns>
 		public ActionResult Index() {
-			return View(GetModel<Models.ArchiveModel>());
+			var model = GetModel<Models.ArchiveModel>();
+
+			return View(model.View, model);
 		}
 	}
 }
