@@ -114,6 +114,13 @@ namespace Piranha.Manager.Models.PostType
 		#endregion
 
 		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public EditModel() {
+			EnableArchive = true;
+		}
+
+		/// <summary>
 		/// Gets the post type model for the given id.
 		/// </summary>
 		/// <param name="api">The current api</param>

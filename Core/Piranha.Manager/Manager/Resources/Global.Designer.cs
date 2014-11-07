@@ -88,6 +88,15 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to characters.
+        /// </summary>
+        public static string Characters {
+            get {
+                return ResourceManager.GetString("Characters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Content.
         /// </summary>
         public static string Content {

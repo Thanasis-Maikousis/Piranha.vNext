@@ -117,79 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Add</value>
+  <data name="Blogging" xml:space="preserve">
+    <value>Blogging</value>
   </data>
-  <data name="All" xml:space="preserve">
-    <value>All</value>
+  <data name="Cache" xml:space="preserve">
+    <value>Cache</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="CacheExpires" xml:space="preserve">
+    <value>Expiration (minutes)</value>
   </data>
-  <data name="Characters" xml:space="preserve">
-    <value>characters</value>
+  <data name="CacheMaxAge" xml:space="preserve">
+    <value>Max age (minutes)</value>
   </data>
-  <data name="Content" xml:space="preserve">
-    <value>Content</value>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
   </data>
-  <data name="Created" xml:space="preserve">
-    <value>Created</value>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+  <data name="ListTitle" xml:space="preserve">
+    <value>Configuration</value>
   </data>
-  <data name="Description" xml:space="preserve">
+  <data name="ModerateAnonymous" xml:space="preserve">
+    <value>Moderate comments by anonymous users</value>
+  </data>
+  <data name="ModerateAuthorized" xml:space="preserve">
+    <value>Moderate comments by authenticated users</value>
+  </data>
+  <data name="Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="SiteArchivePageSize" xml:space="preserve">
+    <value>Archive page size</value>
+  </data>
+  <data name="SiteDescription" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="MetaDescription" xml:space="preserve">
-    <value>Meta description</value>
-  </data>
-  <data name="MetaKeywords" xml:space="preserve">
-    <value>Meta keywords</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Ok" xml:space="preserve">
-    <value>Ok</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Preview</value>
-  </data>
-  <data name="Publish" xml:space="preserve">
-    <value>Publish</value>
-  </data>
-  <data name="Route" xml:space="preserve">
-    <value>Route</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="SaveDraft" xml:space="preserve">
-    <value>Save draft</value>
-  </data>
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="Slug" xml:space="preserve">
-    <value>Slug</value>
-  </data>
-  <data name="Title" xml:space="preserve">
+  <data name="SiteTitle" xml:space="preserve">
     <value>Title</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="Updated" xml:space="preserve">
-    <value>Updated</value>
-  </data>
-  <data name="View" xml:space="preserve">
-    <value>View</value>
   </data>
 </root>

@@ -220,15 +220,11 @@
   border-color: #439700;
   color: #fff;
 }
-.btn,
 .btn-label {
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
-}
-.btn-primary {
-  background: #2a8ac2;
 }
 .col-sm-12.buttons {
   text-align: right;
