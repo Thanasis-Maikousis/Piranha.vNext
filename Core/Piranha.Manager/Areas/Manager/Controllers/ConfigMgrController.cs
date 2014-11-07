@@ -26,12 +26,15 @@ namespace Piranha.Areas.Manager.Controllers
 	/// <summary>
 	/// Controller for managing application & module config.
 	/// </summary>
+	[Authorize]
+	[RouteArea("Manager", AreaPrefix = "manager")]
     public class ConfigMgrController : ManagerController
     {
 		/// <summary>
 		/// Gets the main view for the config.
 		/// </summary>
 		/// <returns>The list view</returns>
+		[Route("config")]
         public ActionResult List() {
             return View();
         }
@@ -40,8 +43,52 @@ namespace Piranha.Areas.Manager.Controllers
 		/// Gets the list model data.
 		/// </summary>
 		/// <returns>The model data</returns>
+		[Route("config/get")]
 		public ActionResult Get() {
-			return JsonData(true, ListModel.Get());
+			return JsonData(true, EditModel.Get());
+		}
+
+		/// <summary>
+		/// Saves the given site configuration.
+		/// </summary>
+		/// <param name="model">The config model</param>
+		/// <returns>The result and updated config</returns>
+		[HttpPost]
+		[Route("config/site/save")]
+		public ActionResult SaveSite(EditModel.SiteModel model) {
+			Piranha.Config.Site.Title = model.Title;
+			Piranha.Config.Site.Description = model.Description;
+			Piranha.Config.Site.ArchivePageSize = model.ArchivePageSize;
+
+			return JsonData(true, EditModel.Get());
+		}
+
+		/// <summary>
+		/// Saves the given cache configuration.
+		/// </summary>
+		/// <param name="model">The config model</param>
+		/// <returns>The result and updated config</returns>
+		[HttpPost]
+		[Route("config/cache/save")]
+		public ActionResult SaveCache(EditModel.CacheModel model) {
+			Piranha.Config.Cache.Expires = model.Expires;
+			Piranha.Config.Cache.MaxAge = model.MaxAge;
+
+			return JsonData(true, EditModel.Get());
+		}
+
+		/// <summary>
+		/// Saves the given comment configuration.
+		/// </summary>
+		/// <param name="model">The config model</param>
+		/// <returns>The result and updated config</returns>
+		[HttpPost]
+		[Route("config/comments/save")]
+		public ActionResult SaveComments(EditModel.CommentModel model) {
+			Piranha.Config.Comments.ModerateAnonymous = model.ModerateAnonymous;
+			Piranha.Config.Comments.ModerateAuthorized = model.ModerateAuthorized;
+
+			return JsonData(true, EditModel.Get());
 		}
     }
 }

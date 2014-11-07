@@ -131,3 +131,16 @@
 .navmenu-inverse .navmenu-nav > li.active a {
   border-bottom: 1px solid #000;
 }
+.nav-pills > li > a {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus {
+  background: #dddddd;
+}
+.nav-pills > li.active a {
+  background: #2a8ac2;
+}

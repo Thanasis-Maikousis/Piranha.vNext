@@ -107,6 +107,7 @@
     </Content>
     <Content Include="Areas\Manager\Assets\img\logo-big.png" />
     <Content Include="Areas\Manager\Assets\js\models\manager.category.js" />
+    <Content Include="Areas\Manager\Assets\js\models\manager.config.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.alias.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.block.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.author.js" />
@@ -370,7 +371,7 @@
     <Compile Include="Manager\Models\Block\ListItem.cs" />
     <Compile Include="Manager\Models\Category\EditModel.cs" />
     <Compile Include="Manager\Models\Category\ListItem.cs" />
-    <Compile Include="Manager\Models\Config\ListModel.cs" />
+    <Compile Include="Manager\Models\Config\EditModel.cs" />
     <Compile Include="Manager\Models\Post\CommentState.cs" />
     <Compile Include="Manager\Models\Post\EditModel.cs" />
     <Compile Include="Manager\Models\Post\ListModel.cs" />
@@ -400,6 +401,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Category.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Resources\Config.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Config.resx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Resources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -511,6 +517,10 @@
     <EmbeddedResource Include="Manager\Resources\Category.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Category.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Resources\Config.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Config.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

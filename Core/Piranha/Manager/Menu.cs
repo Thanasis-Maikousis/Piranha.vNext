@@ -102,6 +102,13 @@ namespace Piranha.Manager
 						InternalId = "PostTypes", Name = "Post types", Controller = "PostTypeMgr", Action = "List"
 					}
 				}
+			},
+			new MenuItem() {
+				InternalId = "System", Name = "System", Css = "ico-system", Items = new List<MenuItem>() {
+					new MenuItem() {
+						InternalId = "Config", Name = "Config", Controller = "ConfigMgr", Action = "List"
+					}
+				}
 			}
 		};
 	}

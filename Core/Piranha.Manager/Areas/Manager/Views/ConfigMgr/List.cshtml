@@ -1,8 +1,133 @@
 ﻿@{
-	ViewBag.Title = "Configuration";
+	ViewBag.Title = @Piranha.Manager.Resources.Config.ListTitle;
 }
 @section script {
+	<script type="text/javascript">
+		ko.applyBindings(new manager.models.config());
+	</script>
 }
 
 <div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<ul class="nav nav-pills">
+				<li data-bind="css: { active: active() == 'general' }"><a href="#" data-bind="click: function() { setActive('general'); }">@Piranha.Manager.Resources.Config.General</a></li>
+				<li data-bind="css: { active: active() == 'blogging' }"><a href="#" data-bind="click: function() { setActive('blogging'); }">@Piranha.Manager.Resources.Config.Blogging</a></li>
+			</ul>
+			<br />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<form role="form" class="form">
+				<!-- General settings -->
+				<div data-bind="if: active() == 'general'">
+					<!-- Site -->
+					<div class="panel panel-white">
+						<div class="panel-body">
+							<!-- Save -->
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-labeled btn-success" data-bind="click: saveSite">
+									<span class="btn-label">
+										<i class="glyphicon glyphicon-ok"></i>
+									</span>
+									@Piranha.Manager.Resources.Global.Save
+								</button>
+							</div>
+							
+							<h3>@Piranha.Manager.Resources.Config.Site</h3>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>@Piranha.Manager.Resources.Config.SiteTitle</label>
+										<input type="text" class="form-control" data-bind="value: siteTitle" />
+									</div>
+									<div class="form-group">
+										<label>@Piranha.Manager.Resources.Config.SiteArchivePageSize</label>
+										<input type="number" class="form-control" data-bind="value: siteArchivePageSize" />
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>@Piranha.Manager.Resources.Config.SiteDescription</label>
+										<textarea rows="3" class="form-control count-me" style="height:97px" data-bind="value: siteDescription"></textarea>
+										<p><span data-bind="text: siteDescription().Length"></span>/255 @Piranha.Manager.Resources.Global.Characters</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Cache -->
+					<div class="panel panel-white">
+						<div class="panel-body">
+							<!-- Save -->
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-labeled btn-success" data-bind="click: saveCache">
+									<span class="btn-label">
+										<i class="glyphicon glyphicon-ok"></i>
+									</span>
+									@Piranha.Manager.Resources.Global.Save
+								</button>
+							</div>
+
+							<h3>@Piranha.Manager.Resources.Config.Cache</h3>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>@Piranha.Manager.Resources.Config.CacheExpires</label>
+										<input type="number" class="form-control" data-bind="value: cacheExpires" />
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>@Piranha.Manager.Resources.Config.CacheMaxAge</label>
+										<input type="number" class="form-control" data-bind="value: cacheMaxAge" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Blog settings -->
+				<div data-bind="if: active() == 'blogging'">
+					<!-- Comments -->
+					<div class="panel panel-white">
+						<div class="panel-body">
+							<!-- Save -->
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-labeled btn-success" data-bind="click: saveComments">
+									<span class="btn-label">
+										<i class="glyphicon glyphicon-ok"></i>
+									</span>
+									@Piranha.Manager.Resources.Global.Save
+								</button>
+							</div>
+							<h3>@Piranha.Manager.Resources.Config.Comments</h3>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" data-bind="checked: commentModerateAnonymous" /> <strong>@Piranha.Manager.Resources.Config.ModerateAnonymous</strong>
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" data-bind="checked: commentModerateAuthorized" /> <strong>@Piranha.Manager.Resources.Config.ModerateAuthorized</strong>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>

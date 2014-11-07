@@ -7478,6 +7478,19 @@ a {
 .navmenu-inverse .navmenu-nav > li.active a {
   border-bottom: 1px solid #000;
 }
+.nav-pills > li > a {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus {
+  background: #dddddd;
+}
+.nav-pills > li.active a {
+  background: #2a8ac2;
+}
 .table thead tr th {
   background: #e2e2e2;
   padding: 12px 20px;
@@ -7700,15 +7713,11 @@ a {
   border-color: #439700;
   color: #fff;
 }
-.btn,
 .btn-label {
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
-}
-.btn-primary {
-  background: #2a8ac2;
 }
 .col-sm-12.buttons {
   text-align: right;

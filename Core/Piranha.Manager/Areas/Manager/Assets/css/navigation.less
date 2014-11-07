@@ -192,3 +192,23 @@
 		}
 	}
 }
+
+//
+// Navigation pills
+.nav-pills {
+	>li {
+		 >a {
+			 .border-radius(0);
+
+			 &:hover, &:focus {
+				 background: @border-color;
+			 }
+		 }
+
+		 &.active {
+			 a {
+				 background: @link-color;
+			 }
+		 }
+	} 
+}
