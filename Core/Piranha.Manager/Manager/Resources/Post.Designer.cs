@@ -61,7 +61,7 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new post.
+        ///   Looks up a localized string similar to Add new {0}.
         /// </summary>
         public static string AddTitle {
             get {

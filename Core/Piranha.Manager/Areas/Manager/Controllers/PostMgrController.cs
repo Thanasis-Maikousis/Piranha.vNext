@@ -41,8 +41,10 @@ namespace Piranha.Areas.Manager.Controllers
 
 		[Route("post/add/{type}")]
 		public ActionResult Add(string type) {
-			ViewBag.Title = Piranha.Manager.Resources.Post.AddTitle;
-			return View("Edit", new EditModel(api, type));
+			var model = new EditModel(api, type);
+
+			ViewBag.Title = String.Format(Piranha.Manager.Resources.Post.AddTitle, model.TypeName);
+			return View("Edit", model);
 		}
 
 		/// <summary>
@@ -72,7 +74,7 @@ namespace Piranha.Areas.Manager.Controllers
 			}
 			if (model.Id.HasValue)
 				ViewBag.Title = Piranha.Manager.Resources.Post.EditTitle;
-			else ViewBag.Title = Piranha.Manager.Resources.Post.AddTitle;
+			else ViewBag.Title = String.Format(Piranha.Manager.Resources.Post.AddTitle, model.TypeName);
 
 			return View("Edit", model);
 		}

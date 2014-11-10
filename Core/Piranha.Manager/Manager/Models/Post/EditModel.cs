@@ -62,9 +62,14 @@ namespace Piranha.Manager.Models.Post
 		public Guid? Id { get; set; }
 
 		/// <summary>
-		/// Gets/sets the id of the content type.
+		/// Gets/sets the id of the post type.
 		/// </summary>
 		public Guid TypeId { get; set; }
+
+		/// <summary>
+		/// Gets/sets the name of the post type.
+		/// </summary>
+		public string TypeName { get; set; }
 
 		/// <summary>
 		/// Gets/sets the author responsible for this content.
@@ -178,6 +183,7 @@ namespace Piranha.Manager.Models.Post
 
 			if (post != null) {
 				var m = Mapper.Map<Piranha.Models.Post, EditModel>(post);
+				m.TypeName = post.Type.Name;
 				foreach (var cat in post.Categories) {
 					if (m.SelectedCategories != "")
 						m.SelectedCategories += ",";
@@ -253,8 +259,13 @@ namespace Piranha.Manager.Models.Post
 		/// <param name="api">The current api</param>
 		/// <param name="posttype">The optional post type</param>
 		private void Init(Api api, string posttype = "") {
-			if (!String.IsNullOrWhiteSpace(posttype))
-				TypeId = api.PostTypes.GetSingle(where: t => t.Slug == posttype).Id;
+			// Get the post type
+			if (!String.IsNullOrWhiteSpace(posttype)) {
+				var type = api.PostTypes.GetSingle(where: t => t.Slug == posttype);
+
+				TypeId = type.Id;
+				TypeName = type.Name;
+			}
 
 			// Get available authors
 			var authors = api.Authors.Get();
