@@ -45,12 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web\Handlers\AliasHandler.cs" />
-    <Compile Include="Web\Handlers\MediaHandler.cs" />
-    <Compile Include="Web\Handlers\PageHandler.cs" />
-    <Compile Include="Web\Handlers\PostHandler.cs" />
-    <Compile Include="Web\Routing\Router.cs" />
-    <Compile Include="Web\Routing\RouteModule.cs" />
+    <Compile Include="Server\Handlers\AliasHandler.cs" />
+    <Compile Include="Server\Handlers\MediaHandler.cs" />
+    <Compile Include="Server\Handlers\PageHandler.cs" />
+    <Compile Include="Server\Handlers\PostHandler.cs" />
+    <Compile Include="Server\Routing\Router.cs" />
+    <Compile Include="Server\Routing\RouteModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Piranha\Piranha.csproj">

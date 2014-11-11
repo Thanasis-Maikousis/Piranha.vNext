@@ -10,10 +10,10 @@
 
 using System;
 using System.Linq;
-using Piranha.Extend;
-using Piranha.Web.Models;
 using System.Web;
-using Piranha.Web;
+using Piranha.Extend;
+using Piranha.Client.Models;
+using Piranha.Server;
 
 namespace Piranha.Feed
 {
@@ -84,7 +84,7 @@ namespace Piranha.Feed
 			// Add UI rendering
 			Hooks.UI.Head.Render += (sb) => {
 				// Get current
-				var current = HttpContext.Current.GetCurrent();
+				var current = App.Env.GetCurrent();
 
 				// Render base feeds
 				var sTitle = HttpUtility.HtmlEncode(Config.Feed.SiteFeedTitle
@@ -94,9 +94,9 @@ namespace Piranha.Feed
 					.Replace("{SiteTitle}", Config.Site.Title));
 
 				sb.Append(String.Format(LINK_TAG, "alternate", "application/rss+xml", sTitle,
-					Utils.AbsoluteUrl("~/feed")));
+					App.Env.AbsoluteUrl("~/feed")));
 				sb.Append(String.Format(LINK_TAG, "alternate", "application/rss+xml", cTitle,
-					Utils.AbsoluteUrl("~/feed/comments")));
+					App.Env.AbsoluteUrl("~/feed/comments")));
 
 				if (current.Type == ContentType.Archive) {
 					using (var api = new Api()) {
@@ -107,17 +107,17 @@ namespace Piranha.Feed
 							.Replace("{PostType}", type.ArchiveTitle));
 
 						sb.Append(String.Format(LINK_TAG, "alternate", "application/rss+xml", title,
-							Utils.AbsoluteUrl("~/feed/blog")));
+							App.Env.AbsoluteUrl("~/feed/blog")));
 					}
 				} else if (current.Type == ContentType.Post) {
-					var post = Web.Models.PostModel.GetById(current.Id);
+					var post = Client.Models.PostModel.GetById(current.Id);
 
 					var title = HttpUtility.HtmlEncode(Config.Feed.PostFeedTitle
 						.Replace("{SiteTitle}", Config.Site.Title)
 						.Replace("{PostTitle}", post.Title));
 
 					sb.Append(String.Format(LINK_TAG, "alternate", "application/rss+xml", title,
-						Utils.AbsoluteUrl("~/feed/" + post.Type + "/" + post.Slug)));
+						App.Env.AbsoluteUrl("~/feed/" + post.Type + "/" + post.Slug)));
 				}
 			};
 		}

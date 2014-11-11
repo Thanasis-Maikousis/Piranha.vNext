@@ -79,7 +79,7 @@ namespace Piranha.Repositories
 		public Models.PostType GetById(Guid id) {
 			var model = App.ModelCache.PostTypes.Get(id);
 
-			if (model != null) {
+			if (model == null) {
 				model = GetSingle(where: t => t.Id == id);
 
 				if (model != null)

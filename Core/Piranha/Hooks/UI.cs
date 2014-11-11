@@ -51,7 +51,7 @@ namespace Piranha.Hooks
 			/// <param name="item">The current menu item</param>
 			/// <param name="active">If the item is active</param>
 			/// <param name="childactive">If the item has an active child node</param>
-			public delegate void RenderMenuItemDelegate(StringBuilder sb, Web.Models.SiteMap.SiteMapItem item, bool active, bool childactive);
+			public delegate void RenderMenuItemDelegate(StringBuilder sb, Client.Models.SiteMap.SiteMapItem item, bool active, bool childactive);
 		}
 
 		/// <summary>

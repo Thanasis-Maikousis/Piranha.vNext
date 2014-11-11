@@ -54,7 +54,7 @@ namespace Piranha.Cache
 		/// <summary>
 		/// The page cache.
 		/// </summary>
-		public readonly ModelCache<Web.Models.PageModel> Pages;
+		public readonly ModelCache<Client.Models.PageModel> Pages;
 
 		/// <summary>
 		/// The param cache.
@@ -82,7 +82,7 @@ namespace Piranha.Cache
 			Aliases = new ModelCache<Models.Alias>(cache, a => a.Id, a => a.OldUrl);
 			Blocks = new ModelCache<Models.Block>(cache, b => b.Id, b => b.Slug);
 			Media = new ModelCache<Models.Media>(cache, m => m.Id, m => m.Slug);
-			Pages = new ModelCache<Web.Models.PageModel>(cache, p => p.Id, p => p.Slug);
+			Pages = new ModelCache<Client.Models.PageModel>(cache, p => p.Id, p => p.Slug);
 			Params = new ModelCache<Models.Param>(cache, p => p.Id, p => p.Name);
 			Posts = new ModelCache<Models.Post>(cache, p => p.Id, p => p.Type.Slug + "_" + p.Slug);
 			PostTypes = new ModelCache<Models.PostType>(cache, p => p.Id, p => p.Slug);
@@ -92,15 +92,15 @@ namespace Piranha.Cache
 		/// Gets the current sitemap from the cache.
 		/// </summary>
 		/// <returns>The sitemap</returns>
-		public Web.Models.SiteMap GetSiteMap() {
-			return cache.Get<Web.Models.SiteMap>(CACHE_SITEMAP);
+		public Client.Models.SiteMap GetSiteMap() {
+			return cache.Get<Client.Models.SiteMap>(CACHE_SITEMAP);
 		}
 
 		/// <summary>
 		/// Sets the current sitemap.
 		/// </summary>
 		/// <param name="sitemap">The sitemap</param>
-		public void SetSiteMap(Web.Models.SiteMap sitemap) {
+		public void SetSiteMap(Client.Models.SiteMap sitemap) {
 			cache.Set(CACHE_SITEMAP, sitemap);
 		}
 

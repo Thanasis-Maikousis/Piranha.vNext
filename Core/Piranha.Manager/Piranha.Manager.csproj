@@ -492,6 +492,10 @@
       <Project>{1437778b-13f8-40c8-9ff6-1e511d93ebad}</Project>
       <Name>Piranha.EntityFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Env\Piranha.AspNet\Piranha.AspNet.csproj">
+      <Project>{27fc302c-b059-4c87-a146-310a1056b5d8}</Project>
+      <Name>Piranha.AspNet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Piranha\Piranha.csproj">
       <Project>{c5e2b115-51a8-46a9-90f5-49248cd34128}</Project>
       <Name>Piranha</Name>

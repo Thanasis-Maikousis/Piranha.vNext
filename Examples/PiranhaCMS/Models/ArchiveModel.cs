@@ -16,7 +16,7 @@ namespace PiranhaCMS.Models
 	/// <summary>
 	/// Custom archive model with some formatting methods.
 	/// </summary>
-	public class ArchiveModel : Piranha.Web.Models.ArchiveModel
+	public class ArchiveModel : Piranha.Client.Models.ArchiveModel
 	{
 		/// <summary>
 		/// Formats the currently selected period to a nice string.

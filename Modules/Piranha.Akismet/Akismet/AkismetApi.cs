@@ -69,17 +69,17 @@ namespace Piranha.Akismet
 		/// <param name="comment">The comment</param>
 		/// <returns>True if the comment should be regarded as spam</returns>
 		public bool CommentCheck(Models.Comment comment) {
-			var post = Web.Models.PostModel.GetById(comment.PostId);
+			var post = Client.Models.PostModel.GetById(comment.PostId);
 
 			if (post != null) {
-				var ui = new Web.Helpers.UIHelper();
+				var ui = new Client.Helpers.UIHelper();
 
 				var value = Call(CommentCheckUrl, new {
 					blog = HttpUtility.UrlEncode(Config.Akismet.ApiKey),
 					user_ip = HttpUtility.UrlEncode(comment.IP),
 					user_agent = HttpUtility.UrlEncode(comment.UserAgent),
 					referrer = "",
-					permalink = HttpUtility.UrlEncode(Utils.AbsoluteUrl(ui.Permalink(post).ToHtmlString())),
+					permalink = HttpUtility.UrlEncode(App.Env.AbsoluteUrl(ui.Permalink(post))),
 					comment_type = "comment",
 					comment_author = HttpUtility.UrlEncode(comment.Author),
 					comment_author_email = HttpUtility.UrlEncode(comment.Email),

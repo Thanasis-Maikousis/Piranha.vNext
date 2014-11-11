@@ -17,7 +17,6 @@
  */
 
 using System;
-using System.Web;
 
 namespace Piranha.Hooks
 {
@@ -35,13 +34,13 @@ namespace Piranha.Hooks
 			/// Delegate for request hooks.
 			/// </summary>
 			/// <param name="context">The current http context</param>
-			public delegate void RequestDelegate(HttpContext context);
+			public delegate void RequestDelegate(Server.IRequest request);
 
 			/// <summary>
 			/// Delegate for request errors.
 			/// </summary>
 			/// <param name="context">The current http context</param>
-			public delegate void ErrorDelegate(HttpContext context, Exception e);
+			public delegate void ErrorDelegate(Server.IRequest context, Exception e);
 		}
 
 		/// <summary>

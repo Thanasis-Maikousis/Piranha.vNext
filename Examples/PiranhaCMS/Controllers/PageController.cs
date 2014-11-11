@@ -10,14 +10,14 @@
 
 using System;
 using System.Web.Mvc;
-using Piranha.Cache;
+using Piranha.AspNet.Cache;
 
 namespace PiranhaCMS.Controllers
 {
 	/// <summary>
 	/// Default controller for displaying a page.
 	/// </summary>
-	public class PageController : Piranha.Web.Mvc.PageController
+	public class PageController : Piranha.AspNet.Mvc.PageController
 	{
 		/// <summary>
 		/// Gets the view for the current page.

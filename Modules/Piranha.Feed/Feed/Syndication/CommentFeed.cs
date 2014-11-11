@@ -15,6 +15,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Web;
 using System.Xml;
+using Piranha.Server;
 
 namespace Piranha.Feed.Syndication
 {
@@ -49,12 +50,11 @@ namespace Piranha.Feed.Syndication
 		/// Executes the syndication result on the given context.
 		/// </summary>
 		/// <param name="context">The current context.</param>
-		public virtual void Write(HttpResponse response) {
+		public virtual void Write(IStreamResponse response) {
 			var writer = new XmlTextWriter(response.OutputStream, Encoding.UTF8);
-			var ui = new Web.Helpers.UIHelper();
+			var ui = new Client.Helpers.UIHelper();
 
 			// Write headers
-			response.StatusCode = 200;
 			response.ContentType = ContentType;
 			response.ContentEncoding = Encoding.UTF8;
 
@@ -63,7 +63,7 @@ namespace Piranha.Feed.Syndication
 				LastUpdatedTime = Comments.First().Created,
 				Description = new TextSyndicationContent(Config.Site.Description),
 			};
-			feed.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(Utils.AbsoluteUrl("~/"))));
+			feed.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(App.Env.AbsoluteUrl("~/"))));
 
 			var items = new List<SyndicationItem>();
 			foreach (var comment in Comments) {
@@ -72,7 +72,6 @@ namespace Piranha.Feed.Syndication
 					PublishDate = comment.Created,
 					Summary = SyndicationContent.CreateHtmlContent(comment.Body)
 				};
-				//item.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(Utils.AbsoluteUrl(ui.Permalink(post).ToHtmlString()))));
 				items.Add(item);
 			}
 			feed.Items = items;

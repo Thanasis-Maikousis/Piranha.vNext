@@ -38,30 +38,16 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="Kaliko.ImageLibrary">
-      <HintPath>..\..\packages\ImageLibrary.2.0.0\lib\Kaliko.ImageLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
-    <Reference Include="WebActivatorEx">
-      <HintPath>..\..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Cache\AppCache.cs" />
-    <Compile Include="Cache\BrowserCache.cs" />
-    <Compile Include="Cache\HttpCache.cs" />
+    <Compile Include="Cache\NoCache.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\ModelCache.cs" />
     <Compile Include="Config\Cache.cs" />
@@ -77,6 +63,7 @@
     <Compile Include="Hooks\App.cs" />
     <Compile Include="Hooks\Models.cs" />
     <Compile Include="Hooks\UI.cs" />
+    <Compile Include="IEnv.cs" />
     <Compile Include="IO\FileMedia.cs" />
     <Compile Include="IO\IMedia.cs" />
     <Compile Include="Log\FileLog.cs" />
@@ -90,7 +77,6 @@
     <Compile Include="Models\Base\Content.cs" />
     <Compile Include="Models\Base\ContentType.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Extensions.cs" />
     <Compile Include="Data\IChanges.cs" />
     <Compile Include="Data\IModel.cs" />
     <Compile Include="Data\IPublishable.cs" />
@@ -114,23 +100,24 @@
     <Compile Include="Repositories\PostTypeRepository.cs" />
     <Compile Include="Repositories\ParamRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Security\SimpleSecurity.cs" />
     <Compile Include="Security\ISecurity.cs" />
+    <Compile Include="Security\NoSecurity.cs" />
     <Compile Include="Utils.cs" />
-    <Compile Include="Web\Extensions.cs" />
-    <Compile Include="Web\HandlerCollection.cs" />
-    <Compile Include="Web\IHandler.cs" />
-    <Compile Include="Web\Helpers\UIHelper.cs" />
-    <Compile Include="Web\Models\ArchiveModel.cs" />
-    <Compile Include="Web\Models\ContentType.cs" />
-    <Compile Include="Web\Models\Content.cs" />
-    <Compile Include="Web\Models\PageModel.cs" />
-    <Compile Include="Web\Models\PostModel.cs" />
-    <Compile Include="Web\Models\SiteMap.cs" />
-    <Compile Include="Web\RouteResult.cs" />
-    <Compile Include="Web\RouteRequest.cs" />
-    <Compile Include="Web\Module.cs" />
-    <Compile Include="Web\Startup.cs" />
+    <Compile Include="Server\HandlerCollection.cs" />
+    <Compile Include="Server\IHandler.cs" />
+    <Compile Include="Client\Helpers\UIHelper.cs" />
+    <Compile Include="Server\IRedirectResponse.cs" />
+    <Compile Include="Server\IRequest.cs" />
+    <Compile Include="Server\IResponse.cs" />
+    <Compile Include="Server\IRewriteResponse.cs" />
+    <Compile Include="Server\IStreamResponse.cs" />
+    <Compile Include="Client\Models\ArchiveModel.cs" />
+    <Compile Include="Client\Models\ContentType.cs" />
+    <Compile Include="Client\Models\Content.cs" />
+    <Compile Include="Client\Models\PageModel.cs" />
+    <Compile Include="Client\Models\PostModel.cs" />
+    <Compile Include="Client\Models\SiteMap.cs" />
+    <Compile Include="Server\Param.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

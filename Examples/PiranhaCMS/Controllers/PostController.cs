@@ -10,14 +10,14 @@
 
 using System;
 using System.Web.Mvc;
-using Piranha.Cache;
+using Piranha.AspNet.Cache;
 
 namespace PiranhaCMS.Controllers
 {
 	/// <summary>
 	/// Default controller for displaying a post.
 	/// </summary>
-	public class PostController : Piranha.Web.Mvc.PostController
+	public class PostController : Piranha.AspNet.Mvc.PostController
 	{
 		/// <summary>
 		/// Gets the view for the current post.

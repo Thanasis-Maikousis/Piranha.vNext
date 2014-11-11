@@ -15,6 +15,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Web;
 using System.Xml;
+using Piranha.Server;
 
 namespace Piranha.Feed.Syndication
 {
@@ -49,12 +50,11 @@ namespace Piranha.Feed.Syndication
 		/// Executes the syndication result on the given context.
 		/// </summary>
 		/// <param name="context">The current context.</param>
-		public virtual void Write(HttpResponse response) {
+		public virtual void Write(IStreamResponse response) {
 			var writer = new XmlTextWriter(response.OutputStream, Encoding.UTF8);
-			var ui = new Web.Helpers.UIHelper();
+			var ui = new Client.Helpers.UIHelper();
 
 			// Write headers
-			response.StatusCode = 200;
 			response.ContentType = ContentType;
 			response.ContentEncoding = Encoding.UTF8;
 
@@ -63,7 +63,7 @@ namespace Piranha.Feed.Syndication
 				LastUpdatedTime = Posts.First().Published.Value,
 				Description = new TextSyndicationContent(Config.Site.Description),
 			};
-			feed.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(Utils.AbsoluteUrl("~/"))));
+			feed.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(App.Env.AbsoluteUrl("~/"))));
 
 			var items = new List<SyndicationItem>();
 			foreach (var post in Posts) {
@@ -72,7 +72,7 @@ namespace Piranha.Feed.Syndication
 					PublishDate = post.Published.Value,
 					Summary = SyndicationContent.CreateHtmlContent(post.Body)
 				};
-				item.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(Utils.AbsoluteUrl("~/" + post.Type.Slug + "/" + post.Slug))));
+				item.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(App.Env.AbsoluteUrl("~/" + post.Type.Slug + "/" + post.Slug))));
 				items.Add(item);
 			}
 			feed.Items = items;

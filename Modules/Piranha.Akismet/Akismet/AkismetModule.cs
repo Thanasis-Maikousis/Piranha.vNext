@@ -11,7 +11,7 @@
 using System;
 using System.Linq;
 using Piranha.Extend;
-using Piranha.Web.Models;
+using Piranha.Client.Models;
 
 namespace Piranha.Akismet
 {

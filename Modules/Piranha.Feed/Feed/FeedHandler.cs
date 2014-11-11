@@ -12,8 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Piranha.Web;
-using Piranha.Web.Models;
+using Piranha.Client.Models;
+using Piranha.Server;
 
 namespace Piranha.Feed
 {
@@ -28,7 +28,7 @@ namespace Piranha.Feed
 		/// <param name="api">The current api</param>
 		/// <param name="request">The incoming route request</param>
 		/// <returns>The result</returns>
-		public RouteResult Handle(Api api, RouteRequest request) {
+		public IResponse Handle(Api api, IRequest request) {
 			var now = DateTime.Now.ToUniversalTime();
 
 			if (request.Segments.Length == 1 || String.IsNullOrWhiteSpace(request.Segments[1])) {
@@ -36,9 +36,11 @@ namespace Piranha.Feed
 				var posts = api.Posts.Get(where: p => p.Published <= now, limit: Config.Site.ArchivePageSize);
 
 				var feed = new Syndication.PostRssFeed(posts);
-				feed.Write(request.HttpContext.Response);
+				var response = request.StreamResponse();
 
-				return new RouteResult(true, false);
+				feed.Write(response);
+
+				return response;
 			} else if (request.Segments[1] == "comments") {
 				// Comment feed for the entire site
 				var comments = api.Comments.Get(where: c => c.IsApproved, 
@@ -46,9 +48,11 @@ namespace Piranha.Feed
 					limit: Config.Site.ArchivePageSize);
 
 				var feed = new Syndication.CommentRssFeed(comments);
-				feed.Write(request.HttpContext.Response);
+				var response = request.StreamResponse();
 
-				return new RouteResult(true, false);
+				feed.Write(response);
+
+				return response;
 			} else {
 				var type = api.PostTypes.GetBySlug(request.Segments[1]);
 
@@ -62,10 +66,12 @@ namespace Piranha.Feed
 								order: q => q.OrderByDescending(c => c.Created),
 								limit: Config.Site.ArchivePageSize);
 
-								var feed = new Syndication.CommentRssFeed(comments);
-								feed.Write(request.HttpContext.Response);
+							var feed = new Syndication.CommentRssFeed(comments);
+							var response = request.StreamResponse();
 
-								return new RouteResult(true, false);
+							feed.Write(response);
+
+							return response;
 						}
 					} else {
 						// Post feed for an individual post type
@@ -73,13 +79,15 @@ namespace Piranha.Feed
 							limit: Config.Site.ArchivePageSize);
 
 						var feed = new Syndication.PostRssFeed(posts);
-						feed.Write(request.HttpContext.Response);
+						var response = request.StreamResponse();
 
-						return new RouteResult(true, false);
+						feed.Write(response);
+
+						return response;
 					}
 				}
 			}
-			return new RouteResult(false);
+			return null;
 		}
 	}
 }

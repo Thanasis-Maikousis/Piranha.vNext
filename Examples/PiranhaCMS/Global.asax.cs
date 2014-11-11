@@ -30,6 +30,8 @@ namespace PiranhaCMS
 
 			// Initialize the application instance
 			Piranha.App.Init(c => {
+				c.Env = new Piranha.AspNet.Env();
+				c.Security = new Piranha.AspNet.Security.SimpleSecurity("admin", "password");
 				c.Store = new Piranha.EntityFramework.Store();
 			});
 

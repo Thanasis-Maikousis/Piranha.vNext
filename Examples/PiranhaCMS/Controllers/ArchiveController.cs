@@ -16,7 +16,7 @@ namespace PiranhaCMS.Controllers
 	/// <summary>
 	/// Default controller for displaying a post archive.
 	/// </summary>
-	public class ArchiveController : Piranha.Web.Mvc.ArchiveController
+	public class ArchiveController : Piranha.AspNet.Mvc.ArchiveController
 	{
 		/// <summary>
 		/// Gets the view for the currently requested archive.

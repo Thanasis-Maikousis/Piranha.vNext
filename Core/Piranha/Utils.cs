@@ -21,7 +21,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Web;
 
 namespace Piranha
 {
@@ -38,7 +37,7 @@ namespace Piranha
 		/// <param name="startpos">The startpos</param>
 		/// <param name="length">The length</param>
 		/// <returns>The new array</returns>
-		internal static T[] Subset<T>(this T[] arr, int startpos = 0, int length = 0) {
+		public static T[] Subset<T>(this T[] arr, int startpos = 0, int length = 0) {
 			List<T> tmp = new List<T>();
 
 			length = length > 0 ? length : arr.Length - startpos;
@@ -55,7 +54,7 @@ namespace Piranha
 		/// </summary>
 		/// <param name="str">The text</param>
 		/// <returns>The processed text</returns>
-		internal static string StripHtml(this string str) {
+		public static string StripHtml(this string str) {
 			return Regex.Replace(str, "<.*?>", "");
 		}
 
@@ -64,7 +63,7 @@ namespace Piranha
 		/// </summary>
 		/// <param name="str">The text</param>
 		/// <returns>The processed text</returns>
-		internal static string GenerateLinks(this string str) {
+		public static string GenerateLinks(this string str) {
 			var regx = new Regex(@"http://([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&amp;\*\(\)_\-\=\+\\\/\?\.\:\;\'‌​\,]*)?");
 			var matches = regx.Matches(str);
 
@@ -81,7 +80,7 @@ namespace Piranha
 		/// <param name="width">The optional width</param>
 		/// <param name="height">The optional height</param>
 		/// <returns>The formatted slug</returns>
-		internal static string FormatMediaSlug(string slug, int? width, int? height) {
+		public static string FormatMediaSlug(string slug, int? width, int? height) {
 			if (width.HasValue) {
 				var index = slug.LastIndexOf('.');
 
@@ -93,33 +92,6 @@ namespace Piranha
 				}				
 			}
 			return slug;
-		}
-
-		/// <summary>
-		/// Generates an absolute url from the given virtual path.
-		/// </summary>
-		/// <param name="virtualpath">The virtual path</param>
-		/// <returns>The absolute url</returns>
-		public static string AbsoluteUrl(string virtualpath) {
-			var request = HttpContext.Current.Request;
-
-			// First, convert virtual paths to site url's
-			if (virtualpath.StartsWith("~/"))
-				virtualpath = Url(virtualpath);
-
-			// Now add server, scheme and port
-			return request.Url.Scheme + "://" + request.Url.DnsSafeHost +
-				(!request.Url.IsDefaultPort ? ":" + request.Url.Port.ToString() : "") + virtualpath;
-		}
-
-		/// <summary>
-		/// Generates an url from the given virtual path.
-		/// </summary>
-		/// <param name="virtualpath">The virtual path</param>
-		/// <returns>The url</returns>
-		public static string Url(string virtualpath) {
-			var request = HttpContext.Current.Request;
-			return virtualpath.Replace("~/", request.ApplicationPath + (request.ApplicationPath != "/" ? "/" : ""));
 		}
 
 		/// <summary>

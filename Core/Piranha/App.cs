@@ -34,14 +34,19 @@ namespace Piranha
 		public sealed class Config
 		{
 			/// <summary>
-			/// The configured log provider.
+			/// The configured runtime environment.
 			/// </summary>
-			public Log.ILog Log;
+			public IEnv Env;
 
 			/// <summary>
 			/// The configured cache provider.
 			/// </summary>
 			public Cache.ICache Cache;
+
+			/// <summary>
+			/// The configured log provider.
+			/// </summary>
+			public Log.ILog Log;
 
 			/// <summary>
 			/// The configured media provider.
@@ -89,7 +94,7 @@ namespace Piranha
 		/// <summary>
 		/// The private handler collection.
 		/// </summary>
-		private Web.HandlerCollection handlers;
+		private Server.HandlerCollection handlers;
 
 		/// <summary>
 		/// The private extension manager.
@@ -102,6 +107,13 @@ namespace Piranha
 		/// Gets if the application has been initialized.
 		/// </summary>
 		public bool IsInitialized { get; private set; }
+
+		/// <summary>
+		/// Gets the currently configured runtime environment.
+		/// </summary>
+		public static IEnv Env {
+			get { return Instance.config.Env; }
+		}
 
 		/// <summary>
 		/// Gets the currently configured cache provider.
@@ -141,7 +153,7 @@ namespace Piranha
 		/// <summary>
 		/// Gets the currently configured handlers.
 		/// </summary>
-		public static Web.HandlerCollection Handlers {
+		public static Server.HandlerCollection Handlers {
 			get { return Instance.handlers; }
 		}
 
@@ -203,15 +215,15 @@ namespace Piranha
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Starting application");
 
 						// Configure auto mapper
-						Mapper.CreateMap<Models.Page, Web.Models.PageModel>()
+						Mapper.CreateMap<Models.Page, Client.Models.PageModel>()
 							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
 							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
 							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View));
-						Mapper.CreateMap<Models.Post, Web.Models.PostModel>()
+						Mapper.CreateMap<Models.Post, Client.Models.PostModel>()
 							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
 							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
 							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View));
-						Mapper.CreateMap<Models.PostType, Web.Models.ArchiveModel>()
+						Mapper.CreateMap<Models.PostType, Client.Models.ArchiveModel>()
 							.ForMember(m => m.Keywords, o => o.MapFrom(t => t.MetaKeywords))
 							.ForMember(m => m.Description, o => o.MapFrom(t => t.MetaDescription))
 							.ForMember(m => m.View, o => o.MapFrom(t => t.ArchiveView))
@@ -224,17 +236,28 @@ namespace Piranha
 
 						Mapper.AssertConfigurationIsValid();
 
+						// Check environment
+						if (config.Env == null) {
+							Logger.Log(Log.LogLevel.INFO, "App.Init: No runtime environment specified");
+						}
+
 						// Register the security provider
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering security provider");
-						if (config.Security == null)
-							config.Security = new Security.SimpleSecurity("admin", "password");
-						Logger.Log(Log.LogLevel.INFO, "App.Init: Registered " + config.Security.GetType().FullName);
+						if (config.Security == null) {
+							config.Security = new Security.NoSecurity();
+							Logger.Log(Log.LogLevel.WARNING, "App.Init: No security provider specified. Disabling security");
+						} else {
+							Logger.Log(Log.LogLevel.INFO, "App.Init: Registered " + config.Security.GetType().FullName);
+						}
 
 						// Register the cache provider
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering cache provider");
-						if (config.Cache == null)
-							config.Cache = new Cache.HttpCache();
-						Logger.Log(Log.LogLevel.INFO, "App.Init: Registered " + config.Cache.GetType().FullName);
+						if (config.Cache == null) {
+							config.Cache = new Cache.NoCache();
+							Logger.Log(Log.LogLevel.WARNING, "App.Init: No cache provider specified. Disabling cache");
+						} else {
+							Logger.Log(Log.LogLevel.INFO, "App.Init: Registered " + config.Cache.GetType().FullName);
+						}
 
 						// Register the media provider
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering media provider");
@@ -251,7 +274,7 @@ namespace Piranha
 						modelCache = new Piranha.Cache.AppCache(config.Cache);
 
 						// Create the handler collection
-						handlers = new Web.HandlerCollection();
+						handlers = new Server.HandlerCollection();
 
 						// Create the extension manager
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Creating extension manager");

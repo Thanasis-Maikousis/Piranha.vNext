@@ -39,6 +39,8 @@ namespace Piranha
 
 			// Initialize the application instance
 			Piranha.App.Init(c => {
+				c.Env = new AspNet.Env();
+				c.Security = new AspNet.Security.SimpleSecurity("admin", "password");
 				c.Store = new EntityFramework.Store();
 			});
 		}

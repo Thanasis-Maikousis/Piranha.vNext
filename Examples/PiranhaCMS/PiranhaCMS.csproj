@@ -196,10 +196,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Piranha.Mvc\Piranha.Mvc.csproj">
-      <Project>{e3d13740-01ae-438f-85a7-2c789a33eae3}</Project>
-      <Name>Piranha.Mvc</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\Piranha.Routing\Piranha.Routing.csproj">
       <Project>{551009fb-1f65-48de-95ac-b70eb0a5f269}</Project>
       <Name>Piranha.Routing</Name>
@@ -211,6 +207,14 @@
     <ProjectReference Include="..\..\Data\Piranha.EntityFramework\Piranha.EntityFramework.csproj">
       <Project>{1437778b-13f8-40c8-9ff6-1e511d93ebad}</Project>
       <Name>Piranha.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Env\Piranha.AspNet.Mvc\Piranha.AspNet.Mvc.csproj">
+      <Project>{19b7f1d4-18b1-4190-aaf5-3ccb9deabcb0}</Project>
+      <Name>Piranha.AspNet.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Env\Piranha.AspNet\Piranha.AspNet.csproj">
+      <Project>{27fc302c-b059-4c87-a146-310a1056b5d8}</Project>
+      <Name>Piranha.AspNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\Piranha.Akismet\Piranha.Akismet.csproj">
       <Project>{dbcd4738-e675-41ee-acfe-93407c185b0a}</Project>
