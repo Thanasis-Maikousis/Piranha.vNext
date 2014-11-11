@@ -54,8 +54,13 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The view result</returns>
 		[Route("post/edit/{id:Guid}")]
 		public ActionResult Edit(Guid id) {
+			var model = EditModel.GetById(api, id);
+
 			ViewBag.Title = Piranha.Manager.Resources.Post.EditTitle;
-			return View(EditModel.GetById(api, id));
+			ViewBag.SubTitle = model.Published.HasValue ? 
+				((model.Published.Value > DateTime.Now ? "Schedueled: " : "Published: ") + model.Published.Value.ToString("yyyy-MM-dd")) : "Unpublished";
+
+			return View(model);
 		}
 
 		/// <summary>

@@ -33,6 +33,9 @@
 	<div class="title">
 		<div class="container-fluid">
 			<h1>@ViewBag.Title</h1>
+			@if (!String.IsNullOrWhiteSpace(ViewBag.SubTitle)) {
+				<p class="subtitle">@ViewBag.SubTitle</p>
+			}
 		</div>
 	</div>
 	<div class="body">
