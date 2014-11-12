@@ -7572,6 +7572,14 @@ a {
   font-family: "Open Sans", Arial;
   font-size: 16px;
 }
+.table .gravatar {
+  width: 40px;
+  margin-right: 10px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+}
 .panel .table {
   margin-bottom: 0;
 }
@@ -7741,6 +7749,8 @@ a {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
+  position: relative;
+  overflow: hidden;
 }
 .panel > .panel-heading {
   border-radius: 0;
@@ -7812,6 +7822,19 @@ a {
 }
 .panel.panel-primary .form .form-group {
   border-width: 1px;
+}
+.panel .gravatar {
+  background: #fff;
+  padding: 3px;
+  border: 1px solid #ddd;
+  position: absolute;
+  top: 44px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 43px;
+  -moz-border-radius: 43px;
+  -webkit-border-radius: 43px;
+  -o-border-radius: 43px;
 }
 .modal-content {
   color: #fff;

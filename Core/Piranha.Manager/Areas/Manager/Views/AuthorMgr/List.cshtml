@@ -28,7 +28,10 @@
 		<tbody class="list">
 			<!-- ko foreach: { data: items, as: 'item' } -->
 				<tr data-bind="attr: { 'data-id': item.Id }">
-					<td><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Name"></a></td>
+					<td>
+						<img class="gravatar" data-bind="attr: { src: item.GravatarUrl }" />
+						<a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Name"></a>
+					</td>
 					<td data-bind="text: item.Email"></td>
 					<td data-bind="text: item.Updated"></td>
 					<td data-bind="text: item.Created"></td>

@@ -5,6 +5,9 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="panel panel-primary panel-add" >
+			<!-- ko if: gravatarUrl -->
+			<img class="gravatar" data-bind="attr: { src: gravatarUrl }" />
+			<!-- /ko -->
 			<div id="addAuthorTitle" class="panel-heading">
 				<h3 class="panel-title">
 					<span class="glyphicon glyphicon-plus pull-right"></span>
@@ -25,7 +28,7 @@
 									<!-- /ko -->
 								</div>
 							</div>
-							<div class="col-sm-6">
+							<div class="col-sm-5">
 								<div class="form-group" data-bind="css: { 'has-error has-feedback': emailValid() != true }">
 									<input id="authorEmail" name="Email" class="form-control" placeholder="@Piranha.Manager.Resources.Author.EmailPlaceholder" data-bind="value: email" />
 									<!-- ko if: !emailValid() -->
