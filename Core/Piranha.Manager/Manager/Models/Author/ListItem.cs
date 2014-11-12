@@ -42,6 +42,11 @@ namespace Piranha.Manager.Models.Author
 		public string Email { get; set; }
 
 		/// <summary>
+		/// Gets/sets the gravatar url.
+		/// </summary>
+		public string GravatarUrl { get; set; }
+
+		/// <summary>
 		/// Gets/sets when the model was created.
 		/// </summary>
 		public string Created { get; set; }

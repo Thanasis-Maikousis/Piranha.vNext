@@ -21,6 +21,8 @@
 
 .panel {
 	.border-radius(0);
+	position: relative;
+	overflow: hidden;
 
 	>.panel-heading {
 		.border-radius(0);
@@ -118,5 +120,16 @@
 				border-width: 1px;
 			}
 		}
+	}
+
+	.gravatar {
+		background: #fff;
+		padding: 3px;
+		border: 1px solid #ddd;
+		position: absolute;
+		top: 44px;
+		right: 20px;
+		z-index: 1000;
+		.border-radius(43px);
 	}
 }

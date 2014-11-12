@@ -50,6 +50,11 @@ namespace Piranha.Manager.Models.Author
 		/// </summary>
 		[StringLength(512)]
 		public string Description { get; set; }
+
+		/// <summary>
+		/// Gets/sets the gravatar url.
+		/// </summary>
+		public string GravatarUrl { get; set; }
 		#endregion
 
 		/// <summary>
@@ -61,8 +66,14 @@ namespace Piranha.Manager.Models.Author
 		public static EditModel GetById(Api api, Guid id) {
 			var author = api.Authors.GetSingle(where: a => a.Id == id);
 
-			if (author != null)
-				return Mapper.Map<Piranha.Models.Author, EditModel>(author);
+			if (author != null) {
+				var model = Mapper.Map<Piranha.Models.Author, EditModel>(author);
+				var ui = new Web.Helpers.UIHelper();
+
+				model.GravatarUrl = ui.GravatarUrl(model.Email, 80).ToHtmlString();
+
+				return model;
+			}
 			return null;
 		}
 

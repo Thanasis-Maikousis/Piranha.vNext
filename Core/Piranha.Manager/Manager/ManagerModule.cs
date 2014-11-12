@@ -44,9 +44,11 @@ namespace Piranha.Manager
 
 			// Author
 			Mapper.CreateMap<Piranha.Models.Author, Models.Author.ListItem>()
+				.ForMember(a => a.GravatarUrl, o => o.Ignore())
 				.ForMember(a => a.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
 				.ForMember(a => a.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
-			Mapper.CreateMap<Piranha.Models.Author, Models.Author.EditModel>();
+			Mapper.CreateMap<Piranha.Models.Author, Models.Author.EditModel>()
+				.ForMember(a => a.GravatarUrl, o => o.Ignore());
 			Mapper.CreateMap<Models.Author.EditModel, Piranha.Models.Author>()
 				.ForMember(a => a.Id, o => o.Ignore())
 				.ForMember(a => a.Created, o => o.Ignore())

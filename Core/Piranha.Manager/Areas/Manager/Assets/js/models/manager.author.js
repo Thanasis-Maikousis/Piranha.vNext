@@ -39,6 +39,7 @@ manager.models.author = function (locale) {
 	self.email = ko.observable('');
 	self.emailValid = ko.observable(true);
 	self.description = ko.observable('');
+	self.gravatarUrl = ko.observable('');
 	self.items = ko.observableArray([]);
 
 	// Initializes the model
@@ -72,6 +73,7 @@ manager.models.author = function (locale) {
 					self.email(result.data.Email);
 					self.emailValid(true);
 					self.description(result.data.Description);
+					self.gravatarUrl(result.data.GravatarUrl);
 					tinyMCE.activeEditor.setContent(result.data.Description != null ? result.data.Description : '');
 					$('.collapse').collapse('show');
 				}
@@ -153,6 +155,7 @@ manager.models.author = function (locale) {
 		self.email('');
 		self.emailValid(true);
 		self.description('');
+		self.gravatarUrl('');
 		tinyMCE.activeEditor.setContent('');
 		$('.collapse').collapse('hide');
 		$('.table tr').removeClass('active');
