@@ -18,11 +18,6 @@ namespace Piranha.AspNet
 	/// </summary>
 	public sealed class Module : IHttpModule
 	{
-		#region Members
-		private const string POST_ROUTE = "~/{0}?type={1}&slug={2}";
-		private const string ARCHIVE_ROUTE = "~/{0}?type={1}&year={2}&month={3}";
-		#endregion
-
 		/// <summary>
 		/// Disposes the http module.
 		/// </summary>
