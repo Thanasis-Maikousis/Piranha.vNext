@@ -28,8 +28,9 @@ namespace PiranhaCMS
 			AreaRegistration.RegisterAllAreas();
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-			// Initialize the application instance
+			// Initialize the application instance with the ASP.NET runtime
 			Piranha.App.Init(c => {
+				c.Cache = new Piranha.AspNet.Cache.HttpCache();
 				c.Env = new Piranha.AspNet.Env();
 				c.Security = new Piranha.AspNet.Security.SimpleSecurity("admin", "password");
 				c.Store = new Piranha.EntityFramework.Store();
